@@ -27,8 +27,8 @@ CREATE TABLE pupils (
     dob DATE,
     instrument VARCHAR(255),
     grade VARCHAR(255),
-    notes VARCHAR(255),
-    nok_id INT REFERENCES noks(id)
+    nok_id INT REFERENCES noks(id),
+    notes VARCHAR(255)
 );
 
 CREATE TABLE lessons (
@@ -52,7 +52,7 @@ INSERT INTO tutors (name, contact_number, address, postcode) VALUES ('Rubeus Hag
 
 INSERT INTO noks (name, contact_number, address, postcode) VALUES ('Lily Potter', '07777 888999', 'The Potter Cottage, Godrics Hollow', 'EH53 9AZ');
 
-INSERT INTO pupils (name, dob, instrument, grade, notes, nok_id) VALUES ('Harry Potter', DATE '2010-7-31', 'Piano', '4', 'Sat grade 4 exam in April', 1);
+INSERT INTO pupils (name, dob, instrument, grade, nok_id, notes) VALUES ('Harry Potter', DATE '2010-7-31', 'Piano', '4', 1, 'Sat grade 4 exam in April');
 
 INSERT INTO lessons (name, date, instrument, group_status, tutor_id) VALUES ('Beginner Recorder', DATE '2021-11-27', 'Recorder', True, 1);
 

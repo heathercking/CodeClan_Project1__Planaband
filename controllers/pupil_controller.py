@@ -5,3 +5,6 @@ import repositories.pupil_repository as pupil_repository
 
 pupils_blueprint = Blueprint("pupils", __name__)
 
+
+# @pupils_blueprint.route("/pupils")
+# def pupils():
