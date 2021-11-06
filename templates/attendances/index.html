@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>Attendances</h1>
+
+<form action="/attendances/new">
+    <button>Book Lesson</button>
+</form>
+
+<table>
+    <tr>
+        <th>Lesson</th>
+        <th>Pupil</th>
+        <th>Attended?</th>
+    </tr>
+
+    {% for attendance in all_attendances %}
+        <tr>
+            <td><a href="/lessons/{{ attendance.lesson.id }}">{{ attendance.lesson.name }}</a></td>
+            <td>{{ attendance.pupil.name }}</td>
+            <td>
+            {% if attendance.attended == True %} <p>Yes</p>
+            {% else %} <p>No</p>
+            {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
