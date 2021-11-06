@@ -22,7 +22,11 @@
             <td>{{ lesson.date }}</td>
             <td>{{ lesson.instrument }}</td>
             <td>{{ lesson.tutor.name }}</td>
-            <td>{{ lesson.group_status }}</td>
+            <td>
+            {% if lesson.group_status == True %} <p>Yes</p>
+            {% else %} <p>No</p>
+            {% endif %}
+            </td>
         </tr>
     {% endfor %}
 
