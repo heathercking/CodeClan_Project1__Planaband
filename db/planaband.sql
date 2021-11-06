@@ -1,3 +1,4 @@
+DROP TABLE pupils;
 DROP TABLE tutors;
 DROP TABLE nok;
 -- DROP TABLE pupils;
@@ -10,7 +11,6 @@ CREATE TABLE tutors (
     postcode VARCHAR(10)
 );
 
-
 CREATE TABLE nok (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
@@ -19,11 +19,12 @@ CREATE TABLE nok (
     postcode VARCHAR(10)
 );
 
--- CREATE TABLE pupils (
---     id SERIAL PRIMARY KEY,
---     name VARCHAR(255),
---     dob DATE,
---     instrument VARCHAR(255),
---     grade VARCHAR(255)
-
--- )
+CREATE TABLE pupils (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    dob DATE,
+    instrument VARCHAR(255),
+    grade VARCHAR(255),
+    notes VARCHAR(255),
+    nok_id INT REFERENCES nok(id)
+);
