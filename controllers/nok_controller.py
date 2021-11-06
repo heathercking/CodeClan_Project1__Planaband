@@ -32,6 +32,10 @@ def create_nok():
 
 
 #SHOW - GET '/noks/<id>'
+@noks_blueprint.route("/noks/<id>", methods=['GET'])
+def show_nok(id):
+    nok = nok_repository.select(id)
+    return render_template('noks/show.html', nok=nok)
 
 
 #EDIT - GET '/noks/<id>/edit'
