@@ -22,6 +22,7 @@ def new_pupil():
     noks = nok_repository.select_all()
     return render_template("pupils/new.html", all_noks=noks)
 
+
 #CREATE - POST '/pupils'
 @pupils_blueprint.route("/pupils", methods=['POST'])
 def create_pupil():

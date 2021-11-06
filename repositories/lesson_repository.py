@@ -8,7 +8,7 @@ import repositories.tutor_repository as tutor_repository
 
 def save(lesson):
     sql = "INSERT INTO lessons (name, date, instrument, tutor_id, group_status) VALUES (%s, %s, %s, %s, %s) RETURNING id"
-    values = [lesson.name, lesson.date, lesson.instrument, lesson.tutor_id, lesson.group_status]
+    values = [lesson.name, lesson.date, lesson.instrument, lesson.tutor.id, lesson.group_status]
     results = run_sql(sql, values)
     id = results[0]['id']
     lesson.id = id
