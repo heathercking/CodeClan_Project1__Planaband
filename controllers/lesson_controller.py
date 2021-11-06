@@ -15,3 +15,8 @@ def lessons():
     lessons = lesson_repository.select_all()
     return render_template("lessons/index.html", all_lessons=lessons)
 
+#NEW - GET '/lessons/new'
+@lessons_blueprint.route("/lessons/new", methods=['GET'])
+def new_lesson():
+    tutors = tutor_repository.select_all()
+    return render_template("lessons/new.html", all_tutors=tutors)

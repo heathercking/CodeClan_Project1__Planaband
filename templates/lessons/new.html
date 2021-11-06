@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/lessons" method="post">
+
+    <div>
+        <label for="name">Lesson Name:</label>
+        <input type="text" id="name" name="name" placeholder="Lesson Name" required>
+    </div>
+
+    <div>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required>
+    </div>
+
+    <div>
+        <label for="instrument">Instrument(s):</label>
+        <input type="text" id="instrument" name="instrument" placeholder="Instrument(s)" required>
+    </div>
+
+    <div>
+        <label for="tutor">Tutor</label>
+        <select name="tutor_id" id="tutor">
+            {% for tutor in all_tutors %}
+                <option value="{{ tutor.id }}">{{ tutor.name }}</option>
+            {% endfor %}
+        </select>   
+    </div>
+
+    <div>
+        <label for="group_status">Group?:</label>
+        <select id="group_status" name="group_status">
+            <option value="true">Yes: Group Lesson</option>
+            <option value="false">No: 1_1 Lesson</option>
+        </select>
+    </div>
+
+    <button type="submit">Add Lesson</button>
+
+</form>
+
+
+{% endblock %}
