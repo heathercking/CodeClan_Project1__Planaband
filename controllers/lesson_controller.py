@@ -41,3 +41,12 @@ def create_lesson():
 def show_lesson(id):
     lesson = lesson_repository.select(id)
     return render_template('lessons/show.html', lesson=lesson)
+
+
+#EDIT - GET '/lessons/<id>/edit'
+@lessons_blueprint.route("/lessons/<id>/edit", methods=['GET'])
+def edit_lessons(id):
+    lesson = lesson_repository.select(id)
+    tutors = tutor_repository.select_all()
+    return render_template('lessons/edit.html', lesson=lesson, all_tutors=tutors)
+    
