@@ -9,7 +9,7 @@ import repositories.nok_repository as nok_repository
 
 
 def save(pupil):
-    sql = "INSERT INTO pupils (name, dob, instrument, grade, nok_id, notes) VALUES (%s, %s, %s, %s, %s, %s)"
+    sql = "INSERT INTO pupils (name, dob, instrument, grade, nok_id, notes) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
     values = [pupil.name, pupil.dob, pupil.instrument, pupil.grade, pupil.nok.id, pupil.notes]
     results = run_sql(sql, values)
     id = results[0]['id']
