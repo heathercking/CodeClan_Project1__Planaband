@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div>
+        <p>{{ tutor.name }}</p>
+        <hr>
+        <p>{{ tutor.contact_number }}</p>
+        <p>{{ tutor.address }}</p>
+        <p>{{ tutor.postcode }}</p>
+        <p><a href="/tutors/{{ tutor.id }}/edit"></a></p>
+    </div>
+
+
+{% endblock %}

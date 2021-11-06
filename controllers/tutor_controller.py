@@ -27,3 +27,9 @@ def create_tutor():
     tutor = Tutor(name, contact_number, address, postcode)
     tutor_repository.save(tutor)
     return redirect('/tutors')
+
+#SHOW - GET '/tutor/<id>'
+@tutors_blueprint.route("/tutors/<id>", methods=['GET'])
+def show_tutor(id):
+    tutor = tutor_repository.select(id)
+    return render_template('tutors/show.html', tutor=tutor)

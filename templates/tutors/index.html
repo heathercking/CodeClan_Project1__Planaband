@@ -12,7 +12,7 @@
 
     {% for tutor in all_tutors %}
         <tr>
-            <td>{{ tutor.name }}</td>
+            <td><a href="/tutors/{{ tutor.id }}">{{ tutor.name }}</a></td>
             <td>{{ tutor.contact_number }}</td>
             <td>{{ tutor.address }}</td>
             <td>{{ tutor.postcode }}</td>
