@@ -1,1 +1,25 @@
 {% extends "base.html" %}
+{% block content %}
+
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Contact Number</th>
+        <th>Address</th>
+        <th>Postcode</th>
+    </tr>
+
+    {% for tutor in all_tutors %}
+        <tr>
+            <td>{{ tutor.name }}</td>
+            <td>{{ tutor.contact_number }}</td>
+            <td>{{ tutor.address }}</td>
+            <td>{{ tutor.postcode }}</td>
+        </tr>
+    {% endfor %}
+
+{% endblock %}
+
+</table>
+
