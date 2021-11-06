@@ -36,8 +36,8 @@ CREATE TABLE lessons (
     name VARCHAR(255),
     date DATE,
     instrument VARCHAR(255),
-    group_status BOOLEAN,
-    tutor_id INT REFERENCES tutors(id) ON DELETE CASCADE
+    tutor_id INT REFERENCES tutors(id) ON DELETE CASCADE,
+    group_status BOOLEAN
 );
 
 CREATE TABLE attendances (
