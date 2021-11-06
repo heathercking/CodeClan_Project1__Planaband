@@ -1,8 +1,9 @@
+
 DROP TABLE attendances;
 DROP TABLE lessons;
 DROP TABLE pupils;
 DROP TABLE tutors;
-DROP TABLE nok;
+DROP TABLE noks;
 
 CREATE TABLE tutors (
     id SERIAL PRIMARY KEY,
@@ -12,7 +13,7 @@ CREATE TABLE tutors (
     postcode VARCHAR(10)
 );
 
-CREATE TABLE nok (
+CREATE TABLE noks (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     contact_number VARCHAR(255),
@@ -27,7 +28,7 @@ CREATE TABLE pupils (
     instrument VARCHAR(255),
     grade VARCHAR(255),
     notes VARCHAR(255),
-    nok_id INT REFERENCES nok(id)
+    nok_id INT REFERENCES noks(id)
 );
 
 CREATE TABLE lessons (
@@ -49,7 +50,7 @@ CREATE TABLE attendances (
 
 INSERT INTO tutors (name, contact_number, address, postcode) VALUES ('Rubeus Hagrid', '07999 777888', 'Hagrids Hut, Hogwarts School', 'EH42 2DD');
 
-INSERT INTO nok (name, contact_number, address, postcode) VALUES ('Lily Potter', '07777 888999', 'The Potter Cottage, Godrics Hollow', 'EH53 9AZ');
+INSERT INTO noks (name, contact_number, address, postcode) VALUES ('Lily Potter', '07777 888999', 'The Potter Cottage, Godrics Hollow', 'EH53 9AZ');
 
 INSERT INTO pupils (name, dob, instrument, grade, notes, nok_id) VALUES ('Harry Potter', DATE '2010-7-31', 'Piano', '4', 'Sat grade 4 exam in April', 1);
 
