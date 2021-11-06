@@ -49,4 +49,16 @@ def edit_lessons(id):
     lesson = lesson_repository.select(id)
     tutors = tutor_repository.select_all()
     return render_template('lessons/edit.html', lesson=lesson, all_tutors=tutors)
-    
+
+
+#UPDATE - POST '/lessons/<id>'
+@lessons_blueprint.route("/lessons/<id>", methods=['POST'])
+def update_lesson(id):
+    name = request.form['name']
+    date = request.form['date']
+    instrument = request.form['instrument']
+    tutor = tutor_repository.select(request.form['tutor_id'])
+    group_status = request.form['group_status']
+    lesson = Lesson(name, date, instrument, tutor, group_status, id)
+    lesson_repository.update(lesson)
+    return redirect('/lessons')

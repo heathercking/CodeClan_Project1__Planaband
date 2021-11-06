@@ -24,7 +24,7 @@
             {% for tutor in all_tutors %}
                 <option value="{{ tutor.id }}"
                     {% if lesson.tutor.id == tutor.id %} selected="selected" {% endif %}>
-                {{ lesson.name }}
+                {{ lesson.tutor.name }}
                 </option>
             {% endfor %}
         </select>   
