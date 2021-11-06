@@ -39,3 +39,14 @@ def update(nok):
     sql = "UPDATE noks SET (name, contact_number, address, postcode) = (%s, %s, %s, %s) WHERE id = %s"
     values = [nok.name, nok.contact_number, nok.address, nok.postcode, nok.id]
     run_sql(sql, values)
+
+
+def delete(id):
+    sql = "DELETE FROM noks WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+
+def delete_all():
+    sql = "DELETE FROM noks"
+    run_sql(sql)
