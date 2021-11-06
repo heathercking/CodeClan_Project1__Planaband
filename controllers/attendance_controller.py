@@ -18,3 +18,10 @@ def attendances():
     return render_template("attendances/index.html", all_attendances=attendances)
 
 
+#NEW - GET '/attendances/new'
+@attendances_blueprint.route("/attendances/new", methods=['GET'])
+def new_attendance():
+    lessons = lesson_repository.select_all()
+    pupils = pupil_repository.select_all()
+    return render_template("attendances/new.html", all_lessons=lessons, all_pupils=pupils)
+    
