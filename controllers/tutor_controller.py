@@ -50,3 +50,5 @@ def update_tutor(id):
     tutor = Tutor(name, contact_number, address, postcode, id)
     tutor_repository.update(tutor)
     return redirect('/tutors')
+
+#DELETE - 

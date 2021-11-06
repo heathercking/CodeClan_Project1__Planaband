@@ -12,6 +12,7 @@ def save(tutor):
     tutor.id = results[0]['id']
     return tutor
 
+
 def select_all():
     tutors = []
 
@@ -23,6 +24,7 @@ def select_all():
         tutors.append(tutor)
     return tutors
 
+
 def select(id):
     tutor = None
     sql = "SELECT * FROM tutors WHERE id = %s"
@@ -33,7 +35,20 @@ def select(id):
         tutor = Tutor(result['name'], result['contact_number'], result['address'], result['postcode'], result['id'])
     return tutor
 
+
 def update(tutor):
     sql = "UPDATE tutors SET (name, contact_number, address, postcode) = (%s, %s, %s, %s) WHERE id = %s"
     values = [tutor.name, tutor.contact_number, tutor.address, tutor.postcode, tutor.id]
     run_sql(sql, values)
+
+
+def delete(id):
+    sql = "DELETE FROM tutors WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+
+def delete_all():
+    sql = "DELETE FROM tutors"
+    run_sql(sql)
+
