@@ -1,11 +1,12 @@
 import unittest
+from datetime import date
 
 from models.pupil import *
 
 class TestPupil(unittest.TestCase):
 
     def setUp(self):
-        self.pupil1 = Pupil("Harry Potter", "31-07-2010", "Piano", "4", "Rubeus Hagrid", "Sat grade 4 exam in April")
+        self.pupil1 = Pupil("Harry Potter", date(2010, 7, 31), "Piano", "4", "Rubeus Hagrid", "Sat grade 4 exam in April")
         self.pupil2 = Pupil("Hermione Granger", "19-09-2015", "Recorder", "0", "Parents", "Recommended to us by school teacher")
 
     
@@ -13,7 +14,7 @@ class TestPupil(unittest.TestCase):
         self.assertEqual("Harry Potter", self.pupil1.name)
 
     def test_pupil_has_dob(self):
-        self.assertEqual("31-07-2010", self.pupil1.dob)
+        self.assertEqual(date(2010, 7, 31), self.pupil1.dob)
 
     def test_pupil_has_instrument(self):
         self.assertEqual("Piano", self.pupil1.instrument)
