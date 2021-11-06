@@ -39,6 +39,10 @@ def show_nok(id):
 
 
 #EDIT - GET '/noks/<id>/edit'
+@noks_blueprint.route("/noks/<id>/edit", methods=['GET'])
+def edit_nok(id):
+    nok = nok_repository.select(id)
+    return render_template('noks/edit.html', nok=nok)
 
 
 #UPDATE - POST '/noks/<id>'
