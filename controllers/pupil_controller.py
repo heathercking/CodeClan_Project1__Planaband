@@ -52,6 +52,17 @@ def edit_pupils(id):
 
 
 #UPDATE - POST '/pupils/<id>'
+@pupils_blueprint.route("/pupils/<id>", methods=['POST'])
+def update_pupil(id):
+    name = request.form['name']
+    dob = request.form['dob']
+    instrument = request.form['instrument']
+    grade = request.form['grade']
+    nok = nok_repository.select(request.form['nok_id'])
+    notes = request.form['notes']
+    pupil = Pupil(name, dob, instrument, grade, nok, notes, id)
+    pupil_repository.update(pupil)
+    return redirect('/pupils')
 
 
 #DELETE - '/pupils/<id>'
