@@ -12,6 +12,7 @@
         <th>Lesson</th>
         <th>Pupil</th>
         <th>Attended?</th>
+        <th>Update Attendance</th>
     </tr>
 
     {% for attendance in all_attendances %}
@@ -23,6 +24,7 @@
             {% else %} <p>No</p>
             {% endif %}
             </td>
+            <td><a href="/attendances/{{ attendance.id }}/edit">Update</a></td>
         </tr>
     {% endfor %}
 

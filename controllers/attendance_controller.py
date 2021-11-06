@@ -35,3 +35,23 @@ def create_attendance():
     attendance = Attendance(lesson, pupil, attended)
     attendance_repository.save(attendance)
     return redirect('/attendances')
+
+
+#EDIT - GET '/attendances/<id>/edit'
+@attendances_blueprint.route("/attendances/<id>/edit", methods=['GET'])
+def edit_attendances(id):
+    attendance = attendance_repository.select(id)
+    lessons = lesson_repository.select_all()
+    pupils = pupil_repository.select_all()
+    return render_template('attendances/edit.html', attendance=attendance, all_lessons=lessons, all_pupils=pupils)
+
+
+#UPDATE - POST '/attendances/<id>'
+@attendances_blueprint.route("/attendances/<id>", methods=['POST'])
+def update_attendances(id):
+    lesson = lesson_repository.select(request.form['lesson_id'])
+    pupil = pupil_repository.select(request.form['pupil_id'])
+    attended = request.form['attended']
+    attendance = Attendance(lesson, pupil, attended, id)
+    attendance_repository.update(attendance)
+    return redirect('/attendances')
