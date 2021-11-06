@@ -51,4 +51,8 @@ def update_tutor(id):
     tutor_repository.update(tutor)
     return redirect('/tutors')
 
-#DELETE - 
+#DELETE - '/tutors/<id>'
+@tutors_blueprint.route("/tutors/<id>/delete", methods=['POST'])
+def delete_tutor(id):
+    tutor_repository.delete(id)
+    return redirect('/tutors')
