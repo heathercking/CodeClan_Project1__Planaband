@@ -1,0 +1,23 @@
+import unittest
+
+from models.nok import NextOfKin
+
+class TestNextOfKin(unittest.TestCase):
+
+    def setUp(self):
+        self.nok1 = NextOfKin("Lily Potter", "07777 888999", "The Potter Cottage, Godric's Hollow", "EH53 9AZ")
+
+    def test_nok_has_name(self):
+        self.assertEqual("Lily Potter", self.nok1.name)
+
+    def test_nok_has_contact_number(self):
+        self.assertEqual("07777 888999", self.nok1.contact_number)
+    
+    def test_nok_has_address(self):
+        self.assertEqual("The Potter Cottage, Godric's Hollow", self.nok1.address)
+
+    def test_nok_has_postcode(self):
+        self.assertEqual("EH53 9AZ", self.nok1.postcode)
+
+    def test_nok_has_id(self):
+        self.assertEqual(None, self.nok1.id)
