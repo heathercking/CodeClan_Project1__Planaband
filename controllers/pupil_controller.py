@@ -37,12 +37,18 @@ def create_pupil():
 
 
 #SHOW - GET '/pupils/<id>'
+@pupils_blueprint.route("/pupils/<id>", methods=['GET'])
 def show_pupil(id):
     pupil = pupil_repository.select(id)
     return render_template('pupils/show.html', pupil=pupil)
 
 
 #EDIT - GET '/pupils/<id>/edit'
+@pupils_blueprint.route("/pupils/<id>/edit", methods=['GET'])
+def edit_pupils(id):
+    pupil = pupil_repository.select(id)
+    noks = nok_repository.select_all()
+    return render_template('pupils/edit.html', pupil=pupil, all_noks=noks)
 
 
 #UPDATE - POST '/pupils/<id>'

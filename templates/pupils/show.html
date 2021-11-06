@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div>
+        <p>{{ pupil.name }}</p>
+        <hr>
+        <p>Date of Birth: {{ pupil.dob }}</p>
+        <p>Instrument: {{ pupil.instrument }}</p>
+        <p>Grade: {{ pupil.grade }}</p>
+        <p>Next of Kin: {{ pupil.nok.name }}</p>
+        <p>Notes: {{ pupil.notes }}</p>
+        <form action="/pupils/{{ pupil.id }}/edit">
+            <button>Edit</button>
+        </form>
+    </div>
+
+    <form action="/pupil/{{ pupil.id }}/delete" method="POST">
+        <button>Delete Pupil</button>
+    </form>
+
+{% endblock %}

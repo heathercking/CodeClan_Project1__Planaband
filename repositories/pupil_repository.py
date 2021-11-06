@@ -34,7 +34,7 @@ def select(id):
     pupil = None
     sql = "SELECT * FROM pupils WHERE id = %s"
     values = [id]
-    result = run_sql(sql, values)
+    result = run_sql(sql, values)[0]
 
     if result is not None:
         nok = nok_repository.select(result['nok_id'])
