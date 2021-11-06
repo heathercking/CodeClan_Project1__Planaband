@@ -45,3 +45,4 @@ def update(pupil):
     sql = "UPDATE pupils SET (name, dob, instrument, grade, nok_id, notes) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = [pupil.name, pupil.dob, pupil.instrument, pupil.grade, pupil.nok.id, pupil.notes, pupil.id]
     run_sql(sql, values)
+

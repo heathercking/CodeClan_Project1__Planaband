@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/pupils" method="post">
+
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" placeholder="Name" required>
+    </div>
+
+    <div>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" name="dob" required>
+    </div>
+
+    <div>
+        <label for="instrument">Instrument(s):</label>
+        <input type="text" id="instrument" name="instrument" placeholder="Instrument(s)" required>
+    </div>
+
+    <div>
+        <label for="grade">Grade:</label>
+        <input type="text" id="grade" name="grade" placeholder="Grade">
+    </div>
+
+    <div>
+        <label for="nok">Next of Kin</label>
+        <select name="nok_id" id="nok">
+            {% for nok in all_noks %}
+                <option value="{{ nok.id }}">{{ nok.name }}</option>
+            {% endfor %}
+        </select>   
+    </div>
+
+    <div>
+        <label for="notes">Notes:</label>
+        <input type="text" id="notes" name="notes" placeholder="Notes" required>
+    </div>
+
+    <button type="submit">Add Pupil</button>
+
+</form>
+
+
+{% endblock %}
