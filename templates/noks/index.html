@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>All Next of Kin</h1>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Contact Number</th>
+        <th>Address</th>
+        <th>Postcode</th>
+    </tr>
+
+    {% for nok in all_noks %}
+        <tr>
+            <td><a href="/noks/{{ nok.id }}">{{ nok.name }}</a></td>
+            <td>{{ nok.contact_number }}</td>
+            <td>{{ nok.address }}</td>
+            <td>{{ nok.postcode }}</td>
+        </tr>
+    {% endfor %}
+    
+</table>
+
+{% endblock %}

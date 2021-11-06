@@ -5,6 +5,9 @@ import repositories.nok_repository as nok_repository
 
 noks_blueprint = Blueprint("noks", __name__)
 
-# @noks_blueprint.route("/noks")
-# def noks():
+
+@noks_blueprint.route("/noks")
+def noks():
+    noks = nok_repository.select_all()
+    return render_template("noks/index.html", all_noks=noks)
 

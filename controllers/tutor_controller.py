@@ -5,6 +5,7 @@ import repositories.tutor_repository as tutor_repository
 
 tutors_blueprint = Blueprint("tutors", __name__)
 
+
 @tutors_blueprint.route("/tutors")
 def tutors():
     tutors = tutor_repository.select_all()
