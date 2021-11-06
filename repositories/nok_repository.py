@@ -11,3 +11,25 @@ def save(nok):
     nok.id = results[0]['id']
     return nok
 
+
+def select_all():
+    noks = []
+
+    sql = "SELECT * FROM noks"
+    results = run_sql(sql)
+
+    for row in results:
+        nok = NextOfKin(row['name'], row['contact_number'], row['address'], row['postcode'], row['id'])
+        noks.append(nok)
+    return noks
+
+
+def select(id):
+    nok = None
+    sql = "SELECT * FROM noks WHERE id = %s"
+    values = [id]
+    result = run_sql(sql, values)[0]
+
+    if result is not None:
+        nok = NextOfKin(result['name'], result['contact_number'], result['address'], result['postcode'], result['id'])
+    return nok
