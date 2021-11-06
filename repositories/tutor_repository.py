@@ -32,3 +32,8 @@ def select(id):
     if result is not None:
         tutor = Tutor(result['name'], result['contact_number'], result['address'], result['postcode'], result['id'])
     return tutor
+
+def update(tutor):
+    sql = "UPDATE tutors SET (name, contact_number, address, postcode) = (%s, %s, %s, %s) WHERE id = %s"
+    values = [tutor.name, tutor.contact_number, tutor.address, tutor.postcode, tutor.id]
+    run_sql(sql, values)

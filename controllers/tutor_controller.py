@@ -28,7 +28,7 @@ def create_tutor():
     tutor_repository.save(tutor)
     return redirect('/tutors')
 
-#SHOW - GET '/tutor/<id>'
+#SHOW - GET '/tutors/<id>'
 @tutors_blueprint.route("/tutors/<id>", methods=['GET'])
 def show_tutor(id):
     tutor = tutor_repository.select(id)
@@ -39,3 +39,14 @@ def show_tutor(id):
 def edit_tutor(id):
     tutor = tutor_repository.select(id)
     return render_template('tutors/edit.html', tutor=tutor)
+
+#UPDATE - POST '/tutors/<id>'
+@tutors_blueprint.route("/tutors/<id>", methods=['POST'])
+def update_tutor(id):
+    name = request.form['name']
+    contact_number = request.form['contact_number']
+    address = request.form['address']
+    postcode = request.form['postcode']
+    tutor = Tutor(name, contact_number, address, postcode, id)
+    tutor_repository.update(tutor)
+    return redirect('/tutors')
