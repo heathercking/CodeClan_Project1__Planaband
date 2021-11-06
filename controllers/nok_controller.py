@@ -20,6 +20,15 @@ def new_nok():
 
 
 #CREATE - POST '/noks'
+@noks_blueprint.route("/noks", methods=['POST'])
+def create_nok():
+    name = request.form['name']
+    contact_number = request.form['contact_number']
+    address = request.form['address']
+    postcode = request.form['postcode']
+    nok = NextOfKin(name, contact_number, address, postcode)
+    nok_repository.save(nok)
+    return redirect('/noks')
 
 
 #SHOW - GET '/noks/<id>'
