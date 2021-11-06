@@ -8,7 +8,7 @@ class TestAttendance(unittest.TestCase):
     def setUp(self):
         self.attendance1 = Attendance("Beginner Recorder", "Harry Potter")
         self.attendance2 = Attendance("Beginner Recorder", "")
-        self.pupil1 = Pupil("Hermione Granger", "01-01-2014", "Recorder", "0", "Parents", "Recommended to us by school teacher")
+        self.pupil1 = Pupil("Hermione Granger", "19-09-2009", "Recorder", "0", "Parents", "Recommended to us by school teacher")
 
     def test_attendance_has_lesson(self):
         self.assertEqual("Beginner Recorder", self.attendance1.lesson)
