@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect
 from flask import Blueprint
 from models.tutor import Tutor
 import repositories.tutor_repository as tutor_repository
@@ -16,3 +16,14 @@ def tutors():
 def new_tutor():
     tutors = tutor_repository.select_all()
     return render_template("tutors/new.html", all_tutors=tutors)
+
+#CREATE - POST '/tutors'
+@tutors_blueprint.route("/tutors", methods=['POST'])
+def create_tutor():
+    name = request.form['name']
+    contact_number = request.form['contact_number']
+    address = request.form['address']
+    postcode = request.form['postcode']
+    tutor = Tutor(name, contact_number, address, postcode)
+    tutor_repository.save(tutor)
+    return redirect('/tutors')
