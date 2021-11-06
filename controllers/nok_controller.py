@@ -58,3 +58,7 @@ def update_nok(id):
 
 
 #DELETE - '/noks/<id>'
+@noks_blueprint.route("/noks/<id>/delete", methods=['POST'])
+def delete_nok(id):
+    nok_repository.delete(id)
+    return redirect('/noks')
