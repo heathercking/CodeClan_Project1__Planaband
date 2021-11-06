@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+
+<form action="/attendances" method="post">
+
+    <div>
+        <label for="lesson">Lesson</label>
+        <select name="lesson_id" id="lesson">
+            {% for lesson in all_lessons %}
+                <option value="{{ lesson.id }}">{{ lesson.name }}</option>
+            {% endfor %}
+        </select>   
+    </div>
+
+    <div>
+        <label for="pupil">Pupil</label>
+        <select name="pupil_id" id="pupil">
+            {% for pupil in all_pupils %}
+                <option value="{{ pupil.id }}">{{ pupil.name }}</option>
+            {% endfor %}
+        </select>   
+    </div>
+
+    <div>
+        <label for="attended">Attended?</label>
+        <select id="attended" name="attended">
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+    </div>
+
+    <button type="submit">Book Lesson</button>
+
+</form>
+
+
+{% endblock %}
