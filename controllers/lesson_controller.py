@@ -9,3 +9,8 @@ import repositories.tutor_repository as tutor_repository
 
 lessons_blueprint = Blueprint("lessons", __name__)
 
+
+@lessons_blueprint.route("/lessons")
+def lessons():
+    lessons = lesson_repository.select_all()
+    return render_template("lessons/index.html", all_lessons=lessons)
