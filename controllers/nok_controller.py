@@ -46,6 +46,15 @@ def edit_nok(id):
 
 
 #UPDATE - POST '/noks/<id>'
+@noks_blueprint.route("/noks/<id>", methods=['POST'])
+def update_nok(id):
+    name = request.form['name']
+    contact_number = request.form['contact_number']
+    address = request.form['address']
+    postcode = request.form['postcode']
+    nok = NextOfKin(name, contact_number, address, postcode, id)
+    nok_repository.update(nok)
+    return redirect('/tutors')
 
 
 #DELETE - '/noks/<id>'
