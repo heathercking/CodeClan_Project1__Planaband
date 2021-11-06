@@ -47,3 +47,14 @@ def update(pupil):
     values = [pupil.name, pupil.dob, pupil.instrument, pupil.grade, pupil.nok.id, pupil.notes, pupil.id]
     run_sql(sql, values)
 
+
+def delete(id):
+    sql = "DELETE FROM pupils WHERE id = %s"
+    values = [id]
+    run_sql(sql, values)
+
+
+def delete_all():
+    sql = "DELETE FROM pupils"
+    run_sql(sql)
+

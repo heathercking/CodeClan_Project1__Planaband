@@ -27,7 +27,7 @@ CREATE TABLE pupils (
     dob DATE,
     instrument VARCHAR(255),
     grade VARCHAR(255),
-    nok_id INT REFERENCES noks(id),
+    nok_id INT REFERENCES noks(id) ON DELETE CASCADE,
     notes VARCHAR(255)
 );
 
@@ -37,7 +37,7 @@ CREATE TABLE lessons (
     date DATE,
     instrument VARCHAR(255),
     group_status BOOLEAN,
-    tutor_id INT REFERENCES tutors(id)
+    tutor_id INT REFERENCES tutors(id) ON DELETE CASCADE
 );
 
 CREATE TABLE attendances (
