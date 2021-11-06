@@ -1,7 +1,7 @@
+DROP TABLE lessons;
 DROP TABLE pupils;
 DROP TABLE tutors;
 DROP TABLE nok;
--- DROP TABLE pupils;
 
 CREATE TABLE tutors (
     id SERIAL PRIMARY KEY,
@@ -27,4 +27,13 @@ CREATE TABLE pupils (
     grade VARCHAR(255),
     notes VARCHAR(255),
     nok_id INT REFERENCES nok(id)
+);
+
+CREATE TABLE lessons (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255),
+    date DATE,
+    instrument VARCHAR(255),
+    group_status BOOLEAN,
+    tutor_id INT REFERENCES tutors(id)
 );
