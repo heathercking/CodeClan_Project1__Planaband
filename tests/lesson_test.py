@@ -7,7 +7,7 @@ class TestLesson(unittest.TestCase):
 
     def setUp(self):
         self.lesson1 = Lesson("Beginner Recorder", "Rubeus Hagrid", date(2021, 11, 27), "Recorder", True)
-        self.lesson2 = Lesson("Piano 1:1", "Remus Lupin", "27-11-2021", "Piano")
+        self.lesson2 = Lesson("Piano 1:1", "Remus Lupin", date(2021, 11, 27), "Piano")
 
     def test_lesson_has_name(self):
         self.assertEqual("Beginner Recorder", self.lesson1.name)
