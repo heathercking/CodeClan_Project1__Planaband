@@ -54,7 +54,7 @@ def update_nok(id):
     postcode = request.form['postcode']
     nok = NextOfKin(name, contact_number, address, postcode, id)
     nok_repository.update(nok)
-    return redirect('/tutors')
+    return redirect('/noks')
 
 
 #DELETE - '/noks/<id>'
