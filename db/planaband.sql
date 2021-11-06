@@ -1,3 +1,4 @@
+DROP TABLE attendances;
 DROP TABLE lessons;
 DROP TABLE pupils;
 DROP TABLE tutors;
@@ -36,4 +37,11 @@ CREATE TABLE lessons (
     instrument VARCHAR(255),
     group_status BOOLEAN,
     tutor_id INT REFERENCES tutors(id)
+);
+
+CREATE TABLE attendances (
+    id SERIAL PRIMARY KEY,
+    lesson_id INT REFERENCES lessons(id) ON DELETE CASCADE,
+    pupil_id INT REFERENCES pupils(id) ON DELETE CASCADE,
+    attended BOOLEAN
 );
