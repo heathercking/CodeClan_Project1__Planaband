@@ -12,7 +12,8 @@ def save(pupil):
     sql = "INSERT INTO pupils (name, dob, instrument, grade, nok_id, notes) VALUES (%s, %s, %s, %s, %s, %s)"
     values = [pupil.name, pupil.dob, pupil.instrument, pupil.grade, pupil.nok.id, pupil.notes]
     results = run_sql(sql, values)
-    pupil.id = results[0]['id']
+    id = results[0]['id']
+    pupil.id = id
     return pupil
 
 

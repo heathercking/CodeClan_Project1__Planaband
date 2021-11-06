@@ -22,7 +22,18 @@ def new_pupil():
     noks = nok_repository.select_all()
     return render_template("pupils/new.html", all_noks=noks)
 
-#CREATE - POST '/pupil'
+#CREATE - POST '/pupils'
+@pupils_blueprint.route("/pupils", methods=['POST'])
+def create_pupil():
+    name = request.form['name']
+    dob = request.form['dob']
+    instrument = request.form['instrument']
+    grade = request.form['grade']
+    nok = nok_repository.select(request.form['nok_id'])
+    notes = request.form['notes']
+    pupil = Pupil(name, dob, instrument, grade, nok, notes)
+    pupil_repository.save(pupil)
+    return redirect('/pupils')
 
 
 #SHOW - GET '/pupils/<id>'
