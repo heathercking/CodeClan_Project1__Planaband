@@ -34,3 +34,10 @@ def create_lesson():
     lesson = Lesson(name, date, instrument, tutor, group_status)
     lesson_repository.save(lesson)
     return redirect('/lessons')
+
+
+#SHOW - GET '/lessons/<id>'
+@lessons_blueprint.route("/lessons/<id>", methods=['GET'])
+def show_lesson(id):
+    lesson = lesson_repository.select(id)
+    return render_template('lessons/show.html', lesson=lesson)

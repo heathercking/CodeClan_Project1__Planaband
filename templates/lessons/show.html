@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div>
+        <p>{{ lesson.name }}</p>
+        <hr>
+        <p>Date: {{ lesson.date }}</p>
+        <p>Instrument: {{ lesson.instrument }}</p>
+        <p>Tutor: {{ lesson.tutor.name }}</p>
+        <p>Group?: {{ lesson.group_status }}</p>
+        <form action="/lessons/{{ lesson.id }}/edit">
+            <button>Edit</button>
+        </form>
+    </div>
+
+    <form action="/lessons/{{ lesson.id }}/delete" method="POST">
+        <button>Delete Lesson</button>
+    </form>
+
+{% endblock %}
