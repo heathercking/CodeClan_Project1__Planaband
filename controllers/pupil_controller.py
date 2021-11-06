@@ -8,6 +8,5 @@ pupils_blueprint = Blueprint("pupils", __name__)
 
 @pupils_blueprint.route("/pupils")
 def pupils():
-    pupils = pupil_repository.select()
+    pupils = pupil_repository.select_all()
     return render_template("pupils/index.html", all_pupils=pupils)
-    

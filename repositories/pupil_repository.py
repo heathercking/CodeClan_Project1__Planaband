@@ -23,7 +23,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        nok = nok_repository.select(row['nok.id'])
+        nok = nok_repository.select(row['nok_id'])
         pupil = Pupil(row['name'], row['dob'], row['instrument'], row['grade'], nok, row['notes'], row['id'])
         pupils.append(pupil)
     return pupils
@@ -39,4 +39,3 @@ def select(id):
         nok = nok_repository.select(result['nok_id'])
         pupil = Pupil(result['name'], result['dob'], result['instrument'], result['grade'], nok, result['notes'], result['id'])
     return pupil
-    
