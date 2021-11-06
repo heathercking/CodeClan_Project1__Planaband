@@ -45,3 +45,10 @@ CREATE TABLE attendances (
     pupil_id INT REFERENCES pupils(id) ON DELETE CASCADE,
     attended BOOLEAN
 );
+
+
+-- INSERT INTO tutors (name, contact_number, address, postcode) VALUES ("Rubeus Hagrid", "07999 777888", "Hagrid's Hut, Hogwarts School", "EH42 2DD")
+
+-- INSERT INTO nok (name, contact_number, address, postcode) VALUES ("Lily Potter", "07777 888999", "The Potter Cottage, Godric's Hollow", "EH53 9AZ")
+
+-- INSERT INTO pupils (name, dob, instrument, grade, notes)
