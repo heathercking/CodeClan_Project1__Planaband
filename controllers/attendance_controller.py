@@ -55,3 +55,10 @@ def update_attendances(id):
     attendance = Attendance(lesson, pupil, attended, id)
     attendance_repository.update(attendance)
     return redirect('/attendances')
+
+
+#DELETE - '/attendances/<id>/delete'
+@attendances_blueprint.route("/attendances/<id>/delete", methods=['POST'])
+def delete_attendance(id):
+    attendance_repository.delete(id)
+    return redirect('/attendances')

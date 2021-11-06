@@ -12,7 +12,7 @@
         <th>Lesson</th>
         <th>Pupil</th>
         <th>Attended?</th>
-        <th>Update Attendance</th>
+        <th>Edit Booking</th>
     </tr>
 
     {% for attendance in all_attendances %}
@@ -25,6 +25,12 @@
             {% endif %}
             </td>
             <td><a href="/attendances/{{ attendance.id }}/edit">Update</a></td>
+            <td>
+                <form action="/attendances/{{ attendance.id }}/delete" method="POST">
+                    <button>Delete</button>
+                </form>
+            </td>
+
         </tr>
     {% endfor %}
 
