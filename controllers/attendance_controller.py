@@ -24,4 +24,14 @@ def new_attendance():
     lessons = lesson_repository.select_all()
     pupils = pupil_repository.select_all()
     return render_template("attendances/new.html", all_lessons=lessons, all_pupils=pupils)
-    
+
+
+#CREATE - POST '/attendances'
+@attendances_blueprint.route("/attendances", methods=['POST'])
+def create_attendance():
+    lesson = lesson_repository.select(request.form['lesson_id'])
+    pupil = pupil_repository.select(request.form['pupil_id'])
+    attended = request.form['attended']
+    attendance = Attendance(lesson, pupil, attended)
+    attendance_repository.save(attendance)
+    return redirect('/attendances')
