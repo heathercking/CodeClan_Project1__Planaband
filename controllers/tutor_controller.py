@@ -33,3 +33,9 @@ def create_tutor():
 def show_tutor(id):
     tutor = tutor_repository.select(id)
     return render_template('tutors/show.html', tutor=tutor)
+
+#EDIT - GET '/tutors/<id>/edit'
+@tutors_blueprint.route("/tutors/<id>/edit", methods=['GET'])
+def edit_tutor(id):
+    tutor = tutor_repository.select(id)
+    return render_template('tutors/edit.html', tutor=tutor)
