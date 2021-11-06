@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h1>All Lessons</h1>
+
+<form action="/lessons/new">
+    <button>Add lesson</button>
+</form>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Date</th>
+        <th>Instrument</th>
+        <th>Tutor</th>
+        <th>Group?</th>
+    </tr>
+
+    {% for lesson in all_lessons %}
+        <tr>
+            <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
+            <td>{{ lesson.date }}</td>
+            <td>{{ lesson.instrument }}</td>
+            <td>{{ lesson.tutor.name }}</td>
+            <td>{{ lesson.group_status }}</td>
+        </tr>
+    {% endfor %}
+
+</table>
+
+{% endblock %}
