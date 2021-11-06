@@ -66,3 +66,7 @@ def update_pupil(id):
 
 
 #DELETE - '/pupils/<id>'
+@pupils_blueprint.route("/pupils/<id>/delete", methods=['POST'])
+def delete_pupil(id):
+    pupil_repository.delete(id)
+    return redirect('/pupils')
