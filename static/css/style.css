@@ -3,7 +3,7 @@
 
 /* sets color palette for use across site */
 :root { 
-    --primary-dark: #1A2238;
+    --primary-dark: #1C2745;
     --primary-bright: #FF6A3D;
     --secondary-bright: #F4DB7D;
     --secondary-pale: #9DAAF2;
@@ -31,6 +31,11 @@ h1, h2 {
     font-family: "Gloria Hallelujah", sans-serif, Helvetica, Arial;
 }
 
+h1 {
+    color: var(--primary-bright);
+    font-size: 40px;
+}
+
 p {
     margin: 10px 0;
 }
@@ -39,4 +44,5 @@ img {
     width: 100%;
     border-radius: 10px;
 }
+
 
