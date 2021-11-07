@@ -1,9 +1,12 @@
 from db.run_sql import run_sql
+from models.lesson import Lesson
 
 from models.pupil import Pupil
 from models.nok import NextOfKin
+from models.tutor import Tutor
 import repositories.pupil_repository as pupil_repository
 import repositories.nok_repository as nok_repository
+import repositories.tutor_repository as tutor_repository
 
 
 
@@ -57,3 +60,16 @@ def delete_all():
     sql = "DELETE FROM pupils"
     run_sql(sql)
 
+
+def lessons(pupil):
+    lessons = []
+
+    sql = "SELECT lessons.* FROM lessons INNER JOIN attendances ON attendances.lesson_id = lessons.id WHERE pupil_id = %s"
+    values = [pupil.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        tutor = tutor_repository.select(row['tutor_id'])
+        lesson = Lesson(row['name'], row['date'], row['instrument'], tutor, row['group_status'], row['id'])
+        lessons.append(lesson)
+    return lessons
