@@ -10,16 +10,17 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layouts.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 
 </head>
 
 <body>
 
     <div class="navbar">
-        <div>
-            <h1 class="logo"><a href="/">PLANABAND LOGO</a></h1>
+        <div class="container flex">
+            <h1 class="logo"><a href="/">PLANABAND</a></h1>
             <nav>
-                <ul>
+                <ul class="menu">
                     <li><a href="/lessons">Lessons</a></li>
                     <li><a href="/pupils">Pupils</a></li>
                     <li><a href="/tutors">Tutors</a></li>
