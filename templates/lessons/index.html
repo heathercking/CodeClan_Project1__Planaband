@@ -1,46 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>All Lessons</h1>
+<div class="lessons">
+    <div class="container"> 
 
-<form action="/lessons/new">
-    <button>Add lesson</button>
-</form>
+        <h1>All Lessons</h1>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Date</th>
-        <th>Instrument</th>
-        <th>Tutor</th>
-        <th>Group?</th>
-        <th>Book</th>
-    </tr>
+        <form action="/lessons/new">
+            <button>Add lesson</button>
+        </form>
 
-    {% for lesson in all_lessons %}
-        <tr>
-            <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
-            <td>{{ lesson.date }}</td>
-            <td>{{ lesson.instrument }}</td>
-            <td>{{ lesson.tutor.name }}</td>
-            <td>
-            {% if lesson.group_status == True %} <p>Yes</p>
-            {% else %} <p>No</p>
-            {% endif %}
-            </td>
-            <td>
-                <form action="/attendances/new">
-                    <button>Book</button>
-                </form>
-            </td>
-            <td>
-                <form action="/attendances/new">
-                    <button>Book</button>
-                </form>
-            </td>
-        </tr>
-    {% endfor %}
+        <table style="width:100%">
+            <tr>
+                <th>Name</th>
+                <th>Date</th>
+                <th>Instrument(s)</th>
+                <th>Tutor</th>
+                <th>Group?</th>
+                <th>Book</th>
+            </tr>
 
-</table>
+            {% for lesson in all_lessons %}
+                <tr>
+                    <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
+                    <td>{{ lesson.date }}</td>
+                    <td>{{ lesson.instrument }}</td>
+                    <td>{{ lesson.tutor.name }}</td>
+                    <td>
+                    {% if lesson.group_status == True %} <p>Yes</p>
+                    {% else %} <p>No</p>
+                    {% endif %}
+                    </td>
+                    <td>
+                        <form action="/attendances/new">
+                            <button>Book</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
 
+        </table>
+    </div>
+</div>
 {% endblock %}

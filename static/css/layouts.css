@@ -46,6 +46,22 @@ th, td {
     padding: 5px;
 }
 
+tr {
+    height: 40px;
+}
+
+td a:hover {
+    color: var(--primary-bright);
+}
+
 .pupils .container {
+    width: 90%;
+}
+
+.lessons .container {
+    width: 90%;
+}
+
+.tutors .container {
     width: 90%;
 }

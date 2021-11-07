@@ -1,30 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Our Tutors</h1>
+<div class="tutors">
+    <div class="container"> 
 
-<form action="/tutors/new">
-    <button>Add New</button>
-</form>
+        <h1>Our Tutors</h1>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Contact Number</th>
-        <th>Address</th>
-        <th>Postcode</th>
-    </tr>
+        <form action="/tutors/new">
+            <button>Add New</button>
+        </form>
 
-    {% for tutor in all_tutors %}
-        <tr>
-            <td><a href="/tutors/{{ tutor.id }}">{{ tutor.name }}</a></td>
-            <td>{{ tutor.contact_number }}</td>
-            <td>{{ tutor.address }}</td>
-            <td>{{ tutor.postcode }}</td>
-        </tr>
-    {% endfor %}
+        <table style="width:100%">
+            <tr>
+                <th>Name</th>
+                <th>Contact Number</th>
+                <th>Address</th>
+                <th>Postcode</th>
+            </tr>
 
-</table>
+            {% for tutor in all_tutors %}
+                <tr>
+                    <td><a href="/tutors/{{ tutor.id }}">{{ tutor.name }}</a></td>
+                    <td>{{ tutor.contact_number }}</td>
+                    <td>{{ tutor.address }}</td>
+                    <td>{{ tutor.postcode }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+</div>
 
 {% endblock %}
 
