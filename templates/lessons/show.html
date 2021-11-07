@@ -2,8 +2,8 @@
 {% block content %}
 
     <div>
+        <h3>Lesson Details</h3>
         <p>{{ lesson.name }}</p>
-        <hr>
         <p>Date: {{ lesson.date }}</p>
         <p>Instrument: {{ lesson.instrument }}</p>
         <p>Tutor: {{ lesson.tutor.name }}</p>
@@ -12,13 +12,28 @@
             {% else %} <span>No</span>
             {% endif %}
         </p>
+    </div>
+
+    <div>
+        <h3>Attendees</h3>
+        <table>
+            {% for pupil in pupils %}
+                <tr>
+                    <td><a href="/pupils/{{ pupil.id }}">{{ pupil.name }}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
         <form action="/lessons/{{ lesson.id }}/edit">
             <button>Edit</button>
         </form>
+
+        <form action="/lessons/{{ lesson.id }}/delete" method="POST">
+            <button>Delete Lesson</button>
+        </form>
     </div>
 
-    <form action="/lessons/{{ lesson.id }}/delete" method="POST">
-        <button>Delete Lesson</button>
-    </form>
 
 {% endblock %}

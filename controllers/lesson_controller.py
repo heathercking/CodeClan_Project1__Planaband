@@ -40,7 +40,8 @@ def create_lesson():
 @lessons_blueprint.route("/lessons/<id>", methods=['GET'])
 def show_lesson(id):
     lesson = lesson_repository.select(id)
-    return render_template('lessons/show.html', lesson=lesson)
+    pupils = lesson_repository.pupils(lesson)
+    return render_template('lessons/show.html', lesson=lesson, pupils=pupils)
 
 
 #EDIT - GET '/lessons/<id>/edit'
