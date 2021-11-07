@@ -14,6 +14,7 @@
         <th>Instrument</th>
         <th>Tutor</th>
         <th>Group?</th>
+        <th>Book</th>
     </tr>
 
     {% for lesson in all_lessons %}
@@ -26,6 +27,11 @@
             {% if lesson.group_status == True %} <p>Yes</p>
             {% else %} <p>No</p>
             {% endif %}
+            </td>
+            <td>
+                <form action="/attendances/new">
+                    <button>Book</button>
+                </form>
             </td>
         </tr>
     {% endfor %}
