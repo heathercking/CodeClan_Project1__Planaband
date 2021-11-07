@@ -17,21 +17,14 @@
     <div>
         <h3>Scheduled Attendees</h3>
         <table>
-            {% for pupil in pupils %}
-                <tr>
-                    <td><a href="/pupils/{{ pupil.id }}">{{ pupil.name }}</a></td>
-                </tr>
-            {% endfor %}
-        </table>
-    </div>
-
-    <div>
-        <h3>Attendees - trial</h3>
-        <table>
+            <tr>
+                <td>Pupil</td>
+                <td>Attended?</td>
+            </tr>
             {% for attendance in attendances %}
                 <tr>
                     <td><a href="/pupils/{{ attendance.pupil.id }}">{{ attendance.pupil.name }}</a></td>
-                    <td><a href="/attendances/{{ attendance.id }}/edit">Log attendance</td>
+                    <td><a href="/attendances/{{ attendance.id }}/edit">{{ attendance.attended }}</td>
                 </tr>
             {% endfor %}
         </table>
