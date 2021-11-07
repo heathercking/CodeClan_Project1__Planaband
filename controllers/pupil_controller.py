@@ -41,7 +41,8 @@ def create_pupil():
 @pupils_blueprint.route("/pupils/<id>", methods=['GET'])
 def show_pupil(id):
     pupil = pupil_repository.select(id)
-    return render_template('pupils/show.html', pupil=pupil)
+    lessons = pupil_repository.lessons(pupil)
+    return render_template('pupils/show.html', pupil=pupil, lessons=lessons)
 
 
 #EDIT - GET '/pupils/<id>/edit'

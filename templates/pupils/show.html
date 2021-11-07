@@ -3,19 +3,31 @@
 
     <div>
         <p>{{ pupil.name }}</p>
-        <hr>
         <p>Date of Birth: {{ pupil.dob }}</p>
         <p>Instrument: {{ pupil.instrument }}</p>
         <p>Grade: {{ pupil.grade }}</p>
         <p>Next of Kin: {{ pupil.nok.name }}</p>
         <p>Notes: {{ pupil.notes }}</p>
+    </div>
+
+    <div>
+        <h3>Scheduled Lessons</h3>
+        <table>
+            {% for lesson in lessons %}
+                <tr>
+                    <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }} on {{ lesson.date }}</a></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
         <form action="/pupils/{{ pupil.id }}/edit">
             <button>Edit</button>
         </form>
+        <form action="/pupils/{{ pupil.id }}/delete" method="POST">
+            <button>Delete Pupil</button>
+        </form>
     </div>
-
-    <form action="/pupils/{{ pupil.id }}/delete" method="POST">
-        <button>Delete Pupil</button>
-    </form>
 
 {% endblock %}
