@@ -4,10 +4,12 @@ from models.lesson import Lesson
 from models.tutor import Tutor
 from models.pupil import Pupil
 from models.nok import NextOfKin
+from models.attendance import Attendance
 import repositories.lesson_repository as lesson_repository
 import repositories.tutor_repository as tutor_repository
 import repositories.pupil_repository as pupil_repository
 import repositories.nok_repository as nok_repository
+import repositories.attendance_repository as attendance_repository
 
 
 def save(lesson):
@@ -73,3 +75,20 @@ def pupils(lesson):
         pupil = Pupil(row['name'], row['dob'], row['instrument'], row['grade'], nok, row['notes'], row['id'])
         pupils.append(pupil)
     return pupils
+
+
+def attendances(lesson):
+    attendances = []
+
+    sql = "SELECT * FROM attendances WHERE lesson_id = %s"
+    values = [lesson.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        lesson = lesson_repository.select(row['lesson_id'])
+        pupil = pupil_repository.select(row['pupil_id'])
+        attendance = Attendance(lesson, pupil, row['attended'], row['id'])
+        attendances.append(attendance)
+    return attendances
+
+
