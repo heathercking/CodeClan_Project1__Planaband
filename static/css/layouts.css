@@ -58,10 +58,30 @@ td a:hover {
     width: 90%;
 }
 
+.pupils .flex {
+    justify-content: space-between;
+}
+
 .lessons .container {
     width: 90%;
+}
+
+.lessons .flex {
+    justify-content: space-between;
 }
 
 .tutors .container {
     width: 90%;
 }
+
+.tutors .flex {
+    justify-content: space-between;
+}
+
+
+
+/* MARGINS */
+.my-2 {
+    margin: 20px auto;
+}
+
