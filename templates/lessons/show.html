@@ -26,6 +26,18 @@
     </div>
 
     <div>
+        <h3>Attendees - trial</h3>
+        <table>
+            {% for attendance in attendances %}
+                <tr>
+                    <td><a href="/pupils/{{ attendance.pupil.id }}">{{ attendance.pupil.name }}</a></td>
+                    <td><a href="/attendances/{{ attendance.id }}/edit">Log attendance</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div>
         <form action="/lessons/{{ lesson.id }}/edit">
             <button>Edit</button>
         </form>

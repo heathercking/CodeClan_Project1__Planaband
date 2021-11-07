@@ -41,7 +41,8 @@ def create_lesson():
 def show_lesson(id):
     lesson = lesson_repository.select(id)
     pupils = lesson_repository.pupils(lesson)
-    return render_template('lessons/show.html', lesson=lesson, pupils=pupils)
+    attendances = lesson_repository.attendances(lesson)
+    return render_template('lessons/show.html', lesson=lesson, pupils=pupils, attendances=attendances)
 
 
 #EDIT - GET '/lessons/<id>/edit'
