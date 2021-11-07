@@ -22,8 +22,30 @@
     height: 100%;
 }
 
+
 /* index.html */
 .welcome .container {
     padding: 0 60px;
     text-align: center;
+}
+
+
+/* TABLES */
+table, th, td { 
+    border: 1px solid var(--primary-dark);
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    background-color: var(--primary-dark);
+    color: var(--white);
+}
+
+th, td {
+    padding: 5px;
+}
+
+.pupils .container {
+    width: 90%;
 }

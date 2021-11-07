@@ -25,6 +25,9 @@
                 <tr>
                     <td><a href="/pupils/{{ attendance.pupil.id }}">{{ attendance.pupil.name }}</a></td>
                     <td><a href="/attendances/{{ attendance.id }}/edit">{{ attendance.attended }}</td>
+                    <td>
+                        <button type="submit">Log attendance</button>
+                    </td>
                 </tr>
             {% endfor %}
         </table>

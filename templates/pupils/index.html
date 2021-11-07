@@ -1,29 +1,33 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Our Pupils</h1>
+<div class="pupils">
+    <div class="container"> 
 
-<form action="/pupils/new">
-    <button>Enroll a Pupil</button>
-</form>
+        <h1>Our Pupils</h1>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>DOB</th>
-        <th>Instrument</th>
-        <th>Next of Kin</th>
-    </tr>
+        <form action="/pupils/new">
+            <button>Enroll a Pupil</button>
+        </form>
 
-    {% for pupil in all_pupils %}
-        <tr>
-            <td><a href="/pupils/{{ pupil.id }}">{{ pupil.name }}</a></td>
-            <td>{{ pupil.dob }}</td>
-            <td>{{ pupil.instrument }}</td>
-            <td>{{ pupil.nok.name }}</td>
-        </tr>
-    {% endfor %}
+        <table style="width:100%">
+            <tr>
+                <th style="width:23%">Name</th>
+                <th style="width:17%">DOB</th>
+                <th>Instrument</th>
+                <th>Next of Kin</th>
+            </tr>
 
-</table>
+            {% for pupil in all_pupils %}
+                <tr>
+                    <td><a href="/pupils/{{ pupil.id }}">{{ pupil.name }}</a></td>
+                    <td>{{ pupil.dob }}</td>
+                    <td>{{ pupil.instrument }}</td>
+                    <td>{{ pupil.nok.name }}</td>
+                </tr>
+            {% endfor %}
 
+        </table>
+    </div>
+</div>
 {% endblock %}
