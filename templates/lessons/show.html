@@ -17,13 +17,22 @@
             <p>Maximum Capacity: {{ lesson.max_capacity }}</p>
             <p>Spaces: {{ lesson.count_free_spaces() }}</p>
         </div>
+
         <div class ="container my-2">
             <h3>Scheduled Attendees</h3>
+
+            {% if lesson.count_free_spaces() == 0 %}
+                <p class="full">THIS LESSON IS FULL</p>
+            {% else %}
+                <form action="/attendances/new">
+                    <button>Book</button>
+                </form>
+            {% endif %}
             <table>
                 <tr>
                     <td>Pupil</td>
                     <td>Attended?</td>
-                    <td>Remove Attendee</td>
+                    <td>Remove</td>
                 </tr>
                 {% for attendance in attendances %}
                     <tr>
@@ -40,7 +49,7 @@
                         </td>
                         <td>
                             <form action="/attendances/{{ attendance.id }}/delete" method="POST">
-                                <button>Remove Attendee</button>
+                                <button class="attended-btn"><i class="fas fa-user-times fa-2x"></i></button>
                             </form>
                         </td>
                     </tr>
