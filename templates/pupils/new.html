@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<h2>Pupil Details</h2>
+<p>Enter all of the pupil's details below:</p>
 <form action="/pupils" method="post">
 
     <div>
@@ -37,7 +39,7 @@
         <input type="text" id="notes" name="notes" placeholder="Notes" required>
     </div>
 
-    <button type="submit">Add Pupil</button>
+    <button type="submit">Save</button>
 
 </form>
 

@@ -28,7 +28,7 @@ def create_nok():
     postcode = request.form['postcode']
     nok = NextOfKin(name, contact_number, address, postcode)
     nok_repository.save(nok)
-    return redirect('/noks')
+    return redirect('/pupils/new')
 
 
 #SHOW - GET '/noks/<id>'
