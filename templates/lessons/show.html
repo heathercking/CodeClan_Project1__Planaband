@@ -1,54 +1,58 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div>
-        <h3>Lesson Details</h3>
-        <p>{{ lesson.name }}</p>
-        <p>Date: {{ lesson.date }}</p>
-        <p>Time: {{ lesson.time }}</p>
-        <p>Instrument: {{ lesson.instrument }}</p>
-        <p>Tutor: {{ lesson.tutor.name }}</p>
-        <p>Group?
-            {% if lesson.group_status == True %} <span>Yes</span>
-            {% else %} <span>No</span>
-            {% endif %}
-        </p>
-        <p>Maximum Capacity: {{ lesson.max_capacity }}</p>
-    </div>
-
-    <div>
-        <h3>Scheduled Attendees</h3>
-        <table>
-            <tr>
-                <td>Pupil</td>
-                <td>Attended?</td>
-            </tr>
-            {% for attendance in attendances %}
+    <div class="lesson-details">
+        <div class="container">
+            <h3>Lesson Details</h3>
+            <p>{{ lesson.name }}</p>
+            <p>Date: {{ lesson.date }}</p>
+            <p>Time: {{ lesson.time }}</p>
+            <p>Instrument: {{ lesson.instrument }}</p>
+            <p>Tutor: {{ lesson.tutor.name }}</p>
+            <p>Group?
+                {% if lesson.group_status == True %} <span>Yes</span>
+                {% else %} <span>No</span>
+                {% endif %}
+            </p>
+            <p>Maximum Capacity: {{ lesson.max_capacity }}</p>
+            <p>Spaces: {{ lesson.count_free_spaces() }}</p>
+        </div>
+        <div class ="container my-2">
+            <h3>Scheduled Attendees</h3>
+            <table>
                 <tr>
-                    <td><a href="/pupils/{{ attendance.pupil.id }}">{{ attendance.pupil.name }}</a></td>
-                    <td>
-                        <form action="/attendances/{{ attendance.id }}/attended" method="POST">
-                            {% if attendance.attended == False %}
-                                <button class="attended-btn"><i class="far fa-times-circle fa-2x"></i></button>
-                            {% else %}
-                                <button class="attended-btn"><i class="fas fa-check-circle fa-2x" style="color:green"></i></button>
-                            {% endif %}
-                            
-                        </form>
-                    </td>
+                    <td>Pupil</td>
+                    <td>Attended?</td>
                 </tr>
-            {% endfor %}
-        </table>
-    </div>
+                {% for attendance in attendances %}
+                    <tr>
+                        <td><a href="/pupils/{{ attendance.pupil.id }}">{{ attendance.pupil.name }}</a></td>
+                        <td>
+                            <form action="/attendances/{{ attendance.id }}/attended" method="POST">
+                                {% if attendance.attended == False %}
+                                    <button class="attended-btn"><i class="far fa-times-circle fa-2x" style="color:grey"></i></button>
+                                {% else %}
+                                    <button class="attended-btn"><i class="fas fa-check-circle fa-2x" style="color:green"></i></button>
+                                {% endif %}
+                                
+                            </form>
+                        </td>
+                        <td>
 
-    <div>
-        <form action="/lessons/{{ lesson.id }}/edit">
-            <button>Edit</button>
-        </form>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </table>
+        </div>
 
-        <form action="/lessons/{{ lesson.id }}/delete" method="POST">
-            <button>Delete Lesson</button>
-        </form>
+        <div class="container"> 
+            <form action="/lessons/{{ lesson.id }}/edit">
+                <button>Edit Lesson</button>
+            </form>
+            <form action="/lessons/{{ lesson.id }}/delete" method="POST">
+                <button>Delete Lesson</button>
+            </form>
+        </div>
     </div>
 
 

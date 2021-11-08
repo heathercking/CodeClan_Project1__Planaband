@@ -73,6 +73,15 @@ td a:hover {
     justify-content: space-between;
 }
 
+.lesson-details .container {
+    width: 90%;
+}
+
+.lesson-details .flex {
+    justify-content: space-between;
+    gap: 20%;
+}
+
 .tutors .container {
     width: 90%;
 }

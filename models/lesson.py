@@ -21,3 +21,7 @@ class Lesson:
         spaces = self.max_capacity - no_attendees
         return spaces
         
+    def print_free_spaces(self):
+        spaces = self.count_free_spaces()
+        print(spaces)
+
