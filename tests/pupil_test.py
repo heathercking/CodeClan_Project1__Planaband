@@ -23,7 +23,7 @@ class TestPupil(unittest.TestCase):
         self.assertEqual("4", self.pupil1.grade)
     
     def test_pupil_has_nok(self):
-        self.assertEqual("Rubeus Hagrid", self.pupil1.next_of_kin)
+        self.assertEqual("Rubeus Hagrid", self.pupil1.nok)
     
     def test_pupil_has_notes(self):
         self.assertEqual("Sat grade 4 exam in April", self.pupil1.notes)

@@ -35,6 +35,7 @@ CREATE TABLE lessons (
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
     date DATE,
+    time VARCHAR(255),
     instrument VARCHAR(255),
     tutor_id INT REFERENCES tutors(id) ON DELETE CASCADE,
     group_status BOOLEAN

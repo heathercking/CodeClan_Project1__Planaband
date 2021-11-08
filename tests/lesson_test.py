@@ -6,8 +6,8 @@ from models.lesson import Lesson
 class TestLesson(unittest.TestCase):
 
     def setUp(self):
-        self.lesson1 = Lesson("Beginner Recorder", "Rubeus Hagrid", date(2021, 11, 27), "Recorder", True)
-        self.lesson2 = Lesson("Piano 1:1", "Remus Lupin", date(2021, 11, 27), "Piano")
+        self.lesson1 = Lesson("Beginner Recorder", date(2021, 11, 27), "10am", "Recorder", "Rubeus Hagrid", True)
+        self.lesson2 = Lesson("Piano 1:1", date(2021, 11, 27), "11am", "Piano", "Remus Lupin")
 
     def test_lesson_has_name(self):
         self.assertEqual("Beginner Recorder", self.lesson1.name)
@@ -22,7 +22,10 @@ class TestLesson(unittest.TestCase):
         self.assertEqual("Recorder", self.lesson1.instrument)
     
     def test_lesson_has_group_status(self):
-        self.assertEqual(True, self.lesson1.group)
+        self.assertEqual(True, self.lesson1.group_status)
 
     def test_lesson_has_id(self):
         self.assertEqual(None, self.lesson1.id)
+
+    def test_lesson_has_time(self):
+        self.assertEqual("10am", self.lesson1.time)
