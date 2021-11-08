@@ -23,6 +23,7 @@
                 <tr>
                     <td>Pupil</td>
                     <td>Attended?</td>
+                    <td>Remove Attendee</td>
                 </tr>
                 {% for attendance in attendances %}
                     <tr>
@@ -38,7 +39,9 @@
                             </form>
                         </td>
                         <td>
-
+                            <form action="/attendances/{{ attendance.id }}/delete" method="POST">
+                                <button>Remove Attendee</button>
+                            </form>
                         </td>
                     </tr>
                 {% endfor %}
