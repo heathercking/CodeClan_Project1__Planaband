@@ -62,3 +62,11 @@ def update_attendances(id):
 def delete_attendance(id):
     attendance_repository.delete(id)
     return redirect('/attendances')
+
+#UPDATE - POST - MARK ATTENDED 'attendances/<id>/attended'
+@attendances_blueprint.route("/attendances/<id>/attended", methods=['POST'])
+def mark_attended(id):
+    attendance = attendance_repository.select(id)
+    attendance.mark_attended()
+    attendance_repository.update(attendance)
+    return redirect('/attendances')
