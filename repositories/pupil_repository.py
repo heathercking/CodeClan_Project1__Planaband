@@ -11,8 +11,8 @@ import repositories.tutor_repository as tutor_repository
 
 
 def save(pupil):
-    sql = "INSERT INTO pupils (name, dob, instrument, grade, nok_id, notes) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
-    values = [pupil.name, pupil.dob, pupil.instrument, pupil.grade, pupil.nok.id, pupil.notes]
+    sql = "INSERT INTO pupils (name, dob, instrument, grade, nok_id, notes, active) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING id"
+    values = [pupil.name, pupil.dob, pupil.instrument, pupil.grade, pupil.nok.id, pupil.notes, pupil.active]
     results = run_sql(sql, values)
     id = results[0]['id']
     pupil.id = id
@@ -27,7 +27,7 @@ def select_all():
 
     for row in results:
         nok = nok_repository.select(row['nok_id'])
-        pupil = Pupil(row['name'], row['dob'], row['instrument'], row['grade'], nok, row['notes'], row['id'])
+        pupil = Pupil(row['name'], row['dob'], row['instrument'], row['grade'], nok, row['notes'], row['active'], row['id'])
         pupils.append(pupil)
     return pupils
 
@@ -40,13 +40,13 @@ def select(id):
 
     if result is not None:
         nok = nok_repository.select(result['nok_id'])
-        pupil = Pupil(result['name'], result['dob'], result['instrument'], result['grade'], nok, result['notes'], result['id'])
+        pupil = Pupil(result['name'], result['dob'], result['instrument'], result['grade'], nok, result['notes'], result['active'], result['id'])
     return pupil
 
 
 def update(pupil):
-    sql = "UPDATE pupils SET (name, dob, instrument, grade, nok_id, notes) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [pupil.name, pupil.dob, pupil.instrument, pupil.grade, pupil.nok.id, pupil.notes, pupil.id]
+    sql = "UPDATE pupils SET (name, dob, instrument, grade, nok_id, notes, active) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [pupil.name, pupil.dob, pupil.instrument, pupil.grade, pupil.nok.id, pupil.notes, pupil.active, pupil.id]
     run_sql(sql, values)
 
 

@@ -28,7 +28,8 @@ CREATE TABLE pupils (
     instrument VARCHAR(255),
     grade VARCHAR(255),
     nok_id INT REFERENCES noks(id) ON DELETE CASCADE,
-    notes VARCHAR(255)
+    notes VARCHAR(255), 
+    active BOOLEAN
 );
 
 CREATE TABLE lessons (

@@ -6,8 +6,8 @@ from models.pupil import *
 class TestPupil(unittest.TestCase):
 
     def setUp(self):
-        self.pupil1 = Pupil("Harry Potter", date(2010, 7, 31), "Piano", "4", "Rubeus Hagrid", "Sat grade 4 exam in April")
-        self.pupil2 = Pupil("Hermione Granger", "19-09-2015", "Recorder", "0", "Parents", "Recommended to us by school teacher")
+        self.pupil1 = Pupil("Harry Potter", date(2010, 7, 31), "Piano", "4", "Rubeus Hagrid", "Sat grade 4 exam in April", True)
+        self.pupil2 = Pupil("Hermione Granger", "19-09-2015", "Recorder", "0", "Parents", "Recommended to us by school teacher", True)
 
     
     def test_pupil_has_name(self):
@@ -29,4 +29,7 @@ class TestPupil(unittest.TestCase):
         self.assertEqual("Sat grade 4 exam in April", self.pupil1.notes)
     
     def test_pupil_has_id(self):
-        self.assertEqual(None, self.pupil1.id)  
+        self.assertEqual(None, self.pupil1.id)
+    
+    def test_pupil_has_active_status(self):
+        self.assertEqual(True, self.pupil1.active)

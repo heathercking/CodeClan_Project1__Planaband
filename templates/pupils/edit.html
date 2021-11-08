@@ -40,6 +40,22 @@
         <input type="text" id="notes" name="notes" value="{{ pupil.notes }}" required>
     </div>
 
+    <div>
+        <label for="active">Current Student?</label>
+        <select id="active" name="active">
+
+            <option value="true"
+                {% if pupil.active == True %} selected="selected" {% endif %}>
+                Yes
+            </option>
+            <option value="false"
+                {% if pupil.active == False %} selected="selected" {% endif %}>
+                No
+            </option>
+            
+        </select>
+    </div>
+
     <button type="submit">Update Pupil Record</button>
 
 </form>

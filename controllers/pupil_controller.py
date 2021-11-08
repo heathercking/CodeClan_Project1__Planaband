@@ -1,3 +1,4 @@
+import re
 from flask import Flask, render_template, request, redirect
 
 from flask import Blueprint
@@ -32,7 +33,8 @@ def create_pupil():
     grade = request.form['grade']
     nok = nok_repository.select(request.form['nok_id'])
     notes = request.form['notes']
-    pupil = Pupil(name, dob, instrument, grade, nok, notes)
+    active = True
+    pupil = Pupil(name, dob, instrument, grade, nok, notes, active)
     pupil_repository.save(pupil)
     return redirect('/noks/new')
 
@@ -62,7 +64,8 @@ def update_pupil(id):
     grade = request.form['grade']
     nok = nok_repository.select(request.form['nok_id'])
     notes = request.form['notes']
-    pupil = Pupil(name, dob, instrument, grade, nok, notes, id)
+    active = request.form['active']
+    pupil = Pupil(name, dob, instrument, grade, nok, notes, active, id)
     pupil_repository.update(pupil)
     return redirect('/pupils')
 
