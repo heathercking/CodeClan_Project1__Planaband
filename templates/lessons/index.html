@@ -15,11 +15,11 @@
         <table style="width:100%">
             <tr>
                 <th>Name</th>
-                <th>Date</th>
-                <th>Time</th>
+                <th>Date & Time</th>
                 <th>Instrument(s)</th>
                 <th>Tutor</th>
                 <th>Group?</th>
+                <th>Spaces</th>
                 <th>Book</th>
                 <th>Log Attendance</th>    
             </tr>
@@ -27,8 +27,7 @@
             {% for lesson in all_lessons %}
                 <tr>
                     <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
-                    <td>{{ lesson.date }}</td>
-                    <td>{{ lesson.time }}</td>
+                    <td>{{ lesson.date }} at {{ lesson.time }}</td>
                     <td>{{ lesson.instrument }}</td>
                     <td>{{ lesson.tutor.name }}</td>
                     <td>
@@ -36,6 +35,7 @@
                     {% else %} <p>No</p>
                     {% endif %}
                     </td>
+                    <td></td>
                     <td>
                         <form action="/attendances/new">
                             <button>Book</button>

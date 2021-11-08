@@ -6,7 +6,7 @@ from models.lesson import Lesson
 class TestLesson(unittest.TestCase):
 
     def setUp(self):
-        self.lesson1 = Lesson("Beginner Recorder", date(2021, 11, 27), "10am", "Recorder", "Rubeus Hagrid", 10, True)
+        self.lesson1 = Lesson("Beginner Recorder", date(2021, 11, 27), "10am", "Recorder", "Rubeus Hagrid", 2, True)
         self.lesson2 = Lesson("Piano 1:1", date(2021, 11, 27), "11am", "Piano", "Remus Lupin", 1)
 
     def test_lesson_has_name(self):
@@ -31,4 +31,13 @@ class TestLesson(unittest.TestCase):
         self.assertEqual("10am", self.lesson1.time)
 
     def test_lesson_has_max_capacity(self):
-        self.assertEqual(10, self.lesson1.max_capacity)
+        self.assertEqual(2, self.lesson1.max_capacity)
+    
+    def test_lesson_has_free_spaces__True(self):
+        attendees = [1, 2]
+        self.assertEqual(True, self.lesson1.check_free_spaces(no_attendees))
+
+    def test_lesson_has_free_spaces__None(self):
+        no_attendees = [1, 2]
+        self.assertEqual(False, self.lesson1.check_free_spaces(no_attendees))
+
