@@ -30,6 +30,7 @@ def select_all():
     for row in results:
         tutor = tutor_repository.select(row['tutor_id'])
         lesson = Lesson(row['name'], row['date'], row['time'], row['instrument'], tutor, row['max_capacity'], row['group_status'], row['id'])
+        lesson.attendees = attendances(lesson)
         lessons.append(lesson)
     return lessons
 
