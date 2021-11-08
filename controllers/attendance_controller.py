@@ -69,4 +69,4 @@ def mark_attended(id):
     attendance = attendance_repository.select(id)
     attendance.mark_attended()
     attendance_repository.update(attendance)
-    return redirect('/attendances')
+    return redirect(request.referrer)

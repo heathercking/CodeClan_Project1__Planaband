@@ -26,6 +26,16 @@
                     <td><a href="/pupils/{{ attendance.pupil.id }}">{{ attendance.pupil.name }}</a></td>
                     <td><a href="/attendances/{{ attendance.id }}/edit">{{ attendance.attended }}</td>
                     <td>
+                        <form action="/attendances/{{ attendance.id }}/attended" method="POST">
+                            {% if attendance.attended == False %}
+                                <button class="attended-btn"><i class="far fa-times-circle fa-2x"></i></button>
+                            {% else %}
+                                <button class="attended-btn"><i class="fas fa-check-circle fa-2x" style="color:green"></i></button>
+                            {% endif %}
+                            
+                        </form>
+                    </td>
+                    <td>
                         <button type="submit">Log attendance</button>
                     </td>
                 </tr>
