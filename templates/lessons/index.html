@@ -20,6 +20,7 @@
                 <th>Tutor</th>
                 <th>Group?</th>
                 <th>Book</th>
+                <th>Log Attendance</th>    
             </tr>
 
             {% for lesson in all_lessons %}
@@ -36,6 +37,11 @@
                     <td>
                         <form action="/attendances/new">
                             <button>Book</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form action="lessons/{{ lesson.id }}"">
+                            <button>Log Attendance</button>
                         </form>
                     </td>
                 </tr>

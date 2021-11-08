@@ -54,6 +54,9 @@ td a:hover {
     color: var(--primary-bright);
 }
 
+.welcome .flex {
+    gap: 20px;
+}
 .pupils .container {
     width: 90%;
 }
