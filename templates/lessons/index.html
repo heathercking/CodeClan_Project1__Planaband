@@ -19,7 +19,6 @@
                 <th>Instrument(s)</th>
                 <th>Tutor</th>
                 <th>Group?</th>
-                <th>Spaces</th>
                 <th>Book</th>
                 <th>Log Attendance</th>    
             </tr>
@@ -35,11 +34,14 @@
                     {% else %} <p>No</p>
                     {% endif %}
                     </td>
-                    <td></td>
                     <td>
-                        <form action="/attendances/new">
-                            <button>Book</button>
-                        </form>
+                        {% if lesson.count_free_spaces() == 0 %}
+                            <p class="full">FULL</p>
+                        {% else %}
+                            <form action="/lessons/{{ lesson.id }}">
+                                <button>Book</button>
+                            </form>
+                        {% endif %}
                     </td>
                     <td>
                         <form action="lessons/{{ lesson.id }}">

@@ -13,7 +13,13 @@ lessons_blueprint = Blueprint("lessons", __name__)
 @lessons_blueprint.route("/lessons")
 def lessons():
     lessons = lesson_repository.select_all()
-    return render_template("lessons/index.html", all_lessons=lessons)
+    lessons_attendees = []
+    for lesson in lessons:
+        lesson.attendees = lesson_repository.attendances(lesson)
+        lessons_attendees.append(lesson)
+    return render_template("lessons/index.html", all_lessons=lessons_attendees)
+
+
 
 
 #NEW - GET '/lessons/new'

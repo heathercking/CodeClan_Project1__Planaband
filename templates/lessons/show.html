@@ -3,23 +3,7 @@
 
     <div class="lesson-details">
         <div class="container">
-            <h3>Lesson Details</h3>
-            <p>{{ lesson.name }}</p>
-            <p>Date: {{ lesson.date }}</p>
-            <p>Time: {{ lesson.time }}</p>
-            <p>Instrument: {{ lesson.instrument }}</p>
-            <p>Tutor: {{ lesson.tutor.name }}</p>
-            <p>Group?
-                {% if lesson.group_status == True %} <span>Yes</span>
-                {% else %} <span>No</span>
-                {% endif %}
-            </p>
-            <p>Maximum Capacity: {{ lesson.max_capacity }}</p>
-            <p>Spaces: {{ lesson.count_free_spaces() }}</p>
-        </div>
-
-        <div class ="container my-2">
-            <h3>Scheduled Attendees</h3>
+            <h3>{{ lesson.name }} {{ lesson.date }}</h3>
 
             {% if lesson.count_free_spaces() == 0 %}
                 <p class="full">THIS LESSON IS FULL</p>
@@ -28,6 +12,22 @@
                     <button>Book</button>
                 </form>
             {% endif %}
+
+            <p>Time: {{ lesson.time }}</p>
+            <p>Instrument: {{ lesson.instrument }}</p>
+            <p>Tutor: {{ lesson.tutor.name }}</p>
+            <p>Group?
+                {% if lesson.group_status == True %} <span>Yes</span>
+                {% else %} <span>No</span>
+                {% endif %}
+            </p>
+            <p>Available Spaces: {{ lesson.count_free_spaces() }}</p>
+        </div>
+
+        <div class ="container my-2">
+            <h3>Scheduled Attendees</h3>
+
+
             <table>
                 <tr>
                     <td>Pupil</td>
