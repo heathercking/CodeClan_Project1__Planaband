@@ -15,7 +15,7 @@ def save(nok):
 def select_all():
     noks = []
 
-    sql = "SELECT * FROM noks"
+    sql = "SELECT * FROM noks ORDER BY name"
     results = run_sql(sql)
 
     for row in results:

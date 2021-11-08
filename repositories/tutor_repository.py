@@ -16,7 +16,7 @@ def save(tutor):
 def select_all():
     tutors = []
 
-    sql = "SELECT * FROM tutors"
+    sql = "SELECT * FROM tutors ORDER BY name"
     results = run_sql(sql)
 
     for row in results:

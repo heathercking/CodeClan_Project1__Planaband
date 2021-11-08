@@ -24,7 +24,7 @@ def save(lesson):
 def select_all():
     lessons = []
 
-    sql = "SELECT * FROM lessons"
+    sql = "SELECT * FROM lessons ORDER BY date"
     results = run_sql(sql)
 
     for row in results:
@@ -67,7 +67,7 @@ def delete_all():
 def pupils(lesson):
     pupils = []
 
-    sql = "SELECT pupils.* FROM pupils INNER JOIN attendances ON attendances.pupil_id = pupils.id WHERE lesson_id = %s"
+    sql = "SELECT pupils.* FROM pupils INNER JOIN attendances ON attendances.pupil_id = pupils.id WHERE lesson_id = %s ORDER BY name"
     values = [lesson.id]
     results = run_sql(sql, values)
 
