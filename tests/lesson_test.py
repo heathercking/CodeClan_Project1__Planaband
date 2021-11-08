@@ -37,3 +37,8 @@ class TestLesson(unittest.TestCase):
         attendees = [1, 2]
         self.lesson1.add_attendees_to_lesson(attendees)
         self.assertEqual(2, len(self.lesson1.attendees))
+
+    def test_count_free_spaces__one(self):
+        attendees = [1]
+        self.lesson1.add_attendees_to_lesson(attendees)
+        self.assertEqual(1, self.lesson1.count_free_spaces())

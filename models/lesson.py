@@ -15,4 +15,9 @@ class Lesson:
     def add_attendees_to_lesson(self, input_attendees):
         for attendee in input_attendees:
             self.attendees.append(attendee)
+    
+    def count_free_spaces(self):
+        no_attendees = len(self.attendees)
+        spaces = self.max_capacity - no_attendees
+        return spaces
         
