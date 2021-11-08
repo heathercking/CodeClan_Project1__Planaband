@@ -34,7 +34,7 @@ def create_pupil():
     notes = request.form['notes']
     pupil = Pupil(name, dob, instrument, grade, nok, notes)
     pupil_repository.save(pupil)
-    return redirect('/pupils')
+    return redirect('/noks/new')
 
 
 #SHOW - GET '/pupils/<id>'
