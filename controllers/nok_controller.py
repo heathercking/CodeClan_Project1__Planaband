@@ -26,7 +26,8 @@ def create_nok():
     contact_number = request.form['contact_number']
     address = request.form['address']
     postcode = request.form['postcode']
-    nok = NextOfKin(name, contact_number, address, postcode)
+    account = 0.00
+    nok = NextOfKin(name, contact_number, address, postcode, account)
     nok_repository.save(nok)
     return redirect('/pupils')
 
@@ -52,7 +53,8 @@ def update_nok(id):
     contact_number = request.form['contact_number']
     address = request.form['address']
     postcode = request.form['postcode']
-    nok = NextOfKin(name, contact_number, address, postcode, id)
+    account = request.form['account']
+    nok = NextOfKin(name, contact_number, address, postcode, account, id)
     nok_repository.update(nok)
     return redirect('/noks')
 

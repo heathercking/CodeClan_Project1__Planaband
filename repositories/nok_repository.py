@@ -5,8 +5,8 @@ import repositories.nok_repository as nok_repository
 
 
 def save(nok):
-    sql = "INSERT INTO noks (name, contact_number, address, postcode) VALUES (%s, %s, %s, %s) RETURNING id"
-    values = [nok.name, nok.contact_number, nok.address, nok.postcode]
+    sql = "INSERT INTO noks (name, contact_number, address, postcode, account) VALUES (%s, %s, %s, %s, %s) RETURNING id"
+    values = [nok.name, nok.contact_number, nok.address, nok.postcode, nok.account]
     results = run_sql(sql, values)
     nok.id = results[0]['id']
     return nok
@@ -19,7 +19,7 @@ def select_all():
     results = run_sql(sql)
 
     for row in results:
-        nok = NextOfKin(row['name'], row['contact_number'], row['address'], row['postcode'], row['id'])
+        nok = NextOfKin(row['name'], row['contact_number'], row['address'], row['postcode'], row['account'], row['id'])
         noks.append(nok)
     return noks
 
@@ -31,13 +31,13 @@ def select(id):
     result = run_sql(sql, values)[0]
 
     if result is not None:
-        nok = NextOfKin(result['name'], result['contact_number'], result['address'], result['postcode'], result['id'])
+        nok = NextOfKin(result['name'], result['contact_number'], result['address'], result['postcode'], result['account'], result['id'])
     return nok
 
 
 def update(nok):
-    sql = "UPDATE noks SET (name, contact_number, address, postcode) = (%s, %s, %s, %s) WHERE id = %s"
-    values = [nok.name, nok.contact_number, nok.address, nok.postcode, nok.id]
+    sql = "UPDATE noks SET (name, contact_number, address, postcode, account) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    values = [nok.name, nok.contact_number, nok.address, nok.postcode, nok.account, nok.id]
     run_sql(sql, values)
 
 
