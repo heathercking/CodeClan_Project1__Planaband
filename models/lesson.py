@@ -12,8 +12,7 @@ class Lesson:
         self.id = id
 
 
-    def check_free_spaces(self, input_no_attendees):
-        if len(input_no_attendees) >= self.max_capacity:
-            return False
-        else:
-            return True
+    def add_attendees_to_lesson(self, input_attendees):
+        for attendee in input_attendees:
+            self.attendees.append(attendee)
+        

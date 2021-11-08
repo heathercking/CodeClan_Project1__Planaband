@@ -33,11 +33,7 @@ class TestLesson(unittest.TestCase):
     def test_lesson_has_max_capacity(self):
         self.assertEqual(2, self.lesson1.max_capacity)
     
-    def test_lesson_has_free_spaces__True(self):
+    def test_add_attendees_to_lesson(self):
         attendees = [1, 2]
-        self.assertEqual(True, self.lesson1.check_free_spaces(no_attendees))
-
-    def test_lesson_has_free_spaces__None(self):
-        no_attendees = [1, 2]
-        self.assertEqual(False, self.lesson1.check_free_spaces(no_attendees))
-
+        self.lesson1.add_attendees_to_lesson(attendees)
+        self.assertEqual(2, len(self.lesson1.attendees))
