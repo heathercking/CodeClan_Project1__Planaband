@@ -36,7 +36,7 @@ def create_pupil():
     active = True
     pupil = Pupil(name, dob, instrument, grade, nok, notes, active)
     pupil_repository.save(pupil)
-    return redirect('/noks/new')
+    return redirect('/pupils')
 
 
 #SHOW - GET '/pupils/<id>'

@@ -18,7 +18,8 @@ CREATE TABLE noks (
     name VARCHAR(255),
     contact_number VARCHAR(255),
     address VARCHAR(255),
-    postcode VARCHAR(10)
+    postcode VARCHAR(10),
+    account INT
 );
 
 CREATE TABLE pupils (

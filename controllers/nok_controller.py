@@ -26,10 +26,10 @@ def create_nok():
     contact_number = request.form['contact_number']
     address = request.form['address']
     postcode = request.form['postcode']
-    account = 0.00
+    account = request.form['account']
     nok = NextOfKin(name, contact_number, address, postcode, account)
     nok_repository.save(nok)
-    return redirect('/pupils')
+    return redirect('/pupils/new')
 
 
 #SHOW - GET '/noks/<id>'
