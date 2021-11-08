@@ -5,7 +5,7 @@
     <div class="container flex"> 
         <h1>Our Pupils</h1>
         <form action="/pupils/new">
-            <button>Enroll a Pupil</button>
+            <button>Enrol a Pupil</button>
         </form>
     </div>
 
@@ -24,7 +24,7 @@
                     <td><a href="/pupils/{{ pupil.id }}">{{ pupil.name }}</a></td>
                     <td>{{ pupil.dob }}</td>
                     <td>{{ pupil.instrument }}</td>
-                    <td>{{ pupil.nok.name }}</td>
+                    <td><a href="/noks/{{ pupil.nok.id }}">{{ pupil.nok.name }}</td>
                 </tr>
             {% endfor %}
 

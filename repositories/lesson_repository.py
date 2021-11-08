@@ -13,7 +13,7 @@ import repositories.attendance_repository as attendance_repository
 
 
 def save(lesson):
-    sql = "INSERT INTO lessons (name, date, time, instrument, tutor_id, group_status) VALUES (%s, %s, %s, %s, %s) RETURNING id"
+    sql = "INSERT INTO lessons (name, date, time, instrument, tutor_id, group_status) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
     values = [lesson.name, lesson.date, lesson.time, lesson.instrument, lesson.tutor.id, lesson.group_status]
     results = run_sql(sql, values)
     id = results[0]['id']
@@ -47,7 +47,7 @@ def select(id):
 
 
 def update(lesson):
-    sql = "UPDATE lessons SET (name, date, time, instrument, tutor_id, group_status) = (%s, %s, %s, %s, %s) WHERE id = %s"
+    sql = "UPDATE lessons SET (name, date, time, instrument, tutor_id, group_status) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
     values = [lesson.name, lesson.date, lesson.time, lesson.instrument, lesson.tutor.id, lesson.group_status, lesson.id]
     run_sql(sql, values)
 

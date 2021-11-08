@@ -28,10 +28,11 @@ def new_lesson():
 def create_lesson():
     name = request.form['name']
     date = request.form['date']
+    time = request.form['time']
     instrument = request.form['instrument']
     tutor = tutor_repository.select(request.form['tutor_id'])
     group_status = request.form['group_status']
-    lesson = Lesson(name, date, instrument, tutor, group_status)
+    lesson = Lesson(name, date, time, instrument, tutor, group_status)
     lesson_repository.save(lesson)
     return redirect('/lessons')
 
@@ -58,10 +59,11 @@ def edit_lessons(id):
 def update_lesson(id):
     name = request.form['name']
     date = request.form['date']
+    time = request.form['time']
     instrument = request.form['instrument']
     tutor = tutor_repository.select(request.form['tutor_id'])
     group_status = request.form['group_status']
-    lesson = Lesson(name, date, instrument, tutor, group_status, id)
+    lesson = Lesson(name, date, time, instrument, tutor, group_status, id)
     lesson_repository.update(lesson)
     return redirect('/lessons')
 
