@@ -31,8 +31,9 @@ def create_lesson():
     time = request.form['time']
     instrument = request.form['instrument']
     tutor = tutor_repository.select(request.form['tutor_id'])
+    max_capacity = request.form['max_capacity']
     group_status = request.form['group_status']
-    lesson = Lesson(name, date, time, instrument, tutor, group_status)
+    lesson = Lesson(name, date, time, instrument, tutor, max_capacity, group_status)
     lesson_repository.save(lesson)
     return redirect('/lessons')
 
@@ -62,8 +63,9 @@ def update_lesson(id):
     time = request.form['time']
     instrument = request.form['instrument']
     tutor = tutor_repository.select(request.form['tutor_id'])
+    max_capacity = request.form['max_capacity']
     group_status = request.form['group_status']
-    lesson = Lesson(name, date, time, instrument, tutor, group_status, id)
+    lesson = Lesson(name, date, time, instrument, tutor, max_capacity, group_status, id)
     lesson_repository.update(lesson)
     return redirect('/lessons')
 

@@ -38,6 +38,7 @@ CREATE TABLE lessons (
     time VARCHAR(255),
     instrument VARCHAR(255),
     tutor_id INT REFERENCES tutors(id) ON DELETE CASCADE,
+    max_capacity INT,
     group_status BOOLEAN
 );
 

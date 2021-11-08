@@ -13,8 +13,8 @@ import repositories.attendance_repository as attendance_repository
 
 
 def save(lesson):
-    sql = "INSERT INTO lessons (name, date, time, instrument, tutor_id, group_status) VALUES (%s, %s, %s, %s, %s, %s) RETURNING id"
-    values = [lesson.name, lesson.date, lesson.time, lesson.instrument, lesson.tutor.id, lesson.group_status]
+    sql = "INSERT INTO lessons (name, date, time, instrument, tutor_id, max_capacity, group_status) VALUES (%s, %s, %s, %s, %s, %s, %s) RETURNING id"
+    values = [lesson.name, lesson.date, lesson.time, lesson.instrument, lesson.tutor.id, lesson.max_capacity, lesson.group_status]
     results = run_sql(sql, values)
     id = results[0]['id']
     lesson.id = id
@@ -29,7 +29,7 @@ def select_all():
 
     for row in results:
         tutor = tutor_repository.select(row['tutor_id'])
-        lesson = Lesson(row['name'], row['date'], row['time'], row['instrument'], tutor, row['group_status'], row['id'])
+        lesson = Lesson(row['name'], row['date'], row['time'], row['instrument'], tutor, row['max_capacity'], row['group_status'], row['id'])
         lessons.append(lesson)
     return lessons
 
@@ -42,13 +42,13 @@ def select(id):
 
     if result is not None:
         tutor = tutor_repository.select(result['tutor_id'])
-        lesson = Lesson(result['name'], result['date'], result['time'], result['instrument'], tutor, result['group_status'], result['id'])
+        lesson = Lesson(result['name'], result['date'], result['time'], result['instrument'], tutor, result['max_capacity'], result['group_status'], result['id'])
     return lesson
 
 
 def update(lesson):
-    sql = "UPDATE lessons SET (name, date, time, instrument, tutor_id, group_status) = (%s, %s, %s, %s, %s, %s) WHERE id = %s"
-    values = [lesson.name, lesson.date, lesson.time, lesson.instrument, lesson.tutor.id, lesson.group_status, lesson.id]
+    sql = "UPDATE lessons SET (name, date, time, instrument, tutor_id, max_capacity, group_status) = (%s, %s, %s, %s, %s, %s, %s) WHERE id = %s"
+    values = [lesson.name, lesson.date, lesson.time, lesson.instrument, lesson.tutor.id, lesson.max_capacity, lesson.group_status, lesson.id]
     run_sql(sql, values)
 
 
