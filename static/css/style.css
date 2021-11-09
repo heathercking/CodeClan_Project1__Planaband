@@ -3,7 +3,7 @@
 
 /* sets color palette for use across site */
 :root { 
-    --primary-dark: #1C2745;
+    --primary-dark: #1A2238;
     --primary-bright: #FF6A3D;
     --secondary-bright: #F4DB7D;
     --secondary-pale: #9DAAF2;
@@ -24,7 +24,7 @@ body {
     line-height: 1.6;
 }
 
-h1, h2 {
+h1 {
     font-weight: 500;
     line-height: 1.2;
     margin: 10px, 0;
@@ -44,10 +44,52 @@ p {
     margin: 10px 0;
 }
 
+.full {
+    font-family: "Gloria Hallelujah", sans-serif, Helvetica, Arial;
+    font-size: 18px;
+    color: var(--primary-bright);
+}
+
+.full-2 {
+    font-family: "Quicksand", sans-serif, Helvetica, Arial;
+    font-size: 20px;
+    font-weight: 1000;
+    color: var(--primary-bright);
+}
+
 img {
     width: 100%;
     border-radius: 10px;
 }
+
+
+
+/* BUTTONS */
+
+.btn-orange {
+    background-color: var(--primary-bright);
+    color: var(--white);
+    font-family: "Quicksand", sans-serif, Helvetica, Arial;
+    font-size: 16px;
+    font-weight: 900;
+    padding: 15px;
+    border: none;
+    border-radius: 10%;
+}
+
+.btn-yellow {
+    background-color: var(--secondary-bright);
+    color: var(--primary-dark);
+    font-family: "Quicksand", sans-serif, Helvetica, Arial;
+    font-size: 16px;
+    font-weight: 900;
+    padding: 15px;
+    border: none;
+    border-radius: 10%;
+}
+
+
+
 
 
 .attended-btn {
@@ -55,22 +97,13 @@ img {
     background-color: transparent;
 }
 
-.full {
-    font-family: "Gloria Hallelujah", sans-serif, Helvetica, Arial;
-    font-size: 18px;
-    color: #ab0000;
-}
-
-.full-2 {
-    font-family: "Quicksand", sans-serif, Helvetica, Arial;
-    font-size: 20px;
-    font-weight: 1000;
-    color: #ab0000;
-}
-
 
 /* MARGINS */
 .my-2 {
     margin: 20px auto;
+}
+
+.my-4 {
+    margin: 40px auto;
 }
 
