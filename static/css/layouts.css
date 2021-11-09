@@ -56,15 +56,40 @@
 
 
 
-
+/*index.html*/
 .welcome .container {
     padding: 0 20px;
     text-align: center;
+    margin-bottom: 50px;
+    background-color: var(--white);
+    color: var(--primary-dark);
 }
 
 .welcome .flex {
     gap: 20px;
 }
+
+.lesson-types .container {
+    padding: 0 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.lesson-types .flex {
+    flex-wrap: wrap;
+}
+
+.lesson-types .card {
+    text-align: center;
+    margin: 18px 10px 40px;
+}
+
+.lesson-types .card:hover {
+    transform: translateY(-10px);
+}
+
+
+
 
 .lessons .container {
     width: 90%;

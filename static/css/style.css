@@ -68,6 +68,7 @@ img {
 
 .btn-orange {
     background-color: var(--primary-bright);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     color: var(--white);
     font-family: "Quicksand", sans-serif, Helvetica, Arial;
     font-size: 16px;

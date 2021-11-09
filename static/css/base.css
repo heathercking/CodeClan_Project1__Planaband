@@ -1,9 +1,10 @@
 /* HEADER */
 .navbar {
-    background-color: var(--primary-dark);
-    color: var(--white);
+    background-color: var(--white);
+    color: var(--primary-dark);
     height: 100px;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    border-bottom: 1px var(--primary-dark) solid;
 }
 
 .logo {
@@ -25,7 +26,7 @@
 
 .navbar a {
     text-decoration: none;
-    color: var(--white);
+    color: var(--primary-dark);
 }
 
 .navbar .menu a {
