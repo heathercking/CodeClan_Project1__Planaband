@@ -13,7 +13,7 @@
     
         <table style="width:100%">
             <tr>
-                <th style="width:30%">Name</th>
+                <th class="th-1" style="width:30%">Name</th>
                 <th style="width:15%">DOB</th>
                 <th style="width:25%">Instrument(s)</th>
                 <th style="width:30%">Next of Kin</th>
@@ -22,7 +22,7 @@
             {% for pupil in all_pupils %}
                 {% if pupil.active == True %}
                     <tr>
-                        <td><a href="/pupils/{{ pupil.id }}">{{ pupil.name }}</a></td>
+                        <td class="td-1"><a href="/pupils/{{ pupil.id }}">{{ pupil.name }}</a></td>
                         <td>{{ pupil.dob }}</td>
                         <td>{{ pupil.instrument }}</td>
                         <td><a href="/noks/{{ pupil.nok.id }}">{{ pupil.nok.name }}</td>

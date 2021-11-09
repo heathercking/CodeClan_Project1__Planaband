@@ -18,20 +18,20 @@
 
         <table style="width:100%">
             <tr>
-                <th>Name</th>
-                <th>Date & Time</th>
-                <th>Instrument(s)</th>
-                <th>Tutor</th>
-                <th>Group?</th>
-                <th>Book</th>
-                <th>Log Attendance</th>    
+                <th class="th-1" style="width:20%">Name</th>
+                <th style="width:18%">Date & Time</th>
+                <th style="width:10%">Instrument(s)</th>
+                <th style="width:20%">Tutor</th>
+                <th style="width:8%">Group?</th>
+                <th style="width:9%">Book</th>
+                <th style="width:15%">Log Attendance</th>    
             </tr>
 
             {% for lesson in all_lessons %}
                 {% if lesson.todays_date() <= lesson.date %}
                     <tr>
-                        <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
-                        <td>{{ lesson.date }} at {{ lesson.time }}</td>
+                        <td class="td-1"><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
+                        <td>{{ lesson.date }} @ {{ lesson.time }}</td>
                         <td>{{ lesson.instrument }}</td>
                         <td>{{ lesson.tutor.name }}</td>
                         <td>
@@ -50,7 +50,7 @@
                         </td>
                         <td>
                             <form action="lessons/{{ lesson.id }}">
-                                <button>Log Attendance</button>
+                                <button>Log</button>
                             </form>
                         </td>
                     </tr>

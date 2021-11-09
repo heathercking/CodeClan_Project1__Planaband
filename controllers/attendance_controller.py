@@ -34,7 +34,7 @@ def create_attendance():
     attended = request.form['attended']
     attendance = Attendance(lesson, pupil, attended)
     attendance_repository.save(attendance)
-    return redirect('/attendances')
+    return redirect('/lessons')
 
 
 #EDIT - GET '/attendances/<id>/edit'
@@ -54,7 +54,7 @@ def update_attendances(id):
     attended = request.form['attended']
     attendance = Attendance(lesson, pupil, attended, id)
     attendance_repository.update(attendance)
-    return redirect('/attendances')
+    return redirect('/lessons')
 
 
 #DELETE - '/attendances/<id>/delete'

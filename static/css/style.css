@@ -36,6 +36,10 @@ h1 {
     font-size: 40px;
 }
 
+h2 {
+    font-size: 30px;
+}
+
 p {
     margin: 10px 0;
 }
@@ -51,4 +55,22 @@ img {
     background-color: transparent;
 }
 
+.full {
+    font-family: "Gloria Hallelujah", sans-serif, Helvetica, Arial;
+    font-size: 18px;
+    color: #ab0000;
+}
+
+.full-2 {
+    font-family: "Quicksand", sans-serif, Helvetica, Arial;
+    font-size: 20px;
+    font-weight: 1000;
+    color: #ab0000;
+}
+
+
+/* MARGINS */
+.my-2 {
+    margin: 20px auto;
+}
 
