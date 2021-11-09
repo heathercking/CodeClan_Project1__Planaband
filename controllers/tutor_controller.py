@@ -33,7 +33,8 @@ def create_tutor():
 @tutors_blueprint.route("/tutors/<id>", methods=['GET'])
 def show_tutor(id):
     tutor = tutor_repository.select(id)
-    return render_template('tutors/show.html', tutor=tutor)
+    lessons = tutor_repository.lessons(tutor)
+    return render_template('tutors/show.html', tutor=tutor, lessons=lessons)
 
 #EDIT - GET '/tutors/<id>/edit'
 @tutors_blueprint.route("/tutors/<id>/edit", methods=['GET'])

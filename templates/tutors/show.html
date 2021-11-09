@@ -12,6 +12,24 @@
         </form>
     </div>
 
+    <div>
+        <h3>Scheduled Lessons</h3>
+        <table>
+            <tr>
+                <th>Lesson</th>
+                <th>Date</th>
+                <th>No. Attendees</th>
+            </tr>
+            {% for lesson in lessons %}
+                <tr>
+                    <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</td>
+                    <td>{{ lesson.date }}</td>
+                    <td></td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
     <form action="/tutors/{{ tutor.id }}/delete" method="POST">
         <button>Delete</button>
     </form>
