@@ -3,17 +3,14 @@
 
     <div>
         <p>{{ tutor.name }}</p>
-        <hr>
-        <p>{{ tutor.contact_number }}</p>
-        <p>{{ tutor.address }}</p>
-        <p>{{ tutor.postcode }}</p>
-        <form action="/tutors/{{ tutor.id }}/edit">
-            <button>Edit</button>
-        </form>
     </div>
 
+    <form action="/tutors/{{ tutor.id }}">
+        <button>Back</button>
+    </form>
+
     <div>
-        <h3>Upcoming Lessons</h3>
+        <h3>Archived Lessons</h3>
         <table>
             <tr>
                 <th>Lesson</th>
@@ -22,7 +19,7 @@
                 <th>Log Attendance</th>
             </tr>
             {% for lesson in lessons %}
-                {% if lesson.todays_date() <= lesson.date %}
+                {% if lesson.todays_date() > lesson.date %}
                     <tr>
                         <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</td>
                         <td>{{ lesson.date }}</td>
@@ -36,18 +33,6 @@
                 {% endif %}
             {% endfor %}
         </table>
-    </div>
-
-    <div>
-        <form action="/tutors/{{ tutor.id }}/archive">
-            <button>View archived lessons</button>
-        </form>
-        <form action="/tutors/{{ tutor.id }}/edit">
-            <button>Edit</button>
-        </form>
-        <form action="/tutors/{{ tutor.id }}/delete" method="POST">
-            <button>Delete</button>
-        </form>
     </div>
 
 {% endblock %}

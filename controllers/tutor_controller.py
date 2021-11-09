@@ -41,6 +41,15 @@ def show_tutor(id):
     lessons = tutor_repository.lessons(tutor)
     return render_template('tutors/show.html', tutor=tutor, lessons=lessons)
 
+
+#SHOW archive - GET '/tutors/<id>/archive'
+@tutors_blueprint.route("/tutors/<id>/archive", methods=['GET'])
+def show_tutor_archive(id):
+    tutor = tutor_repository.select(id)
+    lessons = tutor_repository.lessons(tutor)
+    return render_template('tutors/show_archive.html', tutor=tutor, lessons=lessons)
+
+
 #EDIT - GET '/tutors/<id>/edit'
 @tutors_blueprint.route("/tutors/<id>/edit", methods=['GET'])
 def edit_tutor(id):
