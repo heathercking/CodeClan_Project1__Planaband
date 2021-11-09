@@ -44,15 +44,17 @@ def create_pupil():
 def show_pupil(id):
     pupil = pupil_repository.select(id)
     lessons = pupil_repository.lessons(pupil)
-    return render_template('pupils/show.html', pupil=pupil, lessons=lessons)
+    attendances = pupil_repository.attendances(pupil)
+    return render_template('pupils/show.html', pupil=pupil, lessons=lessons, attendances=attendances)
 
 
-#SHOW - GET '/pupils/<id>'
+#SHOW archive - GET '/pupils/<id>/archive'
 @pupils_blueprint.route("/pupils/<id>/archive", methods=['GET'])
 def show_pupil_archive(id):
     pupil = pupil_repository.select(id)
     lessons = pupil_repository.lessons(pupil)
-    return render_template('pupils/show_archive.html', pupil=pupil, lessons=lessons)
+    attendances = pupil_repository.attendances(pupil)
+    return render_template('pupils/show_archive.html', pupil=pupil, lessons=lessons, attendances=attendances)
 
 
 #EDIT - GET '/pupils/<id>/edit'

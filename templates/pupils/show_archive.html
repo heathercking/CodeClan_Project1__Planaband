@@ -14,10 +14,28 @@
     <div>
         <h3>Archived Lessons</h3>
         <table>
-            {% for lesson in lessons %}
-                {% if lesson.todays_date() > lesson.date %}
+            <tr>
+                <th>Lesson</th>
+                <th>Date</th>
+                <th>Tutor</th>
+                <th>Attended?</th>
+            </tr>
+
+            {% for attendance in attendances %}
+                {% if attendance.lesson.todays_date() > attendance.lesson.date %}
                     <tr>
-                        <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }} on {{ lesson.date }}</a></td>
+                        <td><a href="/lessons/{{ attendance.lesson.id }}">{{ attendance.lesson.name }}</a></td>
+                        <td>{{ attendance.lesson.date }}</td>
+                        <td>{{ attendance.lesson.tutor.name }}</td>
+                        <td>
+                            <form action="/attendances/{{ attendance.id }}/attended" method="POST">
+                                {% if attendance.attended == False %}
+                                    <button class="attended-btn"><i class="far fa-times-circle fa-2x" style="color:grey"></i></button>
+                                {% else %}
+                                    <button class="attended-btn"><i class="fas fa-check-circle fa-2x" style="color:green"></i></button>
+                                {% endif %}
+                            </form>
+                        </td>
                     </tr>
                 {% endif %}
             {% endfor %}
@@ -27,3 +45,7 @@
 
 
 {% endblock %}
+
+
+
+

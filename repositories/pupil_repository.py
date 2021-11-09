@@ -4,9 +4,12 @@ from models.lesson import Lesson
 from models.pupil import Pupil
 from models.nok import NextOfKin
 from models.tutor import Tutor
+from models.lesson import Lesson
+from models.attendance import Attendance
 import repositories.pupil_repository as pupil_repository
 import repositories.nok_repository as nok_repository
 import repositories.tutor_repository as tutor_repository
+import repositories.lesson_repository as lesson_repository
 
 
 
@@ -70,6 +73,21 @@ def lessons(pupil):
 
     for row in results:
         tutor = tutor_repository.select(row['tutor_id'])
-        lesson = Lesson(row['name'], row['date'], row['instrument'], tutor, row['group_status'], row['id'])
+        lesson = Lesson(row['name'], row['date'], row['time'], row['instrument'], tutor, row['max_capacity'], row['group_status'], row['id'])
         lessons.append(lesson)
     return lessons
+
+
+def attendances(pupil):
+    attendances = []
+
+    sql = "SELECT * FROM attendances WHERE pupil_id = %s"
+    values = [pupil.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        pupil = pupil_repository.select(row['pupil_id'])
+        lesson = lesson_repository.select(row['lesson_id'])
+        attendance = Attendance(lesson, pupil, row['attended'], row['id'])
+        attendances.append(attendance)
+    return attendances

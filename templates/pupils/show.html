@@ -20,10 +20,17 @@
     <div>
         <h3>Scheduled Lessons</h3>
         <table>
+            <tr>
+                <th>Lesson</th>
+                <th>Date</th>
+                <th>Tutor</th>
+            </tr>
             {% for lesson in lessons %}
                 {% if lesson.todays_date() <= lesson.date %}
                     <tr>
-                        <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }} on {{ lesson.date }}</a></td>
+                        <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
+                        <td>{{ lesson.date }}</td>
+                        <td>{{ lesson.tutor.name }}</td>
                     </tr>
                 {% endif %}
             {% endfor %}
