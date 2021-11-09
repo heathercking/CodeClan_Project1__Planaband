@@ -45,7 +45,9 @@ def show_pupil(id):
     pupil = pupil_repository.select(id)
     lessons = pupil_repository.lessons(pupil)
     attendances = pupil_repository.attendances(pupil)
-    return render_template('pupils/show.html', pupil=pupil, lessons=lessons, attendances=attendances)
+    no_attended = pupil.no_attended(attendances)
+    attendance_rate = pupil.attendance_rate(no_attended, attendances)
+    return render_template('pupils/show.html', pupil=pupil, lessons=lessons, attendances=attendances, attendance_rate=attendance_rate)
 
 
 #SHOW archive - GET '/pupils/<id>/archive'

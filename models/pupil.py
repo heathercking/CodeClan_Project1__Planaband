@@ -9,3 +9,17 @@ class Pupil:
         self.notes = notes
         self.active = active
         self.id = id
+
+    
+    def no_attended(self, input_attendances):
+        attended = []
+        for attendance in input_attendances:
+            if attendance.attended == True:
+                attended.append(attendance)
+        no_attended = len(attended)
+        return no_attended
+    
+    def attendance_rate(self, no_attended, attendances):
+        rate = no_attended / len(attendances) * 100
+        result = round(rate)
+        return result

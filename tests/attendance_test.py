@@ -25,3 +25,4 @@ class TestAttendance(unittest.TestCase):
     def test_attendace_status_can_be_updated_to_True(self):
         self.attendance1.mark_attended()
         self.assertEqual(True, self.attendance1.attended)
+

@@ -2,13 +2,15 @@ import unittest
 from datetime import date
 
 from models.pupil import *
+from models.attendance import *
 
 class TestPupil(unittest.TestCase):
 
     def setUp(self):
         self.pupil1 = Pupil("Harry Potter", date(2010, 7, 31), "Piano", "4", "Rubeus Hagrid", "Sat grade 4 exam in April", True)
         self.pupil2 = Pupil("Hermione Granger", "19-09-2015", "Recorder", "0", "Parents", "Recommended to us by school teacher", True)
-
+        self.attendance1 = Attendance("Beginner Recorder", "Harry Potter")
+        self.attendance2 = Attendance("Beginner Recorder", "")
     
     def test_pupil_has_name(self):
         self.assertEqual("Harry Potter", self.pupil1.name)
@@ -33,3 +35,8 @@ class TestPupil(unittest.TestCase):
     
     def test_pupil_has_active_status(self):
         self.assertEqual(True, self.pupil1.active)
+    
+    def test_count_no_attended_lessons(self):
+        self.attendance1.mark_attended()
+        attendances = [self.attendance1, self.attendance2]
+        self.assertEqual(1, self.pupil1.no_attended(attendances))

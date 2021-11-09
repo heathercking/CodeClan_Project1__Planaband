@@ -9,4 +9,3 @@ class Attendance:
 
     def mark_attended(self):
         self.attended = True
-    
