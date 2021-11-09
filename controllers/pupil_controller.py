@@ -17,6 +17,13 @@ def pupils():
     return render_template("pupils/index.html", all_pupils=pupils)
 
 
+#displays archived pupils - pupil.active = False
+@pupils_blueprint.route("/pupils/archive")
+def pupils_archive():
+    pupils = pupil_repository.select_all()
+    return render_template("pupils/archive.html", all_pupils=pupils)
+
+
 #NEW - GET '/pupils/new'
 @pupils_blueprint.route("/pupils/new", methods=['GET'])
 def new_pupil():

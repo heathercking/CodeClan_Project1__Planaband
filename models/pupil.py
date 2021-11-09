@@ -20,6 +20,9 @@ class Pupil:
         return no_attended
     
     def attendance_rate(self, no_attended, attendances):
-        rate = no_attended / len(attendances) * 100
-        result = round(rate)
-        return result
+        if no_attended > 0:
+            rate = no_attended / len(attendances) * 100
+            result = round(rate)
+            return result
+        else:
+            return 0

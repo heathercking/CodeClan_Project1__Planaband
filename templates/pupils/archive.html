@@ -3,10 +3,13 @@
 
 <div class="pupils">
     <div class="container flex"> 
-        <h1>Our Pupils</h1>
-        <form action="/noks/new">
-            <button>Enrol a Pupil</button>
+
+        <h1>Pupils Archive</h1>
+
+        <form action="/pupils">
+            <button>Back</button>
         </form>
+
     </div>
 
     <div class ="container my-2">
@@ -20,7 +23,7 @@
             </tr>
 
             {% for pupil in all_pupils %}
-                {% if pupil.active == True %}
+                {% if pupil.active == False %}
                     <tr>
                         <td><a href="/pupils/{{ pupil.id }}">{{ pupil.name }}</a></td>
                         <td>{{ pupil.dob }}</td>
@@ -31,10 +34,6 @@
             {% endfor %}
 
         </table>
-
-        <form action="/pupils/archive">
-            <button>View pupil archive</button>
-        </form>
 
     </div>
 </div>

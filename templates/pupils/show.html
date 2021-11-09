@@ -3,7 +3,11 @@
 
     <div>
         <p>{{ pupil.name }}</p>
-        <p>Attendance rate: {{ attendance_rate }}%</p>
+        {% if attendance_rate > 0 %}
+            <p>Attendance rate: {{ attendance_rate }}%</p>
+        {% else %}
+            <p>Attendance rate: 0%</p>
+        {% endif %}
 
         <p>Date of Birth: {{ pupil.dob }}</p>
         <p>Instrument: {{ pupil.instrument }}</p>
