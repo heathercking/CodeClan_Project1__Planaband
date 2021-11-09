@@ -7,10 +7,10 @@
         <h1>All Lessons</h1>
 
         <form action="/lessons/spaces">
-            <button>Show lessons with spaces</button>
+            <button>View lessons with spaces</button>
         </form>
         <form action="/lessons/new">
-            <button>Add lesson</button>
+            <button>Create new lesson</button>
         </form>
 
     </div>
@@ -28,33 +28,39 @@
             </tr>
 
             {% for lesson in all_lessons %}
-                <tr>
-                    <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
-                    <td>{{ lesson.date }} at {{ lesson.time }}</td>
-                    <td>{{ lesson.instrument }}</td>
-                    <td>{{ lesson.tutor.name }}</td>
-                    <td>
-                    {% if lesson.group_status == True %} <p>Yes</p>
-                    {% else %} <p>No</p>
-                    {% endif %}
-                    </td>
-                    <td>
-                        {% if lesson.count_free_spaces() == 0 %}
-                            <p class="full">FULL</p>
-                        {% else %}
-                            <form action="/lessons/{{ lesson.id }}">
-                                <button>Book</button>
-                            </form>
+                {% if lesson.todays_date() <= lesson.date %}
+                    <tr>
+                        <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
+                        <td>{{ lesson.date }} at {{ lesson.time }}</td>
+                        <td>{{ lesson.instrument }}</td>
+                        <td>{{ lesson.tutor.name }}</td>
+                        <td>
+                        {% if lesson.group_status == True %} <p>Yes</p>
+                        {% else %} <p>No</p>
                         {% endif %}
-                    </td>
-                    <td>
-                        <form action="lessons/{{ lesson.id }}">
-                            <button>Log Attendance</button>
-                        </form>
-                    </td>
-                </tr>
+                        </td>
+                        <td>
+                            {% if lesson.count_free_spaces() == 0 %}
+                                <p class="full">FULL</p>
+                            {% else %}
+                                <form action="/lessons/{{ lesson.id }}">
+                                    <button>Book</button>
+                                </form>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <form action="lessons/{{ lesson.id }}">
+                                <button>Log Attendance</button>
+                            </form>
+                        </td>
+                    </tr>
+                {% endif %}
             {% endfor %}
 
+            <form action="/lessons/new">
+                <button>Create new lesson</button>
+            </form>
+            
         </table>
     </div>
 </div>

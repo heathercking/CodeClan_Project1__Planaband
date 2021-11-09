@@ -1,3 +1,5 @@
+from datetime import date
+
 class Lesson:
 
     def __init__(self, name, date, time, instrument, tutor, max_capacity, group_status=False, id=None):
@@ -28,4 +30,10 @@ class Lesson:
     def count_attendees(self):
         no_attendees = len(self.attendees)
         return no_attendees
+
+    def todays_date(self):
+        today = date.today()
+        print(today)
+        return today
+        
 

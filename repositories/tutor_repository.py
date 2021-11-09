@@ -59,7 +59,7 @@ def delete_all():
 def lessons(tutor):
     lessons = []
 
-    sql = "SELECT * FROM lessons WHERE tutor_id = %s"
+    sql = "SELECT * FROM lessons WHERE tutor_id = %s ORDER BY date"
     values = [tutor.id]
     results = run_sql(sql, values)
 
