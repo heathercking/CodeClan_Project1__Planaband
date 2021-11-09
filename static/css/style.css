@@ -75,6 +75,7 @@ img {
     padding: 15px;
     border: none;
     border-radius: 10%;
+    cursor: pointer;
 }
 
 .btn-yellow {
@@ -83,9 +84,13 @@ img {
     font-family: "Quicksand", sans-serif, Helvetica, Arial;
     font-size: 16px;
     font-weight: 900;
-    padding: 15px;
+    padding: 10px 30px;
     border: none;
     border-radius: 10%;
+}
+
+.btn-orange:hover {
+    transform: scale(1.05);
 }
 
 
