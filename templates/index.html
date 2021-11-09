@@ -6,20 +6,20 @@
 <div class="welcome">
     <div class="container grid-1">
 
-        <h1>Welcome to Planaband</h1>
+        <h1>Welcome!</h1>
 
-        <h2>Streamline your Music School admin!</h2>
+        <h2 class="text-light">The School of Music Planning Centre</h2>
 
             <div class ="flex my-4">
-                <form action="/lessons">
-                    <button class="btn-dark">Book Lessons</button>
-                </form>
-                <form action="/noks/new">
-                    <button class="btn-dark">Enrol Pupils</button>
-                </form>
-                <form action="/lessons">
-                    <button class="btn-dark">Log Attendence</button>
-                </form>
+                <div class="">
+                    <a href="/lessons">Book Lesson</a>
+                </div>
+                <div class="pale">
+                    <a href="/noks/new">Enrol Pupil</a>
+                </div>
+                <div class="">
+                    <a href="/lessons">Log Attendance</a>
+                </div>
             </div>
     </div>
 </div>
@@ -50,6 +50,7 @@
         </div>
         <div class="card">
             <h3>Saxophone 1:1</h3>
+            <img href="{{ url_for('static', filename='images/sax.png') }}" alt="">
         </div>
         <div class="card">
             <h3>Guitar 1:1</h3>

@@ -3,7 +3,6 @@
     background-color: var(--white);
     color: var(--primary-dark);
     height: 100px;
-    margin-bottom: 50px;
     border-bottom: 0.5px #e6e6e6 solid;
 }
 
@@ -22,11 +21,12 @@
     display: flex;
     list-style-type: none;
     padding: 10px;
+    font-size: 22px;
 }
 
 .navbar a {
     text-decoration: none;
-    color: var(--primary-dark);
+    color: var(--primary-dark); 
 }
 
 .navbar .menu a {
@@ -50,7 +50,7 @@
 .footer {
     background-color: var(--primary-dark);
     color: var(--white);
-    height: 160px;
+    height: 130px;
     margin-top: 40px;
 }
 
@@ -62,6 +62,7 @@
 .footer ul {
     display: flex;
     list-style-type: none;
+    gap: 20px;
     padding: 10px;
 }
 
@@ -78,3 +79,4 @@
 .footer .social a {
     margin: 0 10px;
 }
+

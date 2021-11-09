@@ -1,29 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="lessons">
+<div class="lessons my-4">
+    
     <div class="container flex"> 
-
         <h1>Upcoming Lessons</h1>
-        <form action="/lessons/spaces">
-            <button>View lessons with spaces</button>
-        </form>
-        <form action="/lessons/new">
-            <button>Create new lesson</button>
-        </form>
-
+        <div>
+            <ul class="menu">
+                <li><a href="/lessons/spaces">View lessons with spaces</a></li>
+                <li><a href="/lessons/new">Create new lesson</a></li>
+            </ul>
+        </div>
     </div>
-    <div class ="container my-2">
+
+
+    <div class ="container my-4">
 
         <table style="width:100%">
             <tr>
-                <th class="th-1" style="width:20%">Name</th>
+                <th class="th-1" style="width:18%">Name</th>
                 <th style="width:18%">Date & Time</th>
                 <th style="width:10%">Instrument(s)</th>
                 <th style="width:20%">Tutor</th>
                 <th style="width:8%">Group?</th>
                 <th style="width:9%">Book</th>
-                <th style="width:15%">Log Attendance</th>    
+                <th style="width:17%">Log Attendance</th>    
             </tr>
 
             {% for lesson in all_lessons %}
@@ -42,24 +43,21 @@
                             {% if lesson.count_free_spaces() == 0 %}
                                 <p class="full">FULL</p>
                             {% else %}
-                                <form action="/lessons/{{ lesson.id }}">
-                                    <button>Book</button>
-                                </form>
+                                <a class="book"href="/lessons/{{ lesson.id }}">Book</a> 
                             {% endif %}
                         </td>
                         <td>
-                            <form action="lessons/{{ lesson.id }}">
-                                <button>Log</button>
-                            </form>
+                            <a class="log" href="lessons/{{ lesson.id }}">Log</a>
                         </td>
                     </tr>
                 {% endif %}
             {% endfor %}
         </table>
 
-        <form action="/lessons/archive">
-            <button>View lesson archive</button>
-        </form>
+        <div class="my-2">
+            <a class="archive" href="/lessons/archive">View lesson archive</a>
+        </div>
+
 
     </div>
 </div>

@@ -57,17 +57,44 @@
 
 
 /*index.html*/
+.welcome {
+    background-color: var(--primary-dark);
+}
+
 .welcome .container {
-    padding: 0 20px;
+    padding: 60px 20px 40px 20px;
     text-align: center;
     margin-bottom: 50px;
-    background-color: var(--white);
     color: var(--primary-dark);
+    border-bottom: 0.5px #e6e6e6 solid;
 }
 
 .welcome .flex {
-    gap: 20px;
+    gap: 40px;
 }
+
+.welcome a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 900;
+    border-bottom: 2px var(--secondary-bright) solid;
+}
+
+.welcome .pale a  {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 900;
+    border-bottom: 2px var(--secondary-pale) solid;
+}
+
+.welcome a:hover {
+    color: var(--primary-bright);
+    border-bottom: 2px var(--primary-bright) solid;
+}
+
+
 
 .lesson-types .container {
     padding: 0 20px;
@@ -91,22 +118,6 @@
 
 
 
-.lessons .container {
-    width: 90%;
-}
-
-.lessons .flex {
-    justify-content: space-between;
-}
-
-.lesson-details .container {
-    width: 90%;
-}
-
-.lesson-details .flex {
-    justify-content: space-between;
-    gap: 20%;
-}
 
 .pupils .container {
     width: 90%;

@@ -48,10 +48,14 @@ p {
     text-align: center;
 }
 
+.text-light {
+    color: var(--white);
+}
+
 .full {
     font-family: "Gloria Hallelujah", sans-serif, Helvetica, Arial;
     font-size: 18px;
-    color: var(--primary-bright);
+    color: #cccccc;
 }
 
 .full-2 {

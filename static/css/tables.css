@@ -8,6 +8,7 @@ th {
     text-align: center;
     background-color: var(--primary-dark);
     color: var(--white);
+    font-size: 15px;
 }
 
 .th-1 {
