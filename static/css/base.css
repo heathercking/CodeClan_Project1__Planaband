@@ -4,7 +4,7 @@
     color: var(--primary-dark);
     height: 100px;
     margin-bottom: 50px;
-    border-bottom: 1px var(--primary-dark) solid;
+    border-bottom: 0.5px #e6e6e6 solid;
 }
 
 .logo {

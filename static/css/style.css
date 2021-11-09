@@ -44,6 +44,10 @@ p {
     margin: 10px 0;
 }
 
+.text-center {
+    text-align: center;
+}
+
 .full {
     font-family: "Gloria Hallelujah", sans-serif, Helvetica, Arial;
     font-size: 18px;
@@ -79,18 +83,25 @@ img {
     cursor: pointer;
 }
 
-.btn-yellow {
-    background-color: var(--secondary-bright);
-    color: var(--primary-dark);
+.btn-orange:hover {
+    transform: scale(1.05);
+}
+
+.btn-dark {
+    background-color: var(--primary-dark);
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    color: var(--primary-bright);
     font-family: "Quicksand", sans-serif, Helvetica, Arial;
     font-size: 16px;
     font-weight: 900;
-    padding: 10px 30px;
+    padding: 15px;
     border: none;
     border-radius: 10%;
+    cursor: pointer;
 }
 
-.btn-orange:hover {
+.btn-dark:hover {
+    color: var(--white);
     transform: scale(1.05);
 }
 
@@ -102,6 +113,7 @@ img {
     border: none;
     background-color: transparent;
 }
+
 
 
 /* MARGINS */
