@@ -19,7 +19,7 @@ def save(attendance):
 def select_all():
     attendances = []
 
-    sql = "SELECT * FROM attendances"
+    sql = "SELECT * FROM attendances ORDER BY pupil_id"
     results = run_sql(sql)
 
     for row in results:

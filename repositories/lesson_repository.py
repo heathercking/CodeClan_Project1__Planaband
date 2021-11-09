@@ -81,7 +81,7 @@ def pupils(lesson):
 def attendances(lesson):
     attendances = []
 
-    sql = "SELECT * FROM attendances WHERE lesson_id = %s"
+    sql = "SELECT * FROM attendances WHERE lesson_id = %s ORDER BY pupil_id"
     values = [lesson.id]
     results = run_sql(sql, values)
 

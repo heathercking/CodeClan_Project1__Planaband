@@ -1,4 +1,5 @@
 from db.run_sql import run_sql
+from models.lesson import Lesson
 
 from models.tutor import Tutor
 import repositories.tutor_repository as tutor_repository
@@ -52,3 +53,15 @@ def delete_all():
     sql = "DELETE FROM tutors"
     run_sql(sql)
 
+
+def lessons(tutor):
+    lessons = []
+
+    sql = "SELECT * FROM lessons WHERE tutor_id = %s"
+    values = [tutor.id]
+    results = run_sql(sql, values)
+
+    for row in results:
+        lesson = Lesson(row['name'], row['date'], row['time'], row['instrument'], row['tutor_id'], row['max_capacity'], row['group_status'], row['id'])
+        lessons.append(lesson)
+    return lessons
