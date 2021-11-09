@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div>
+        <p>{{ pupil.name }}</p>
+
+        </p>
+    </div>
+
+    <form action="/pupils/{{ pupil.id }}">
+        <button>Back</button>
+    </form>
+
+    <div>
+        <h3>Archived Lessons</h3>
+        <table>
+            {% for lesson in lessons %}
+                {% if lesson.todays_date() > lesson.date %}
+                    <tr>
+                        <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }} on {{ lesson.date }}</a></td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+    </div>
+
+
+
+{% endblock %}

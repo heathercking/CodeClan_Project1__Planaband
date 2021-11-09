@@ -8,21 +8,32 @@
         <p>Grade: {{ pupil.grade }}</p>
         <p>Next of Kin: {{ pupil.nok.name }}</p>
         <p>Notes: {{ pupil.notes }}</p>
-        <p>Current Student?: {{ pupil.active }}</p>
+        <p>Current Student?
+            {% if pupil.active == True %}
+                Yes
+            {% else %}
+                No
+            {% endif %}
+        </p>
     </div>
 
     <div>
         <h3>Scheduled Lessons</h3>
         <table>
             {% for lesson in lessons %}
-                <tr>
-                    <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }} on {{ lesson.date }}</a></td>
-                </tr>
+                {% if lesson.todays_date() <= lesson.date %}
+                    <tr>
+                        <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }} on {{ lesson.date }}</a></td>
+                    </tr>
+                {% endif %}
             {% endfor %}
         </table>
     </div>
 
     <div>
+        <form action="/pupils/{{ pupil.id }}/archive">
+            <button>View archived lessons</button>
+        </form>
         <form action="/pupils/{{ pupil.id }}/edit">
             <button>Edit</button>
         </form>
