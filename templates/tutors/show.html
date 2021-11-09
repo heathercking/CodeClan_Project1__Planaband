@@ -19,12 +19,18 @@
                 <th>Lesson</th>
                 <th>Date</th>
                 <th>No. Attendees</th>
+                <th>Log Attendance</th>
             </tr>
             {% for lesson in lessons %}
                 <tr>
                     <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</td>
                     <td>{{ lesson.date }}</td>
-                    <td></td>
+                    <td>{{ lesson.count_attendees() }}</td>
+                    <td>
+                        <form action="lessons/{{ lesson.id }}">
+                            <button>Log Attendance</button>
+                        </form>
+                    </td>
                 </tr>
             {% endfor %}
         </table>

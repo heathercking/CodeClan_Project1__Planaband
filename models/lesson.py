@@ -25,3 +25,7 @@ class Lesson:
         spaces = self.count_free_spaces()
         print(spaces)
 
+    def count_attendees(self):
+        no_attendees = len(self.attendees)
+        return no_attendees
+

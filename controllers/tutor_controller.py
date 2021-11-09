@@ -1,9 +1,14 @@
 from flask import Flask, render_template, request, redirect
 from flask import Blueprint
+
 from models.tutor import Tutor
+from models.lesson import Lesson
+
 import repositories.tutor_repository as tutor_repository
+import repositories.lesson_repository as lesson_repository
 
 tutors_blueprint = Blueprint("tutors", __name__)
+
 
 
 @tutors_blueprint.route("/tutors")

@@ -1,8 +1,10 @@
 from db.run_sql import run_sql
-from models.lesson import Lesson
 
+from models.lesson import Lesson
 from models.tutor import Tutor
+
 import repositories.tutor_repository as tutor_repository
+import repositories.lesson_repository as lesson_repository
 
 
 
@@ -63,5 +65,6 @@ def lessons(tutor):
 
     for row in results:
         lesson = Lesson(row['name'], row['date'], row['time'], row['instrument'], row['tutor_id'], row['max_capacity'], row['group_status'], row['id'])
+        lesson.attendees = lesson_repository.attendances(lesson)
         lessons.append(lesson)
     return lessons
