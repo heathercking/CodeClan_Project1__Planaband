@@ -2,7 +2,7 @@
 .navbar {
     background-color: var(--white);
     color: var(--primary-dark);
-    height: 100px;
+    height: 120px;
     border-bottom: 0.5px #e6e6e6 solid;
 }
 
@@ -10,11 +10,6 @@
     text-align: center;
     margin: 10px 0;
     padding: 10px;
-}
-
-.logo a:hover {
-    border-bottom: 2px var(--primary-bright) solid;
-    color: var(--primary-bright);
 }
 
 .navbar ul {
@@ -34,7 +29,7 @@
     margin: 0 15px;
 }
 
-.navbar a:hover {
+.navbar .menu a:hover {
     border-bottom: 2px var(--primary-bright) solid;
     color: var(--primary-bright);
 }

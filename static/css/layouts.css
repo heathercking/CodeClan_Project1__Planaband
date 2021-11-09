@@ -109,6 +109,7 @@
 .lesson-types .card {
     text-align: center;
     margin: 18px 10px 40px;
+    width: 200px;
 }
 
 .lesson-types .card:hover {

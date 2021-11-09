@@ -54,7 +54,7 @@ p {
 
 .full {
     font-family: "Gloria Hallelujah", sans-serif, Helvetica, Arial;
-    font-size: 18px;
+    font-size: 16px;
     color: #cccccc;
 }
 
@@ -69,6 +69,18 @@ img {
     width: 100%;
     border-radius: 10px;
 }
+
+.small-img {
+    width: 40%;
+}
+
+
+
+.med-img {
+    width: 60%;
+}
+
+
 
 
 
