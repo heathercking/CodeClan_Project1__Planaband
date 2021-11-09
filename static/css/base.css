@@ -6,10 +6,6 @@
     margin-bottom: 40px;
 }
 
-.navbar .container {
-    border-bottom: 1px var(--primary-dark) solid;
-}
-
 .logo {
     text-align: center;
     margin: 10px 0;
@@ -25,7 +21,6 @@
     display: flex;
     list-style-type: none;
     padding: 10px;
-    /* background-color: rgba(0,0,0,0.2); */
 }
 
 .navbar a {
@@ -44,5 +39,41 @@
 }
 
 .navbar .flex {
-    justify-content: space-between;
+    justify-content: space-around;
+}
+
+
+
+
+/* FOOTER */
+.footer {
+    background-color: var(--primary-dark);
+    color: var(--white);
+    height: 160px;
+    margin-top: 40px;
+}
+
+.footer a:hover {
+    border-bottom: 2px var(--primary-bright) solid;
+    color: var(--primary-bright);
+}
+
+.footer ul {
+    display: flex;
+    list-style-type: none;
+    padding: 10px;
+}
+
+.footer a {
+    text-decoration: none;
+    color: var(--white);
+}
+
+.footer .menu a {
+    padding: 10ox;
+    margin: 0 15px;
+}
+
+.footer .social a {
+    margin: 0 10px;
 }
