@@ -6,11 +6,8 @@
 
         <h1>All Lessons</h1>
 
-        <form action="/lessons/spaces">
-            <button>View lessons with spaces</button>
-        </form>
-        <form action="/lessons/new">
-            <button>Create new lesson</button>
+        <form action="/lessons">
+            <button>Back</button>
         </form>
 
     </div>
@@ -28,7 +25,7 @@
             </tr>
 
             {% for lesson in all_lessons %}
-                {% if lesson.todays_date() <= lesson.date %}
+                {% if lesson.todays_date() > lesson.date %}
                     <tr>
                         <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
                         <td>{{ lesson.date }} at {{ lesson.time }}</td>
@@ -56,12 +53,8 @@
                     </tr>
                 {% endif %}
             {% endfor %}
+            
         </table>
-
-        <form action="/lessons/archive">
-            <button>View lesson archive</button>
-        </form>
-
     </div>
 </div>
 {% endblock %}

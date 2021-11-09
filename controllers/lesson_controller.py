@@ -23,6 +23,13 @@ def lessons_spaces():
     return render_template("lessons/spaces.html", all_lessons=lessons)
 
 
+# displays archived lessons - older than today's date
+@lessons_blueprint.route("/lessons/archive")
+def lessons_archive():
+    lessons = lesson_repository.select_all()
+    return render_template("lessons/archive.html", all_lessons=lessons)
+
+
 #NEW - GET '/lessons/new'
 @lessons_blueprint.route("/lessons/new", methods=['GET'])
 def new_lesson():
