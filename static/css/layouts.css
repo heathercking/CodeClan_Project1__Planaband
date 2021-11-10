@@ -48,4 +48,37 @@
     margin: 10px;
 }
 
+.card-left {
+    text-align: left;
+}
+
+.card-w {
+    min-width: 370px;
+    padding: 30px 40px;
+}
+
+
+
+
+/* FORMS */
+input, select {
+    margin-bottom: 20px;
+    size: 100px;
+}
+
+.form input {
+    border: 0;
+    border-bottom: 1px solid #b4becb;
+    width: 100%;
+    padding: 3px;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: #cccccc;
+    font-family: "Quicksand", sans-serif, Helvetica, Arial;
+    font-size: 14px;
+}
+
+
 
