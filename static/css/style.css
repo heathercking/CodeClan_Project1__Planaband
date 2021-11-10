@@ -59,11 +59,12 @@ p {
 }
 
 .full-2 {
-    font-family: "Quicksand", sans-serif, Helvetica, Arial;
+    font-family: "Gloria Hallelujah", sans-serif, Helvetica, Arial;
     font-size: 20px;
     font-weight: 1000;
-    color: var(--primary-bright);
+    color: #cccccc;
 }
+
 
 img {
     width: 100%;

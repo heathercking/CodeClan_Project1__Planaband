@@ -24,7 +24,7 @@
 }
 
 .lessons .menu a {
-    padding: 10ox;
+    padding: 5px;
     margin: 0 15px;
     border-bottom: 2px var(--secondary-bright) solid;
 }
@@ -76,6 +76,55 @@
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.3);
     padding: 10px;
-    margin: 10px 0;
+    margin: 20px 0;
     width: 30%;
+}
+
+.book-lesson {
+    border: none;
+    background-color: transparent;
+    font-family: "Gloria Hallelujah", sans-serif, Helvetica, Arial;
+    font-size: 25px;
+    font-weight: 1000;
+    color: var(--primary-bright);
+    border-bottom: 2px var(--primary-bright) solid; 
+}
+
+.book-lesson:hover {
+    border-bottom: 2px var(--secondary-bright) solid;
+    color: var(--secondary-bright);
+    cursor: pointer;
+}
+
+.lesson-details ul {
+    display: flex;
+    list-style-type: none;
+    padding: 10px;
+    font-size: 18px;
+    gap: 25px;
+}
+
+.lesson-details a {
+    text-decoration: none;
+    color: var(--primary-dark); 
+    border-bottom: 2px var(--secondary-pale) solid;
+}
+
+.lesson-details .menu a {
+    padding: 0px;
+    margin: 0 15px;
+    border-bottom: 2px var(--secondary-bright) solid;
+}
+
+.lesson-details a:hover {
+    border-bottom: 2px var(--primary-bright) solid;
+    color: var(--primary-bright);
+}
+
+.attend-delete {
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px var(--secondary-bright) solid; 
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif, Helvetica, Arial;
 }

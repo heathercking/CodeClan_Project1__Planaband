@@ -1,76 +1,79 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div class="lesson-details">
-        <div class="container flex">
-            <div>
-                <h2>{{ lesson.name }} on {{ lesson.date }}</h2>
-            </div>
+<div class="lesson-details">
+    <div class="container flex">
+        <div>
+            <h2>{{ lesson.name }} on {{ lesson.date }}</h2>
+        </div>
 
-            <div>
-                {% if lesson.count_free_spaces() == 0 %}
-                    <p class="full-2">THIS LESSON IS FULL</p>
-                {% else %}
-                    <form action="/attendances/new">
-                        <button>Book</button>
-                    </form>
+        <div>
+            {% if lesson.count_free_spaces() == 0 %}
+                <p class="full-2">LESSON FULL</p>
+            {% else %}
+                <form action="/attendances/new">
+                    <button class="book-lesson">BOOK</button>
+                </form>
+            {% endif %}
+        </div>
+
+        <div class="card-listing">
+            <p><b>Time: </b> {{ lesson.time }} </p> 
+            <p><b>Instrument: </b>{{ lesson.instrument }}</p>
+            <p><b>Tutor:</b> {{ lesson.tutor.name }}</p>
+            <p><b>Group?</b>
+                {% if lesson.group_status == True %} <span>Yes</span>
+                {% else %} <span>No</span>
                 {% endif %}
-            </div>
-
-            <div class="card-listing">
-                <p><b>Time: </b> {{ lesson.time }} </p> 
-                <p><b>Instrument: </b>{{ lesson.instrument }}</p>
-                <p><b>Tutor:</b> {{ lesson.tutor.name }}</p>
-                <p><b>Group?</b>
-                    {% if lesson.group_status == True %} <span>Yes</span>
-                    {% else %} <span>No</span>
-                    {% endif %}
-                </p>
-                <p><b>Available Spaces:</b> {{ lesson.count_free_spaces() }}</p>
-            </div>
-        </div>
-        
-
-        <div class ="container my-4">
-            <h3>Scheduled Attendees</h3>
-
-            <table class="center my-2" style="width:40%">
-                <tr>
-                    <th class="th-1" style="width:50%">Pupil</th>
-                    <th style="width:25%">Attended?</th>
-                    <th style="width:25%">Remove</th>
-                </tr>
-                {% for attendance in attendances %}
-                    <tr>
-                        <td class="td-1"><a href="/pupils/{{ attendance.pupil.id }}">{{ attendance.pupil.name }}</a></td>
-                        <td>
-                            <form action="/attendances/{{ attendance.id }}/attended" method="POST">
-                                {% if attendance.attended == False %}
-                                    <button class="attended-btn"><i class="far fa-times-circle fa-2x" style="color:grey"></i></button>
-                                {% else %}
-                                    <button class="attended-btn"><i class="fas fa-check-circle fa-2x" style="color:green"></i></button>
-                                {% endif %}
-                            </form>
-                        </td>
-                        <td>
-                            <form action="/attendances/{{ attendance.id }}/delete" method="POST">
-                                <button class="attended-btn"><i class="fas fa-user-times fa-2x" style="color:grey"></i></button>
-                            </form>
-                        </td>
-                    </tr>
-                {% endfor %}
-            </table>
-        </div>
-
-        <div class="container"> 
-            <form action="/lessons/{{ lesson.id }}/edit">
-                <button>Edit Lesson</button>
-            </form>
-            <form action="/lessons/{{ lesson.id }}/delete" method="POST">
-                <button>Delete Lesson</button>
-            </form>
+            </p>
+            <p><b>Available Spaces:</b> {{ lesson.count_free_spaces() }}</p>
         </div>
     </div>
+    
+
+    <div class ="container my-4">
+        <h2>Scheduled Attendees</h2>
+
+        <table class="center my-2" style="width:40%">
+            <tr>
+                <th class="th-1" style="width:50%">Pupil</th>
+                <th style="width:25%">Attended?</th>
+                <th style="width:25%">Remove</th>
+            </tr>
+            {% for attendance in attendances %}
+                <tr>
+                    <td class="td-1"><a href="/pupils/{{ attendance.pupil.id }}">{{ attendance.pupil.name }}</a></td>
+                    <td>
+                        <form action="/attendances/{{ attendance.id }}/attended" method="POST">
+                            {% if attendance.attended == False %}
+                                <button class="attended-btn"><i class="far fa-times-circle fa-2x" style="color:grey"></i></button>
+                            {% else %}
+                                <button class="attended-btn"><i class="fas fa-check-circle fa-2x" style="color:green"></i></button>
+                            {% endif %}
+                        </form>
+                    </td>
+                    <td>
+                        <form action="/attendances/{{ attendance.id }}/delete" method="POST">
+                            <button class="attended-btn"><i class="fas fa-user-times fa-2x" style="color:grey"></i></button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <div class="container flex"> 
+        <div>
+            <ul class="menu end-menu">
+                <li><a href="/lessons/{{ lesson.id }}/edit">Edit Lesson</a></li>
+                <form action="/lessons/{{ lesson.id }}/delete" method="POST">
+                    <button class="lesson-delete">Delete Lesson</button>
+                </form>
+            </ul>
+        </div>
+    </div>
+
+</div>
 
 
 {% endblock %}

@@ -42,15 +42,15 @@
     border-bottom: 2px var(--secondary-bright) solid; 
 }
 
-.attend-delete {
+.lesson-delete {
     border: none;
     background-color: transparent;
     border-bottom: 2px var(--secondary-bright) solid; 
-    font-size: 14px;
+    font-size: 18px;
     font-family: "Quicksand", sans-serif, Helvetica, Arial;;
 }
 
-.attend-delete:hover {
+.lesson-delete:hover {
     border-bottom: 2px var(--primary-bright) solid;
     color: var(--primary-bright);
     cursor: pointer;
