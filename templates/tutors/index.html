@@ -1,35 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="tutors">
+<div class="tutors my-4">
     <div class="container flex"> 
-
         <h1 class="heading">Our Tutors</h1>
-
-        <form action="/tutors/new">
-            <button>Add New</button>
-        </form>
+        <div>
+            <ul class="menu">
+                <li><a href="/tutors/new">Add new tutor</a></li>
+            </ul>
+        </div>
     </div>
-    <div class ="container my-2">
+    
+    <div class ="container my-4">
 
         <table style="width:100%">
             <tr>
-                <th>Name</th>
-                <th>Contact Number</th>
-                <th>Address</th>
-                <th>Postcode</th>
+                <th class="th-1" style="width:25%">Name</th>
+                <th style="width:20%">Contact Number</th>
+                <th style="width:30%">Address</th>
+                <th style="width:15%">Postcode</th>
             </tr>
 
             {% for tutor in all_tutors %}
                 <tr>
-                    <td><a href="/tutors/{{ tutor.id }}">{{ tutor.name }}</a></td>
+                    <td class="td-1"><a href="/tutors/{{ tutor.id }}">{{ tutor.name }}</a></td>
                     <td>{{ tutor.contact_number }}</td>
                     <td>{{ tutor.address }}</td>
                     <td>{{ tutor.postcode }}</td>
                 </tr>
             {% endfor %}
-
         </table>
+
+        <div class="my-2">
+            <a class="archive" href="/tutors/archive">View tutor archive</a>
+        </div>
+
     </div>
 </div>
 

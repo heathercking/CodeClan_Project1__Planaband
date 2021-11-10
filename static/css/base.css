@@ -3,13 +3,13 @@
     background-color: var(--white);
     color: var(--primary-dark);
     height: 120px;
-    border-bottom: 0.5px #e6e6e6 solid;
+    /* border-bottom: 0.5px #e6e6e6 solid; */
 }
 
 .logo {
     text-align: center;
-    margin: 10px 0;
-    padding: 10px;
+    margin: 0px 0;
+    padding: 0px;
 }
 
 .navbar ul {
@@ -25,7 +25,7 @@
 }
 
 .navbar .menu a {
-    padding: 10ox;
+    padding: 0px;
     margin: 0 15px;
 }
 
