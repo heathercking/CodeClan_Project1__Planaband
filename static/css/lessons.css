@@ -1,5 +1,11 @@
 /* lessons html files */
 
+
+.lessons,
+.lesson-details {
+    margin-top: 150px;
+}
+
 .lessons .container {
     width: 90%;
 }
@@ -54,6 +60,8 @@
 
 
 /* lessons/show pages */
+
+
 
 .lesson-details .container {
     width: 90%;

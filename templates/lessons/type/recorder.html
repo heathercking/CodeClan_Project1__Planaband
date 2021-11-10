@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="lessons my-4">
+    
+    <div class="container flex"> 
+        <h2>Upcoming Recorder Group</h2>
+        <div>
+            <ul class="menu">
+                <li><a href="/lessons/new">Create new lesson</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class ="container container-min my-2">
+
+        <table style="width:100%">
+            <tr>
+                <th class="th-1" style="width:18%">Name</th>
+                <th style="width:18%">Date & Time</th>
+                <th style="width:10%">Instrument(s)</th>
+                <th style="width:20%">Tutor</th>
+                <th style="width:8%">Group?</th>
+                <th style="width:9%">Book</th>
+                <th style="width:17%">Log Attendance</th>    
+            </tr>
+
+            {% for lesson in all_lessons %}
+                {% if lesson.instrument == "Recorder" %}
+                    <tr>
+                        <td class="td-1"><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
+                        <td>{{ lesson.date }} @ {{ lesson.time }}</td>
+                        <td>{{ lesson.instrument }}</td>
+                        <td>{{ lesson.tutor.name }}</td>
+                        <td>
+                        {% if lesson.group_status == True %} <p>Yes</p>
+                        {% else %} <p>No</p>
+                        {% endif %}
+                        </td>
+                        <td>
+                            {% if lesson.count_free_spaces() == 0 %}
+                                <p class="full">FULL</p>
+                            {% else %}
+                                <a class="book"href="/lessons/{{ lesson.id }}">Book</a> 
+                            {% endif %}
+                        </td>
+                        <td>
+                            <a class="log" href="lessons/{{ lesson.id }}">Log</a>
+                        </td>
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+
+        <div class="my-2">
+            <a class="archive" href="/lessons/archive">View lesson archive</a>
+        </div>
+
+
+    </div>
+</div>
+
+
+{% endblock %}

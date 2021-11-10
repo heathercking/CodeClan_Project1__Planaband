@@ -1,5 +1,8 @@
 /* pupils html files */
 
+.pupils {
+    margin-top: 150px;
+}
 .pupils .container {
     width: 90%;
 }
@@ -53,6 +56,10 @@
     width: 90%;
     text-align: center;
     justify-content: center;
+}
+
+.pupil-lesson-archive .container-2 {
+    min-height: 250px;
 }
 
 .pupil-details .flex, 

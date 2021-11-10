@@ -5,6 +5,10 @@
     padding: 0 40px;
 }
 
+.container-min {
+    min-height: 250px;
+}
+
 .flex {
     display: flex;
     justify-content: center;

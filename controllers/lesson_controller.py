@@ -30,6 +30,25 @@ def lessons_archive():
     return render_template("lessons/archive.html", all_lessons=lessons)
 
 
+# displays by instrument - recorder
+@lessons_blueprint.route("/lessons/recorder")
+def lessons_recorder():
+    lessons = lesson_repository.select_all()
+    return render_template("lessons/type/recorder.html", all_lessons=lessons)
+
+# displays by instrument - string ensemble
+@lessons_blueprint.route("/lessons/strings")
+def lessons_strings():
+    lessons = lesson_repository.select_all()
+    return render_template("lessons/type/string_ensemble.html", all_lessons=lessons)
+
+# displays by instrument - piano
+@lessons_blueprint.route("/lessons/piano")
+def lessons_piano():
+    lessons = lesson_repository.select_all()
+    return render_template("lessons/type/piano.html", all_lessons=lessons)
+
+
 #NEW - GET '/lessons/new'
 @lessons_blueprint.route("/lessons/new", methods=['GET'])
 def new_lesson():

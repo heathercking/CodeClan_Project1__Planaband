@@ -6,6 +6,7 @@
 .welcome .container {
     padding: 60px 20px 40px 20px;
     text-align: center;
+    margin-top: 120px;
     margin-bottom: 50px;
     color: var(--primary-dark);
     border-bottom: 0.5px #e6e6e6 solid;
@@ -66,3 +67,8 @@
 .lesson-types .card:hover {
     transform: translateY(-10px);
 }
+
+.lesson-types a {
+    text-decoration: none;
+}
+

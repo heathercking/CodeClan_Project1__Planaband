@@ -1,5 +1,9 @@
 /* tutors html files */
 
+.tutors {
+    margin-top: 150px;
+}
+
 .tutors .container {
     width: 90%;
 }
