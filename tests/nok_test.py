@@ -30,3 +30,10 @@ class TestNextOfKin(unittest.TestCase):
         fee = 10.00
         self.nok1.charge_nok_account(fee)
         self.assertEqual(10.00, self.nok1.account)
+
+    def test_can_credit_payment_to_nok_account(self):
+        fee = 10.00
+        self.nok1.charge_nok_account(fee)
+        payment = 10.00
+        self.nok1.credit_nok_account(payment)
+        self.assertEqual(0.00, self.nok1.account)
