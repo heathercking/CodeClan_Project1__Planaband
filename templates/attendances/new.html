@@ -1,49 +1,56 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>Lesson Booking Form</h1>
 
-<div class="my-4">
-    <form action="/attendances" method="post">
+<div class="lesson-details">
+    <div class="container flex">
+        
+        <h1>Lesson Booking Form</h1>
 
-        <div>
-            <label for="lesson">Lesson</label>
-            <select name="lesson_id" id="lesson">
-                {% for lesson in all_lessons %}
-                    <option value="{{ lesson.id }}">{{ lesson.name }} on {{lesson.date }}</option>
-                {% endfor %}
-            </select>   
-        </div>
 
-        <div>
-            <label for="pupil">Pupil</label>
-            <select name="pupil_id" id="pupil">
-                {% for pupil in all_pupils %}
-                    <option value="{{ pupil.id }}">{{ pupil.name }}</option>
-                {% endfor %}
-            </select>   
-        </div>
+        <form class="my-2" action="/attendances" method="post">
 
-        <div>
-            <label for="attended">Attended?</label>
-            <select id="attended" name="attended">
-                <option value="false">No</option>
-                <option value="true">Yes</option>
-            </select>
-        </div>
+            <div class="form card card-left card-w">
+                <div>
+                    <label for="lesson">Lesson</label><br>
+                    <select name="lesson_id" id="lesson">
+                        {% for lesson in all_lessons %}
+                            <option value="{{ lesson.id }}">{{ lesson.name }} on {{lesson.date }}</option>
+                        {% endfor %}
+                    </select>   
+                </div>
 
-        <div>
-            <label for="nok">Charge fee to Next of Kin account</label>
-            <select name="nok_id" id="nok">
-                {% for nok in all_noks %}
-                    <option value="{{ nok.id }}">{{ nok.name }}</option>
-                {% endfor %}
-            </select>   
-        </div>
+                <div>
+                    <label for="pupil">Pupil</label><br>
+                    <select name="pupil_id" id="pupil">
+                        {% for pupil in all_pupils %}
+                            <option value="{{ pupil.id }}">{{ pupil.name }}</option>
+                        {% endfor %}
+                    </select>   
+                </div>
 
-        <button type="submit">Book Lesson</button>
+                <div>
+                    <label for="attended">Attended?</label><br>
+                    <select id="attended" name="attended">
+                        <option value="false">No</option>
+                        <option value="true">Yes</option>
+                    </select>
+                </div>
 
-    </form>
+                <div>
+                    <label for="nok">Charge fee to Next of Kin account</label><br>
+                    <select name="nok_id" id="nok">
+                        {% for nok in all_noks %}
+                            <option value="{{ nok.id }}">{{ nok.name }}</option>
+                        {% endfor %}
+                    </select>   
+                </div>
+            </div> 
+
+            <button class="yellow-link" type="submit">Book Lesson</button>
+
+        </form>
+    </div>    
 </div>
 
 
