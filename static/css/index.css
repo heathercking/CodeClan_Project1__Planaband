@@ -15,6 +15,15 @@
     gap: 40px;
 }
 
+.welcome h1 {
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 10px, 0;
+    font-family: "Gloria Hallelujah", sans-serif, Helvetica, Arial;
+    color: var(--primary-bright);
+    font-size: 60px;
+}
+
 .welcome a {
     text-decoration: none;
     color: var(--white);

@@ -1,40 +1,50 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div>
-        <p>{{ pupil.name }}</p>
-        {% if attendance_rate > 0 %}
-            <p>Attendance rate: {{ attendance_rate }}%</p>
-        {% else %}
-            <p>Attendance rate: 0%</p>
-        {% endif %}
+<div class="pupil-details">
+    <div class="container flex">
+        <div>
+            <h2>{{ pupil.name }}</h2>
+        </div>
 
-        <p>Date of Birth: {{ pupil.dob }}</p>
-        <p>Instrument: {{ pupil.instrument }}</p>
-        <p>Grade: {{ pupil.grade }}</p>
-        <p>Next of Kin: {{ pupil.nok.name }}</p>
-        <p>Notes: {{ pupil.notes }}</p>
-        <p>Current Student?
-            {% if pupil.active == True %}
-                Yes
+        <div>
+            {% if attendance_rate > 0 %}
+                <p>Attendance rate: {{ attendance_rate }}%</p>
             {% else %}
-                No
+                <p>Attendance rate: 0%</p>
             {% endif %}
-        </p>
+        </div>
+
+
+        <div class="card-listing">
+            <p><b>Date of Birth: </b>{{ pupil.dob }}</p>
+            <p><b>Instrument: </b> {{ pupil.instrument }}</p>
+            <p><b>Grade: </b>{{ pupil.grade }}</p>
+            <p><b> Next of Kin: </b><a class="log" href="/noks/{{ pupil.nok.id }}">{{ pupil.nok.name }}</a></p>
+            <p><b>Current Student? </b>
+                {% if pupil.active == True %}
+                    Yes
+                {% else %}
+                    No
+                {% endif %}
+            </p>
+            <p><b>Notes: </b>{{ pupil.notes }}</p>
+        </div>
     </div>
 
-    <div>
-        <h3>Upcoming Lessons</h3>
-        <table>
+    <div class ="container my-4">
+        <h2>Upcoming Lessons</h2>
+
+        <table class="center my-2" style="width:40%">
             <tr>
-                <th>Lesson</th>
-                <th>Date</th>
-                <th>Tutor</th>
+                <th class="th-1" style="width:40%">Lesson</th>
+                <th style="width:20%">Date</th>
+                <th style="width:40%">Tutor</th>
             </tr>
             {% for lesson in lessons %}
                 {% if lesson.todays_date() <= lesson.date %}
                     <tr>
-                        <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
+                        <td class="td-1"><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
                         <td>{{ lesson.date }}</td>
                         <td>{{ lesson.tutor.name }}</td>
                     </tr>
@@ -54,5 +64,7 @@
             <button>Delete Pupil</button>
         </form>
     </div>
+
+</div>
 
 {% endblock %}

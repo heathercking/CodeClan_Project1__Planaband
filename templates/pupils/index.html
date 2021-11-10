@@ -7,6 +7,7 @@
         <div>
             <ul class="menu">
                 <li><a href="/noks/new">Enrol a pupil</a></li>
+                <li><a href="/noks">View all Next of Kin</a></li>
             </ul>
         </div>
     </div>
@@ -27,7 +28,7 @@
                         <td class="td-1"><a href="/pupils/{{ pupil.id }}">{{ pupil.name }}</a></td>
                         <td>{{ pupil.dob }}</td>
                         <td>{{ pupil.instrument }}</td>
-                        <td><a class="log" href="/noks/{{ pupil.nok.id }}">{{ pupil.nok.name }}</td>
+                        <td><a class="log" href="/noks/{{ pupil.nok.id }}">{{ pupil.nok.name }}</a></td>
                     </tr>
                 {% endif %}
             {% endfor %}

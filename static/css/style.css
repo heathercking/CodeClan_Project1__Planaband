@@ -32,8 +32,8 @@ h1 {
 }
 
 h1 {
-    color: var(--primary-bright);
-    font-size: 40px;
+    color: var(--primary-dark);
+    font-size: 35px;
 }
 
 h2 {
