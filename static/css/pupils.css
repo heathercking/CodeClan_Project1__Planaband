@@ -1,6 +1,8 @@
 /* pupils html files */
 
-.pupils {
+.pupils, 
+.pupil-details, 
+.pupil-lesson-archive {
     margin-top: 150px;
 }
 .pupils .container {

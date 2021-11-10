@@ -1,64 +1,73 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form action="/pupils/{{ pupil.id }}" method="post">
 
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ pupil.name }}" required>
+<div class="lesson-details">
+    <div class="container flex">
+
+        <h2>Edit Pupil</h2>
+
+        <form class="my-2" action="/pupils/{{ pupil.id }}" method="post">
+
+            <div class="form card card-left card-w">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="{{ pupil.name }}" required>
+                </div>
+
+                <div>
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" value="{{ pupil.dob }}" required>
+                </div>
+
+                <div>
+                    <label for="instrument">Instrument(s):</label>
+                    <input type="text" id="instrument" name="instrument" value="{{ pupil.instrument }}" required>
+                </div>
+
+                <div>
+                    <label for="grade">Grade:</label>
+                    <input type="text" id="grade" name="grade" value="{{ pupil.grade }}">
+                </div>
+
+                <div>
+                    <label for="nok">Next of Kin</label>
+                    <select name="nok_id" id="nok">
+                        {% for nok in all_noks %}
+                            <option value="{{ nok.id }}"
+                                {% if pupil.nok.id == nok.id %} selected="selected" {% endif %}>
+                            {{ nok.name }}
+                            </option>
+                        {% endfor %}
+                    </select>   
+                </div>
+
+                <div>
+                    <label for="notes">Notes:</label>
+                    <input type="text" id="notes" name="notes" value="{{ pupil.notes }}" required>
+                </div>
+
+                <div>
+                    <label for="active">Current Student?</label>
+                    <select id="active" name="active">
+
+                        <option value="true"
+                            {% if pupil.active == True %} selected="selected" {% endif %}>
+                            Yes
+                        </option>
+                        <option value="false"
+                            {% if pupil.active == False %} selected="selected" {% endif %}>
+                            No
+                        </option>
+                        
+                    </select>
+                </div>
+            </div>
+
+            <button class="yellow-link" type="submit">Update Pupil Record</button>
+
+        </form>
     </div>
-
-    <div>
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" value="{{ pupil.dob }}" required>
-    </div>
-
-    <div>
-        <label for="instrument">Instrument(s):</label>
-        <input type="text" id="instrument" name="instrument" value="{{ pupil.instrument }}" required>
-    </div>
-
-    <div>
-        <label for="grade">Grade:</label>
-        <input type="text" id="grade" name="grade" value="{{ pupil.grade }}">
-    </div>
-
-    <div>
-        <label for="nok">Next of Kin</label>
-        <select name="nok_id" id="nok">
-            {% for nok in all_noks %}
-                <option value="{{ nok.id }}"
-                    {% if pupil.nok.id == nok.id %} selected="selected" {% endif %}>
-                {{ nok.name }}
-                </option>
-            {% endfor %}
-        </select>   
-    </div>
-
-    <div>
-        <label for="notes">Notes:</label>
-        <input type="text" id="notes" name="notes" value="{{ pupil.notes }}" required>
-    </div>
-
-    <div>
-        <label for="active">Current Student?</label>
-        <select id="active" name="active">
-
-            <option value="true"
-                {% if pupil.active == True %} selected="selected" {% endif %}>
-                Yes
-            </option>
-            <option value="false"
-                {% if pupil.active == False %} selected="selected" {% endif %}>
-                No
-            </option>
-            
-        </select>
-    </div>
-
-    <button type="submit">Update Pupil Record</button>
-
-</form>
-
+</div>
 
 {% endblock %}
