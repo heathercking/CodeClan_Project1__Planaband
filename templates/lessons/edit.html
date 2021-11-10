@@ -1,65 +1,74 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form action="/lessons/{{ lesson.id }}" method="post">
 
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ lesson.name }}" required>
+<div class="lesson-details">
+    <div class="container flex">
+
+        <h2>Edit Lesson</h2>
+
+        <form class="my-2" action="/lessons/{{ lesson.id }}" method="post">
+
+            <div class="form card card-left card-w">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="{{ lesson.name }}" required>
+                </div>
+
+                <div>
+                    <label for="date">Date:</label>
+                    <input type="date" id="date" name="date" value="{{ lesson.date }}" required>
+                </div>
+
+                <div>
+                    <label for="time">Time:</label>
+                    <input type="text" id="time" name="time" value="{{ lesson.time }}" required>
+                </div>
+
+                <div>
+                    <label for="instrument">Instrument:</label>
+                    <input type="text" id="instrument" name="instrument" value="{{ lesson.instrument }}" required>
+                </div>
+
+                <div>
+                    <label for="tutor">Tutor</label>
+                    <select name="tutor_id" id="tutor">
+                        {% for tutor in all_tutors %}
+                            <option value="{{ tutor.id }}"
+                                {% if lesson.tutor.id == tutor.id %} selected="selected" {% endif %}>
+                            {{ lesson.tutor.name }}
+                            </option>
+                        {% endfor %}
+                    </select>   
+                </div>
+
+                <div>
+                    <label for="max_capacity">Maximum Capacity</label>
+                    <input type="text" id="max_capacity" name="max_capacity" value="{{ lesson.max_capacity }}" required>
+                </div>
+
+                <div>
+                    <label for="group_status">Group?</label>
+                    <select id="group_status" name="group_status">
+
+                        <option value="true"
+                            {% if lesson.group_status == True %} selected="selected" {% endif %}>
+                            Yes
+                        </option>
+                        <option value="false"
+                            {% if lesson.group_status == False %} selected="selected" {% endif %}>
+                            No
+                        </option>
+                        
+                    </select>
+                </div>
+
+            </div>
+
+            <button class="yellow-link" type="submit">Update Lesson</button>
+
+        </form>
     </div>
-
-    <div>
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" value="{{ lesson.date }}" required>
-    </div>
-
-    <div>
-        <label for="time">Time:</label>
-        <input type="text" id="time" name="time" value="{{ lesson.time }}" required>
-    </div>
-
-    <div>
-        <label for="instrument">Instrument:</label>
-        <input type="text" id="instrument" name="instrument" value="{{ lesson.instrument }}" required>
-    </div>
-
-    <div>
-        <label for="tutor">Tutor</label>
-        <select name="tutor_id" id="tutor">
-            {% for tutor in all_tutors %}
-                <option value="{{ tutor.id }}"
-                    {% if lesson.tutor.id == tutor.id %} selected="selected" {% endif %}>
-                {{ lesson.tutor.name }}
-                </option>
-            {% endfor %}
-        </select>   
-    </div>
-
-    <div>
-        <label for="max_capacity">Maximum Capacity</label>
-        <input type="text" id="max_capacity" name="max_capacity" value="{{ lesson.max_capacity }}" required>
-    </div>
-
-    <div>
-        <label for="group_status">Group?</label>
-        <select id="group_status" name="group_status">
-
-            <option value="true"
-                {% if lesson.group_status == True %} selected="selected" {% endif %}>
-                Yes
-            </option>
-            <option value="false"
-                {% if lesson.group_status == False %} selected="selected" {% endif %}>
-                No
-            </option>
-            
-        </select>
-    </div>
-
-
-    <button type="submit">Update Lesson</button>
-
-</form>
-
+</div>
 
 {% endblock %}
