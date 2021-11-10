@@ -1,0 +1,57 @@
+/* attendances html files */
+
+.attendances .container {
+    width: 90%;
+}
+
+.attendances .flex {
+    justify-content: space-between;
+}
+
+
+
+.attendances ul {
+    display: flex;
+    list-style-type: none;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.attendances a {
+    text-decoration: none;
+    color: var(--primary-dark); 
+    border-bottom: 2px var(--secondary-pale) solid;
+}
+
+.attendances .menu a {
+    padding: 10ox;
+    margin: 0 15px;
+    border-bottom: 2px var(--secondary-bright) solid;
+}
+
+.attendances a:hover {
+    border-bottom: 2px var(--primary-bright) solid;
+    color: var(--primary-bright);
+}
+
+.attendances .flex {
+    justify-content: space-between;
+}
+
+.attendances .archive {
+    border-bottom: 2px var(--secondary-bright) solid; 
+}
+
+.attend-delete {
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px var(--secondary-bright) solid; 
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif, Helvetica, Arial;;
+}
+
+.attend-delete:hover {
+    border-bottom: 2px var(--primary-bright) solid;
+    color: var(--primary-bright);
+    cursor: pointer;
+}
