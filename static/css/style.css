@@ -74,6 +74,10 @@ img {
     border-radius: 10px;
 }
 
+.xsmall-img {
+    width: 185px;
+}
+
 .small-img {
     width: 300px;
 }
