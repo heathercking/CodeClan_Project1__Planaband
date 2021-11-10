@@ -1,34 +1,35 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="lessons">
+<div class="lessons my-4">
     <div class="container flex"> 
 
-        <h1>Lessons with spaces...</h1>
+        <h2>Lessons with spaces...</h2>
 
-        <form action="/lessons">
-            <button>Back</button>
-        </form>
-
+        <div>
+            <ul class="menu">
+                <li><a href="/lessons">Back</a></li>
+            </ul>
+        </div>
     </div>
     
     <div class ="container my-2">
 
         <table style="width:100%">
             <tr>
-                <th>Name</th>
-                <th>Date & Time</th>
-                <th>Instrument(s)</th>
-                <th>Tutor</th>
-                <th>Group?</th>
-                <th>Book</th>
-                <th>Log Attendance</th>    
+                <th class="th-1" style="width:18%">Name</th>
+                <th style="width:18%">Date & Time</th>
+                <th style="width:10%">Instrument(s)</th>
+                <th style="width:20%">Tutor</th>
+                <th style="width:8%">Group?</th>
+                <th style="width:9%">Book</th>
+                <th style="width:17%">Log Attendance</th>  
             </tr>
 
             {% for lesson in all_lessons %}
                 {% if lesson.count_free_spaces() > 0 %}
                     <tr>
-                        <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
+                        <td class="td-1"><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</a></td>
                         <td>{{ lesson.date }} at {{ lesson.time }}</td>
                         <td>{{ lesson.instrument }}</td>
                         <td>{{ lesson.tutor.name }}</td>
@@ -41,15 +42,11 @@
                             {% if lesson.count_free_spaces() == 0 %}
                                 <p class="full">FULL</p>
                             {% else %}
-                                <form action="/lessons/{{ lesson.id }}">
-                                    <button>Book</button>
-                                </form>
+                                <a class="book"href="/lessons/{{ lesson.id }}">Book</a> 
                             {% endif %}
                         </td>
                         <td>
-                            <form action="lessons/{{ lesson.id }}">
-                                <button>Log Attendance</button>
-                            </form>
+                            <a class="log" href="lessons/{{ lesson.id }}">Log</a>
                         </td>
                     </tr>
                 {% endif %}
