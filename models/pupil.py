@@ -1,3 +1,5 @@
+from datetime import date
+
 class Pupil:
 
     def __init__(self, name, dob, instrument, grade, nok, notes, active=True, id=None):
@@ -20,8 +22,12 @@ class Pupil:
         return no_attended
     
     def attendance_rate(self, no_attended, attendances):
+        past_attendances = []
         if no_attended > 0:
-            rate = no_attended / len(attendances) * 100
+            for attendance in attendances:
+                if attendance.lesson.date < date.today():
+                    past_attendances.append(attendance)
+            rate = no_attended / len(past_attendances) * 100
             result = round(rate)
             return result
         else:

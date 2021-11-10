@@ -121,7 +121,7 @@
     color: var(--primary-bright);
 }
 
-.attend-delete {
+.lesson-delete {
     border: none;
     background-color: transparent;
     border-bottom: 2px var(--secondary-bright) solid; 

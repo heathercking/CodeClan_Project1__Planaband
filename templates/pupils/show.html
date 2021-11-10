@@ -9,9 +9,9 @@
 
         <div>
             {% if attendance_rate > 0 %}
-                <p>Attendance rate: {{ attendance_rate }}%</p>
+                <p class="att-rate">Attendance rate: {{ attendance_rate }}%</p>
             {% else %}
-                <p>Attendance rate: 0%</p>
+                <p class="att-rate">Attendance rate: 0%</p>
             {% endif %}
         </div>
 
@@ -53,16 +53,16 @@
         </table>
     </div>
 
-    <div>
-        <form action="/pupils/{{ pupil.id }}/archive">
-            <button>View archived lessons</button>
-        </form>
-        <form action="/pupils/{{ pupil.id }}/edit">
-            <button>Edit</button>
-        </form>
-        <form action="/pupils/{{ pupil.id }}/delete" method="POST">
-            <button>Delete Pupil</button>
-        </form>
+    <div class="container flex"> 
+        <div>
+            <ul class="menu end-menu">
+                <li><a href="/pupils/{{ pupil.id }}/archive">View archived lessons</a></li>
+                <li><a href="/pupils/{{ pupil.id }}/edit">Edit Pupil Record</a></li>
+                <form action="/pupils/{{ pupil.id }}/delete" method="POST">
+                    <button class="pupil-delete">Delete Pupil Record</button>
+                </form>
+            </ul>
+        </div>
     </div>
 
 </div>

@@ -43,3 +43,75 @@
 .pupils .archive {
     border-bottom: 2px var(--secondary-bright) solid; 
 }
+
+
+
+/* pupils/show pages */
+
+.pupil-details .container {
+    width: 90%;
+    text-align: center;
+    justify-content: center;
+}
+
+.pupil-details .flex {
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.pupil-details .card-listing {
+    align-items: center;
+}
+
+.card-listing {
+    background-color: #fff;
+    color: var(--primary-dark);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    padding: 10px;
+    margin: 20px 0;
+    width: 30%;
+}
+
+.att-rate {
+    border: none;
+    background-color: transparent;
+    font-family: "Gloria Hallelujah", sans-serif, Helvetica, Arial;
+    font-size: 25px;
+    font-weight: 1000;
+    color: var(--primary-bright);
+}
+
+.pupil-details ul {
+    display: flex;
+    list-style-type: none;
+    padding: 10px;
+    font-size: 18px;
+    gap: 25px;
+}
+
+.pupil-details a {
+    text-decoration: none;
+    color: var(--primary-dark); 
+    border-bottom: 2px var(--secondary-pale) solid;
+}
+
+.pupil-details .menu a {
+    padding: 0px;
+    margin: 0 15px;
+    border-bottom: 2px var(--secondary-bright) solid;
+}
+
+.pupil-details a:hover {
+    border-bottom: 2px var(--primary-bright) solid;
+    color: var(--primary-bright);
+}
+
+.pupil-delete {
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px var(--secondary-bright) solid; 
+    font-size: 18px;
+    font-family: "Quicksand", sans-serif, Helvetica, Arial;
+    margin-left: 10px;
+}
