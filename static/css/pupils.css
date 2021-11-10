@@ -1,63 +1,45 @@
-/* lessons html files */
+/* pupils html files */
 
-.lessons .container {
+.pupils .container {
     width: 90%;
 }
 
-.lessons .flex {
+.pupils .flex {
     justify-content: space-between;
 }
 
-
-
-.lessons ul {
+.pupils ul {
     display: flex;
     list-style-type: none;
     padding: 10px;
     font-size: 18px;
 }
 
-.lessons a {
+.pupils a {
     text-decoration: none;
     color: var(--primary-dark); 
     border-bottom: 2px var(--secondary-pale) solid;
 }
 
-.lessons .menu a {
+.pupils .menu a {
     padding: 10ox;
     margin: 0 15px;
     border-bottom: 2px var(--secondary-bright) solid;
 }
 
-.lessons a:hover {
+.pupils a:hover {
     border-bottom: 2px var(--primary-bright) solid;
     color: var(--primary-bright);
 }
 
-.lessons .flex {
+.pupils .flex {
     justify-content: space-between;
 }
 
-.lessons .book {
-    border-bottom: 2px var(--primary-bright) solid;
-}
-
-.lessons .log {
+.pupils .log {
     border-bottom: 2px var(--secondary-bright) solid; 
 }
 
-.lessons .archive {
+.pupils .archive {
     border-bottom: 2px var(--secondary-bright) solid; 
-}
-
-
-
-.lesson-details .container {
-    width: 90%;
-    text-align: center;
-}
-
-.lesson-details .flex {
-    justify-content: space-between;
-    gap: 20%;
 }

@@ -35,3 +35,8 @@ tr {
 td a:hover {
     color: var(--primary-bright);
 }
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -1,15 +1,17 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="pupils">
+<div class="pupils my-4">
     <div class="container flex"> 
         <h1>Our Pupils</h1>
-        <form action="/noks/new">
-            <button>Enrol a Pupil</button>
-        </form>
+        <div>
+            <ul class="menu">
+                <li><a href="/noks/new">Enrol a pupil</a></li>
+            </ul>
+        </div>
     </div>
 
-    <div class ="container my-2">
+    <div class ="container my-4">
     
         <table style="width:100%">
             <tr>
@@ -25,16 +27,16 @@
                         <td class="td-1"><a href="/pupils/{{ pupil.id }}">{{ pupil.name }}</a></td>
                         <td>{{ pupil.dob }}</td>
                         <td>{{ pupil.instrument }}</td>
-                        <td><a href="/noks/{{ pupil.nok.id }}">{{ pupil.nok.name }}</td>
+                        <td><a class="log" href="/noks/{{ pupil.nok.id }}">{{ pupil.nok.name }}</td>
                     </tr>
                 {% endif %}
             {% endfor %}
 
         </table>
 
-        <form action="/pupils/archive">
-            <button>View pupil archive</button>
-        </form>
+        <div class="my-2">
+            <a class="archive" href="/pupils/archive">View pupil archive</a>
+        </div>
 
     </div>
 </div>
