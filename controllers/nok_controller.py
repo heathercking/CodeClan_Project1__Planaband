@@ -64,21 +64,21 @@ def update_nok(id):
 def delete_nok(id):
     nok_repository.delete(id)
     return redirect('/noks')
-    
 
 
-# #EDIT - GET - CHARGE ACCOUNT - 'noks/<id>/charge
-# @noks_blueprint.route("/noks/<id>/charge", methods=['GET'])
-# def charge_nok_edit(id):
-#     nok = nok_repository.select(id)
-#     return render_template('noks/charge.html', nok=nok)
+
+# #EDIT - GET - CREDIT ACCOUNT - 'noks/<id>/credit
+@noks_blueprint.route("/noks/<id>/credit", methods=['GET'])
+def credit_nok_details(id):
+    nok = nok_repository.select(id)
+    return render_template('noks/credit.html', nok=nok)
 
 
-# #UPDATE - POST - CHARGE ACCOUNT 'noks/<id>/charge'
-# @noks_blueprint.route("/noks/<id>/charge", methods='POST')
-# def charge_nok_update(id):
-#     nok = nok_repository.select(id)
-#     fee = request.form['fee']
-#     nok.charge_nok_account(fee)
-#     nok_repository.update(nok)
-#     return redirect('/noks/<id>')
+#UPDATE - POST - CREDIT ACCOUNT 'noks/<id>/credit'
+@noks_blueprint.route("/noks/<id>/credit", methods=['POST'])
+def credit_nok_update(id):
+    nok = nok_repository.select(id)
+    payment = request.form['payment']
+    nok.credit_nok_account(payment)
+    nok_repository.update(nok)
+    return redirect('/noks')

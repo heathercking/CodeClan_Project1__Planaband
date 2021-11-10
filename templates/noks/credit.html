@@ -4,14 +4,14 @@
 <h2>Credit Account</h2>
 <p>Enter the credit/payment amount:</p>
 
-<form action="/noks/{{ nok.id }}" method="post">
+<form action="/noks/{{ nok.id }}/credit" method="post">
 
     <div>
-        <label for="fee">Fee:</label>
-        <input type="number" id="account" name="account" value="{{ nok.account }}" required>
+        <label for="payment">Payment:</label>
+        <input type="number" id="payment" name="payment" placeholder="amount" required>
     </div>  
 
-    <button type="submit">Update Next of Kin Record</button>
+    <button type="submit">Record payment</button>
 
 </form>
 
