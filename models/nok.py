@@ -13,4 +13,4 @@ class NextOfKin:
         self.account += lesson.fee
 
     def credit_nok_account(self, input_payment):
-        self.account -= input_payment
+        self.account -= float(input_payment)

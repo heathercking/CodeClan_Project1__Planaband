@@ -2,12 +2,17 @@
 {% block content %}
 
     <div>
-        <p>{{ nok.name }}</p>
+        <p>Name: {{ nok.name }}</p>
         <hr>
-        <p>{{ nok.contact_number }}</p>
-        <p>{{ nok.address }}</p>
-        <p>{{ nok.postcode }}</p>
-        <p>{{ nok.account }}</p>
+        <p>Contact number: {{ nok.contact_number }}</p>
+        <p>Address: {{ nok.address }}</p>
+        <p>Postcode: {{ nok.postcode }}</p>
+        <p>Account balance: £{{ nok.account }}</p>
+
+        <div class="my-2">
+            <a href="/noks/{{ nok.id }}/credit">Credit Account</a>
+        </div>
+
         <form action="/noks/{{ nok.id }}/edit">
             <button>Edit</button>
         </form>
