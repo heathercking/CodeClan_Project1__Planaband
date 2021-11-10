@@ -1,49 +1,60 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form action="/attendances/{{ attendance.id }}" method="post">
 
-    <div>
-        <label for="lesson">Lesson</label>
-        <select name="lesson_id" id="lesson">
-            {% for lesson in all_lessons %}
-                <option value="{{ lesson.id }}"
-                    {% if attendance.lesson.id == lesson.id %} selected="selected" {% endif %}>
-                    {{ attendance.lesson.name }}
-                </option>
-            {% endfor %}
-        </select>   
+<div class="lesson-details">
+    <div class="container flex">
+
+        <h1>Edit lesson booking</h1>
+
+
+        <form action="/attendances/{{ attendance.id }}" method="post">
+
+            <div class="form card card-left card-w">
+                <div>
+                    <label for="lesson">Lesson</label>
+                    <select name="lesson_id" id="lesson">
+                        {% for lesson in all_lessons %}
+                            <option value="{{ lesson.id }}"
+                                {% if attendance.lesson.id == lesson.id %} selected="selected" {% endif %}>
+                                {{ attendance.lesson.name }}
+                            </option>
+                        {% endfor %}
+                    </select>   
+                </div>
+
+                <div>
+                    <label for="pupil">Pupil</label>
+                    <select name="pupil_id" id="pupil">
+                        {% for pupil in all_pupils %}
+                            <option value="{{ pupil.id }}"
+                                {% if attendance.pupil.id == pupil.id %} selected="selected" {% endif %}>
+                                {{ attendance.pupil.name }}
+                            </option>
+                        {% endfor %}
+                    </select>   
+                </div>
+
+                <div>
+                    <label for="attended">Attended?</label>
+                    <select id="attended" name="attended">
+                        <option value="true"
+                            {% if attendance.attended == True %} selected="selected" {% endif %}>
+                            Yes
+                        </option>
+                        <option value="false"
+                            {% if attendance.attended == False %} selected="selected" {% endif %}>
+                            No
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit">Update</button>
+
+        </form>
+
     </div>
-
-    <div>
-        <label for="pupil">Pupil</label>
-        <select name="pupil_id" id="pupil">
-            {% for pupil in all_pupils %}
-                <option value="{{ pupil.id }}"
-                    {% if attendance.pupil.id == pupil.id %} selected="selected" {% endif %}>
-                    {{ attendance.pupil.name }}
-                </option>
-            {% endfor %}
-        </select>   
-    </div>
-
-    <div>
-        <label for="attended">Attended?</label>
-        <select id="attended" name="attended">
-            <option value="true"
-                {% if attendance.attended == True %} selected="selected" {% endif %}>
-                Yes
-            </option>
-            <option value="false"
-                {% if attendance.attended == False %} selected="selected" {% endif %}>
-                No
-            </option>
-        </select>
-    </div>
-
-    <button type="submit">Update</button>
-
-</form>
-
+</div>
 
 {% endblock %}

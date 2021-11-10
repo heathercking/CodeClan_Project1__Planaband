@@ -144,7 +144,20 @@ img {
     cursor: pointer;
 }
 
+.yellow-link-small {
+    border: none;
+    background-color: transparent;
+    border-bottom: 2px var(--secondary-bright) solid; 
+    font-size: 14px;
+    font-family: "Quicksand", sans-serif, Helvetica, Arial;
+    margin-top: 0px;
+}
 
+.yellow-link-small:hover {
+    border-bottom: 2px var(--primary-bright) solid;
+    color: var(--primary-bright);
+    cursor: pointer;
+}
 
 
 

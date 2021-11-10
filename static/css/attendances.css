@@ -1,4 +1,7 @@
 /* attendances html files */
+.attendances {
+    margin-top: 150px;
+}
 
 .attendances .container {
     width: 90%;

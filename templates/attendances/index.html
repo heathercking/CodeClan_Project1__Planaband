@@ -1,11 +1,11 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="attendances my-4">
+<div class="attendances my-2">
 
     
     <div class="container flex"> 
-        <h1>All Bookings</h1>
+        <h1>All lesson bookings</h1>
         <div>
             <ul class="menu">
                 <li><a href="/lessons">Book lesson</a></li>
@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <div class ="container my-4">
+    <div class ="container my-2">
         <table style="width:100%">
             <tr>
                 <th class="th-1" style="width:20%">Lesson</th>
@@ -35,7 +35,7 @@
                     <td><a href="/attendances/{{ attendance.id }}/edit">Update</a></td>
                     <td>
                         <form action="/attendances/{{ attendance.id }}/delete" method="POST">
-                            <button class="attend-delete">Delete</button>
+                            <button class="yellow-link-small">Delete</button>
                         </form>
                     </td>
 
