@@ -52,12 +52,30 @@
 
 
 
+
+/* lessons/show pages */
+
 .lesson-details .container {
     width: 90%;
     text-align: center;
+    justify-content: center;
 }
 
 .lesson-details .flex {
-    justify-content: space-between;
-    gap: 20%;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.lesson-details .card-listing {
+    align-items: center;
+}
+
+.card-listing {
+    background-color: #fff;
+    color: var(--primary-dark);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    padding: 10px;
+    margin: 10px 0;
+    width: 30%;
 }
