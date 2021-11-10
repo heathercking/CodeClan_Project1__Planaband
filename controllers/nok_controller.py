@@ -64,3 +64,21 @@ def update_nok(id):
 def delete_nok(id):
     nok_repository.delete(id)
     return redirect('/noks')
+    
+
+
+# #EDIT - GET - CHARGE ACCOUNT - 'noks/<id>/charge
+# @noks_blueprint.route("/noks/<id>/charge", methods=['GET'])
+# def charge_nok_edit(id):
+#     nok = nok_repository.select(id)
+#     return render_template('noks/charge.html', nok=nok)
+
+
+# #UPDATE - POST - CHARGE ACCOUNT 'noks/<id>/charge'
+# @noks_blueprint.route("/noks/<id>/charge", methods='POST')
+# def charge_nok_update(id):
+#     nok = nok_repository.select(id)
+#     fee = request.form['fee']
+#     nok.charge_nok_account(fee)
+#     nok_repository.update(nok)
+#     return redirect('/noks/<id>')

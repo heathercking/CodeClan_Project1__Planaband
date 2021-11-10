@@ -4,10 +4,12 @@ from flask import Blueprint
 from models.attendance import Attendance
 from models.lesson import Lesson
 from models.pupil import Pupil
+from models.nok import NextOfKin
 
 import repositories.attendance_repository as attendance_repository
 import repositories.lesson_repository as lesson_repository
 import repositories.pupil_repository as pupil_repository
+import repositories.nok_repository as nok_repository
 
 attendances_blueprint = Blueprint("attendances", __name__)
 
@@ -23,7 +25,8 @@ def attendances():
 def new_attendance():
     lessons = lesson_repository.select_all()
     pupils = pupil_repository.select_all()
-    return render_template("attendances/new.html", all_lessons=lessons, all_pupils=pupils)
+    noks = nok_repository.select_all()
+    return render_template("attendances/new.html", all_lessons=lessons, all_pupils=pupils, all_noks=noks)
 
 
 #CREATE - POST '/attendances'
@@ -34,6 +37,9 @@ def create_attendance():
     attended = request.form['attended']
     attendance = Attendance(lesson, pupil, attended)
     attendance_repository.save(attendance)
+    nok = nok_repository.select(request.form['nok_id'])
+    nok.charge_nok_account(lesson)
+    nok_repository.update(nok)
     return redirect('/lessons')
 
 
@@ -56,13 +62,6 @@ def update_attendances(id):
     attendance_repository.update(attendance)
     return redirect('/lessons')
 
-
-#DELETE - '/attendances/<id>/delete'
-@attendances_blueprint.route("/attendances/<id>/delete", methods=['POST'])
-def delete_attendance(id):
-    attendance_repository.delete(id)
-    return redirect('/lessons')
-
 #UPDATE - POST - MARK ATTENDED 'attendances/<id>/attended'
 @attendances_blueprint.route("/attendances/<id>/attended", methods=['POST'])
 def mark_attended(id):
@@ -70,3 +69,11 @@ def mark_attended(id):
     attendance.mark_attended()
     attendance_repository.update(attendance)
     return redirect(request.referrer)
+
+
+#DELETE - '/attendances/<id>/delete'
+@attendances_blueprint.route("/attendances/<id>/delete", methods=['POST'])
+def delete_attendance(id):
+    attendance_repository.delete(id)
+    return redirect('/lessons')
+

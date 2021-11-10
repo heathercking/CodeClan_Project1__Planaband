@@ -10,6 +10,7 @@ class Lesson:
         self.tutor = tutor
         self.max_capacity = max_capacity
         self.attendees = []
+        self.fee = 10.00
         self.group_status = group_status
         self.id = id
 

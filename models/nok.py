@@ -9,8 +9,8 @@ class NextOfKin:
         self.id = id
 
     
-    def charge_nok_account(self, input_fee):
-        self.account += input_fee
+    def charge_nok_account(self, lesson):
+        self.account += lesson.fee
 
     def credit_nok_account(self, input_payment):
         self.account -= input_payment

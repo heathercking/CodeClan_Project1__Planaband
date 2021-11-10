@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<h2>Credit Account</h2>
+<p>Enter the credit/payment amount:</p>
+
+<form action="/noks/{{ nok.id }}" method="post">
+
+    <div>
+        <label for="fee">Fee:</label>
+        <input type="number" id="account" name="account" value="{{ nok.account }}" required>
+    </div>  
+
+    <button type="submit">Update Next of Kin Record</button>
+
+</form>
+
+{% endblock %}

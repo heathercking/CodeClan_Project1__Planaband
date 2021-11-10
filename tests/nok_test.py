@@ -1,12 +1,14 @@
 import unittest
+from datetime import date
 
 from models.nok import NextOfKin
+from models.lesson import Lesson
 
 class TestNextOfKin(unittest.TestCase):
 
     def setUp(self):
         self.nok1 = NextOfKin("Lily Potter", "07777 888999", "The Potter Cottage, Godric's Hollow", "EH53 9AZ", 0.00)
-    
+        self.lesson1 = Lesson("Beginner Recorder", date(2021, 11, 27), "10am", "Recorder", "Rubeus Hagrid", 2, True)
 
     def test_nok_has_name(self):
         self.assertEqual("Lily Potter", self.nok1.name)
@@ -27,13 +29,11 @@ class TestNextOfKin(unittest.TestCase):
         self.assertEqual(0.00, self.nok1.account)
 
     def test_can_charge_to_nok_account(self):
-        fee = 10.00
-        self.nok1.charge_nok_account(fee)
+        self.nok1.charge_nok_account(self.lesson1)
         self.assertEqual(10.00, self.nok1.account)
 
     def test_can_credit_payment_to_nok_account(self):
-        fee = 10.00
-        self.nok1.charge_nok_account(fee)
+        self.nok1.charge_nok_account(self.lesson1)
         payment = 10.00
         self.nok1.credit_nok_account(payment)
         self.assertEqual(0.00, self.nok1.account)

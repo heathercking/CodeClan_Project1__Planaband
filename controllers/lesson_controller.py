@@ -47,7 +47,9 @@ def create_lesson():
     tutor = tutor_repository.select(request.form['tutor_id'])
     max_capacity = request.form['max_capacity']
     group_status = request.form['group_status']
+    fee = request.form['fee']
     lesson = Lesson(name, date, time, instrument, tutor, max_capacity, group_status)
+    lesson.fee = fee
     lesson_repository.save(lesson)
     return redirect('/lessons')
 
