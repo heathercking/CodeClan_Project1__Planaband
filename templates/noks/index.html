@@ -1,29 +1,42 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1>All Next of Kin</h1>
+<div class="noks my-4">
 
-<form action="/noks/new">
-    <button>Add New</button>
-</form>
+    <div class="container flex"> 
+        <h1>All Next of Kin</h1>
+        <div>
+            <ul class="menu">
+                <li><a href="/noks/new">Add new Next 0f Kin</a></li>
+            </ul>
+        </div>
+    </div>
 
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Contact Number</th>
-        <th>Address</th>
-        <th>Postcode</th>
-    </tr>
+    <div class ="container my-4">
 
-    {% for nok in all_noks %}
-        <tr>
-            <td><a href="/noks/{{ nok.id }}">{{ nok.name }}</a></td>
-            <td>{{ nok.contact_number }}</td>
-            <td>{{ nok.address }}</td>
-            <td>{{ nok.postcode }}</td>
-        </tr>
-    {% endfor %}
-    
-</table>
+        <table style="width:100%">
+            <tr>
+                <th class="th-1" style="width:30%">Name</th>
+                <th style="width:15%">Contact Number</th>
+                <th style="width:25%">Address</th>
+                <th style="width:30%">Postcode</th>
+            </tr>
 
+            {% for nok in all_noks %}
+                <tr>
+                    <td class="td-1"><a href="/noks/{{ nok.id }}">{{ nok.name }}</a></td>
+                    <td>{{ nok.contact_number }}</td>
+                    <td>{{ nok.address }}</td>
+                    <td>{{ nok.postcode }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+
+        <div class="my-2">
+            <a class="archive" href="/noks/archive">View next of kin archive</a>
+        </div>
+
+    </div>
+
+</div>
 {% endblock %}

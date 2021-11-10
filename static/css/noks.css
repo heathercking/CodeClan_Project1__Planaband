@@ -1,0 +1,43 @@
+/* noks html files */
+
+.noks .container {
+    width: 90%;
+}
+
+.noks .flex {
+    justify-content: space-between;
+}
+
+
+
+.noks ul {
+    display: flex;
+    list-style-type: none;
+    padding: 10px;
+    font-size: 18px;
+}
+
+.noks a {
+    text-decoration: none;
+    color: var(--primary-dark); 
+    border-bottom: 2px var(--secondary-pale) solid;
+}
+
+.noks .menu a {
+    padding: 10ox;
+    margin: 0 15px;
+    border-bottom: 2px var(--secondary-bright) solid;
+}
+
+.noks a:hover {
+    border-bottom: 2px var(--primary-bright) solid;
+    color: var(--primary-bright);
+}
+
+.noks .flex {
+    justify-content: space-between;
+}
+
+.noks .archive {
+    border-bottom: 2px var(--secondary-bright) solid; 
+}
