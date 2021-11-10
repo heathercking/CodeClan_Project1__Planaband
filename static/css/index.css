@@ -1,0 +1,59 @@
+/*index.html*/
+.welcome {
+    background-color: var(--primary-dark);
+}
+
+.welcome .container {
+    padding: 60px 20px 40px 20px;
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--primary-dark);
+    border-bottom: 0.5px #e6e6e6 solid;
+}
+
+.welcome .flex {
+    gap: 40px;
+}
+
+.welcome a {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 900;
+    border-bottom: 2px var(--secondary-bright) solid;
+}
+
+.welcome .pale a  {
+    text-decoration: none;
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 900;
+    border-bottom: 2px var(--secondary-pale) solid;
+}
+
+.welcome a:hover {
+    color: var(--primary-bright);
+    border-bottom: 2px var(--primary-bright) solid;
+}
+
+
+
+.lesson-types .container {
+    padding: 0 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.lesson-types .flex {
+    flex-wrap: wrap;
+}
+
+.lesson-types .card {
+    text-align: center;
+    margin: 18px 10px 40px;
+    width: 200px;
+}
+
+.lesson-types .card:hover {
+    transform: translateY(-10px);
+}
