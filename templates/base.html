@@ -27,7 +27,7 @@
     <div class="navbar">
         <div class="container flex">
             <a href="/">
-                <img class="small-img logo" src="static/images/planabandlogo.png" alt="">
+                <img class="small-img logo" src= {{ url_for('static', filename = '/images/planabandlogo2.png') }}>
             </a>
             <nav>
                 <ul class="menu">
@@ -51,8 +51,7 @@
     <footer class="footer">
         <div class="container grid-2 grid-3">
             <div>
-
-                <p><img class="med-img logo" src="static/images/planabandlogotransp.png" alt=""></p>
+                <img class="med-img logo" src= {{ url_for('static', filename = '/images/planabandlogo2.png') }}>
                 <p>Copyright &copy; hevthedev 2021</p>
             </div>       
             <nav>

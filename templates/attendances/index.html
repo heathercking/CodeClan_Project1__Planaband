@@ -25,7 +25,7 @@
 
             {% for attendance in all_attendances %}
                 <tr>
-                    <td class="td-1"><a href="/lessons/{{ attendance.lesson.id }}">{{ attendance.lesson.name }}</a></td>
+                    <td class="td-1"><a href="/lessons/{{ attendance.lesson.id }}">{{ attendance.lesson.name }} on {{ attendance.lesson.date }}</a></td>
                     <td>{{ attendance.pupil.name }}</td>
                     <td>
                     {% if attendance.attended == True %} <p>Yes</p>
