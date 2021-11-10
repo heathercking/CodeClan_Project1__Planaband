@@ -1,28 +1,31 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div>
-        <p>{{ pupil.name }}</p>
+<div class="pupil-lesson-archive">
+    <div class="container flex">
+        <div>
+            <h2>{{ pupil.name }}</h2>
+        </div>
+
+        <form action="/pupils/{{ pupil.id }}">
+            <button class="pupil-delete">Back to pupil record</button>
+        </form>
     </div>
 
-    <form action="/pupils/{{ pupil.id }}">
-        <button>Back</button>
-    </form>
-
-    <div>
-        <h3>Archived Lessons</h3>
-        <table>
+    <div class ="container my-4">
+        <h2>Archived Lessons</h2>
+        <table class="center my-2" style="width:60%">
             <tr>
-                <th>Lesson</th>
-                <th>Date</th>
-                <th>Tutor</th>
-                <th>Attended?</th>
+                <th class="th-1" style="width:30%">Lesson</th>
+                <th style="width:20%">Date</th>
+                <th style="width:30%">Tutor</th>
+                <th style="width:20%">Attended?</th>
             </tr>
 
             {% for attendance in attendances %}
                 {% if attendance.lesson.todays_date() > attendance.lesson.date %}
                     <tr>
-                        <td><a href="/lessons/{{ attendance.lesson.id }}">{{ attendance.lesson.name }}</a></td>
+                        <td class="td-1"><a href="/lessons/{{ attendance.lesson.id }}">{{ attendance.lesson.name }}</a></td>
                         <td>{{ attendance.lesson.date }}</td>
                         <td>{{ attendance.lesson.tutor.name }}</td>
                         <td>
@@ -39,7 +42,7 @@
             {% endfor %}
         </table>
     </div>
-
+</div>
 
 
 {% endblock %}

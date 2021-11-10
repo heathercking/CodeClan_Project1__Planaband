@@ -48,18 +48,21 @@
 
 /* pupils/show pages */
 
-.pupil-details .container {
+.pupil-details .container, 
+.pupil-lesson-archive .container {
     width: 90%;
     text-align: center;
     justify-content: center;
 }
 
-.pupil-details .flex {
+.pupil-details .flex, 
+.pupil-lesson-archive .flex {
     flex-wrap: wrap;
     flex-direction: column;
 }
 
-.pupil-details .card-listing {
+.pupil-details .card-listing, 
+.pupil-lesson-archive .card-listing {
     align-items: center;
 }
 
@@ -82,7 +85,8 @@
     color: var(--primary-bright);
 }
 
-.pupil-details ul {
+.pupil-details ul, 
+.pupil-lesson-archive ul {
     display: flex;
     list-style-type: none;
     padding: 10px;
@@ -90,19 +94,22 @@
     gap: 25px;
 }
 
-.pupil-details a {
+.pupil-details a, 
+.pupil-lesson-archive a {
     text-decoration: none;
     color: var(--primary-dark); 
     border-bottom: 2px var(--secondary-pale) solid;
 }
 
-.pupil-details .menu a {
+.pupil-details .menu a,
+.pupil-lesson-archive .menu a {
     padding: 0px;
     margin: 0 15px;
     border-bottom: 2px var(--secondary-bright) solid;
 }
 
-.pupil-details a:hover {
+.pupil-details a:hover, 
+.pupil-lesson-archive a:hover {
     border-bottom: 2px var(--primary-bright) solid;
     color: var(--primary-bright);
 }
@@ -114,4 +121,10 @@
     font-size: 18px;
     font-family: "Quicksand", sans-serif, Helvetica, Arial;
     margin-left: 10px;
+}
+
+.pupil-delete:hover {
+    border-bottom: 2px var(--primary-bright) solid;
+    color: var(--primary-bright);
+    cursor: pointer;
 }
