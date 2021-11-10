@@ -1,25 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div>
-        <p>Name: {{ nok.name }}</p>
-        <hr>
-        <p>Contact number: {{ nok.contact_number }}</p>
-        <p>Address: {{ nok.address }}</p>
-        <p>Postcode: {{ nok.postcode }}</p>
-        <p>Account balance: £{{ nok.account }}</p>
 
-        <div class="my-2">
-            <a href="/noks/{{ nok.id }}/credit">Credit Account</a>
+<div class="pupil-details">
+    <div class="container flex">
+        <div>
+            <h2>{{ nok.name }}</h2>
         </div>
-
-        <form action="/noks/{{ nok.id }}/edit">
-            <button>Edit</button>
-        </form>
-        <form action="/noks/{{ nok.id }}/delete" method="POST">
-            <button>Delete Next of Kin</button>
-        </form>
+        
+        <div class="card-listing">
+            <p><b>Contact number:</b> {{ nok.contact_number }}</p>
+            <p><b>Address:</b> {{ nok.address }}</p>
+            <p><b>Postcode:</b> {{ nok.postcode }}</p>
+            <p><b>Account balance:</b> £{{ nok.account }}</p>
+        </div>
     </div>
+
+    
+
+    <div class="container flex"> 
+        <div>
+            <a href="/noks/{{ nok.id }}/credit">Credit Account</a>
+            <form action="/noks/{{ nok.id }}/edit">
+                <button class="yellow-link">Edit</button>
+            </form>
+            <form action="/noks/{{ nok.id }}/delete" method="POST">
+                <button class="yellow-link">Delete Next of Kin</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
 
 
 {% endblock %}
