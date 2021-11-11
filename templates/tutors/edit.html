@@ -1,31 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
 
-<form action="/tutors/{{ tutor.id }}" method="post">
 
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" value="{{ tutor.name }}" required>
+<div class="lesson-details">
+    <div class="container flex">
+
+        <h2>Edit Tutor Record</h2>
+
+        <form class="my-2" action="/tutors/{{ tutor.id }}" method="post">
+
+            <div class="form card card-left card-w">
+                <div>
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" value="{{ tutor.name }}" required>
+                </div>
+
+                <div>
+                    <label for="contact_number">Contact Number:</label>
+                    <input type="text" id="contacct_number" name="contact_number" value="{{ tutor.contact_number }}" required>
+                </div>
+
+                <div>
+                    <label for="address">Address:</label>
+                    <input type="text" id="address" name="address" value="{{ tutor.address }}" required>
+                </div>
+
+                <div>
+                    <label for="postcode">Postcode:</label>
+                    <input type="text" id="postcode" name="postcode" value="{{ tutor.postcode }}" required>
+                </div>
+            </div>
+
+            <button class="yellow-link" type="submit">Update Tutor Record</button>
+
+        </form>
     </div>
-
-    <div>
-        <label for="contact_number">Contact Number:</label>
-        <input type="text" id="contacct_number" name="contact_number" value="{{ tutor.contact_number }}" required>
-    </div>
-
-    <div>
-        <label for="address">Address:</label>
-        <input type="text" id="address" name="address" value="{{ tutor.address }}" required>
-    </div>
-
-    <div>
-        <label for="postcode">Postcode:</label>
-        <input type="text" id="postcode" name="postcode" value="{{ tutor.postcode }}" required>
-    </div>
-
-    <button type="submit">Update Tutor Record</button>
-
-</form>
-
+</div>
 
 {% endblock %}
