@@ -25,11 +25,11 @@ td {
 }
 
 th, td {
-    padding: 5px;
+    padding: 3px;
 }
 
 tr {
-    height: 40px;
+    height: 38px;
 }
 
 td a:hover {

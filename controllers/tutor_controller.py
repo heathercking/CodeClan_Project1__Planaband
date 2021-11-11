@@ -17,6 +17,13 @@ def tutors():
     return render_template("tutors/index.html", all_tutors=tutors)
 
 
+# displays archived tutors
+@tutors_blueprint.route("/tutors/archive")
+def tutors_archive():
+    tutors = tutor_repository.select_all()
+    return render_template("tutors/archive.html", all_tutors=tutors)
+
+
 # NEW - GET '/tutors/new'
 @tutors_blueprint.route("/tutors/new", methods=['GET'])
 def new_tutor():
