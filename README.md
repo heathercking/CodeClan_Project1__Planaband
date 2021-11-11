@@ -33,7 +33,7 @@ Build a piece of software for a music school, which will help them administer/ma
 - add an attendance rate to each pupil
 
 
-**the wont haves!**
+**the wont haves (this time)**
 
 - mark tutors as busy when allocated to a lesson
 - show slots when tutors are free - and available for scheduling into lessons
