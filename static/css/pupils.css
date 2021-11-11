@@ -130,7 +130,7 @@
     border-bottom: 2px var(--secondary-bright) solid; 
     font-size: 18px;
     font-family: "Quicksand", sans-serif, Helvetica, Arial;
-    margin-left: 10px;
+    margin-left: 0px;
 }
 
 .pupil-delete:hover {
