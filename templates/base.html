@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/tutors.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/noks.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/attendances.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/media_queries.css') }}">
 
 </head>
 
@@ -34,7 +35,6 @@
                     <li><a href="/lessons">Lessons</a></li>
                     <li><a href="/pupils">Pupils</a></li>
                     <li><a href="/tutors">Tutors</a></li>
-                    <li><a href="/help">Help</a></li>
                 </ul>
             </nav>
         </div>
@@ -52,7 +52,7 @@
         <div class="container grid-2 grid-3">
             <div>
                 <img class="xsmall-img logo" src= {{ url_for('static', filename = '/images/planabandlogo_altw.png') }}>
-                <span class="copyright">Copyright&copy;hevthedev2021</span>
+                <p class="copyright">Copyright&copy;hevthedev2021</p>
             </div>       
             <nav>
                 <ul>
