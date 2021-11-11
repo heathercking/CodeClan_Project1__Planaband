@@ -1,7 +1,8 @@
 /* tutors html files */
 
 .tutors,
-.tutor-details {
+.tutor-details,
+.tutor-lesson-archive {
     margin-top: 150px;
 }
 
@@ -49,18 +50,25 @@
 
 
 /* tutors/show pages */
-.tutor-details .container {
+.tutor-details .container,
+.tutor-lesson-archive .container {
     width: 90%;
     text-align: center;
     justify-content: center;
 }
 
-.tutor-details .flex {
+.tutor-lesson-archive .container-2 {
+    min-height: 250px;
+}
+
+.tutor-details .flex,
+.tutor-lesson-archive .flex {
     flex-wrap: wrap;
     flex-direction: column;
 }
 
-.tutor-details .card-listing {
+.tutor-details .card-listing,
+.tutor-lesson-archive .card-listing {
     align-items: center;
 }
 
@@ -74,7 +82,8 @@
     width: 30%;
 }
 
-.tutor-details ul {
+.tutor-details ul,
+.tutor-lesson-archive ul {
     display: flex;
     flex-direction: column;
     list-style-type: none;
@@ -83,23 +92,27 @@
     gap: 25px;
 }
 
-.tutor-details a {
+.tutor-details a,
+.tutor-lesson-archive a {
     text-decoration: none;
     color: var(--primary-dark); 
     border-bottom: 2px var(--secondary-pale) solid;
 }
 
-.tutor-details .menu a {
+.tutor-details .menu a,
+.tutor-lesson-archive .menu a {
     padding: 0px;
     margin: 0 15px;
     border-bottom: 2px var(--secondary-bright) solid;
 }
 
-.tutor-details a:hover {
+.tutor-details a:hover,
+.tutor-lesson-archive a:hover {
     border-bottom: 2px var(--primary-bright) solid;
     color: var(--primary-bright);
 }
 
-.tutor-details .log {
+.tutor-details .log,
+.tutor-lesson-archive .log {
     border-bottom: 2px var(--secondary-bright) solid; 
 }

@@ -1,38 +1,43 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div>
-        <p>{{ tutor.name }}</p>
+<div class="tutor-lesson-archive">
+    <div class="container flex">
+        <div>
+            <h2>{{ tutor.name }}</h2>
+        </div>
+
+        <form action="/tutors/{{ tutor.id }}">
+            <button class="yellow-link">Back</button>
+        </form>
     </div>
 
-    <form action="/tutors/{{ tutor.id }}">
-        <button>Back</button>
-    </form>
 
-    <div>
+    <div class ="container container-2 my-4">
         <h3>Archived Lessons</h3>
-        <table>
+        <table class="center my-2" style="width:60%">
             <tr>
-                <th>Lesson</th>
-                <th>Date</th>
-                <th>No. Attendees</th>
-                <th>Log Attendance</th>
+                <th class="th-1" style="width:30%">Lesson</th>
+                <th style="width:20%">Date</th>
+                <th style="width:30%">No. Attendees</th>
+                <th style="width:20%">Log Attendance</th>
             </tr>
+
             {% for lesson in lessons %}
                 {% if lesson.todays_date() > lesson.date %}
                     <tr>
-                        <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</td>
+                        <td class="td-1"><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</td>
                         <td>{{ lesson.date }}</td>
                         <td>{{ lesson.count_attendees() }}</td>
                         <td>
-                            <form action="/lessons/{{ lesson.id }}">
-                                <button>Log Attendance</button>
-                            </form>
+                            <a class="log" href="/lessons/{{ lesson.id }}">Log</a>
                         </td>
                     </tr>
                 {% endif %}
             {% endfor %}
         </table>
     </div>
+</div>
+
 
 {% endblock %}
