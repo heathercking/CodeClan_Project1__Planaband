@@ -1,4 +1,4 @@
-**CODECLAND PROJECT 1 - Planaband**
+**CODECLAN PROJECT 1 - Planaband**
 
 **THE BRIEF**
 
