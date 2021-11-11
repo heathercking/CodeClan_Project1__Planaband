@@ -26,7 +26,9 @@
                     <label for="pupil">Pupil</label><br>
                     <select name="pupil_id" id="pupil">
                         {% for pupil in all_pupils %}
-                            <option value="{{ pupil.id }}">{{ pupil.name }}</option>
+                            {% if pupil.active == True %}
+                                <option value="{{ pupil.id }}">{{ pupil.name }}</option>
+                            {% endif %}
                         {% endfor %}
                     </select>   
                 </div>
