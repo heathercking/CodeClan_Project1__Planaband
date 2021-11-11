@@ -1,6 +1,7 @@
 /* tutors html files */
 
-.tutors {
+.tutors,
+.tutor-details {
     margin-top: 150px;
 }
 
@@ -42,5 +43,63 @@
 }
 
 .tutors .archive {
+    border-bottom: 2px var(--secondary-bright) solid; 
+}
+
+
+
+/* tutors/show pages */
+.tutor-details .container {
+    width: 90%;
+    text-align: center;
+    justify-content: center;
+}
+
+.tutor-details .flex {
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.tutor-details .card-listing {
+    align-items: center;
+}
+
+.card-listing {
+    background-color: #fff;
+    color: var(--primary-dark);
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    padding: 10px;
+    margin: 20px 0;
+    width: 30%;
+}
+
+.tutor-details ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    padding: 10px;
+    font-size: 18px;
+    gap: 25px;
+}
+
+.tutor-details a {
+    text-decoration: none;
+    color: var(--primary-dark); 
+    border-bottom: 2px var(--secondary-pale) solid;
+}
+
+.tutor-details .menu a {
+    padding: 0px;
+    margin: 0 15px;
+    border-bottom: 2px var(--secondary-bright) solid;
+}
+
+.tutor-details a:hover {
+    border-bottom: 2px var(--primary-bright) solid;
+    color: var(--primary-bright);
+}
+
+.tutor-details .log {
     border-bottom: 2px var(--secondary-bright) solid; 
 }

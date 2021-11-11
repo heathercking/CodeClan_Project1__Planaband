@@ -70,12 +70,12 @@
         <div>
             <ul class="menu end-menu">
                 <li><a href="/pupils/{{ pupil.id }}/archive">View archived lessons</a></li>
-                <li><a href="/pupils/{{ pupil.id }}/edit">Edit Pupil Record</a></li>
-                <form action="/pupils/{{ pupil.id }}/delete" method="POST">
-                    <button class="pupil-delete">Delete Pupil Record</button>
-                </form>
+                <li><a href="/pupils/{{ pupil.id }}/edit">Edit pupil record</a></li>
             </ul>
         </div>
+        <form action="/pupils/{{ pupil.id }}/delete" method="POST">
+            <button class="orange-link">Delete Pupil Record</button>
+        </form>
     </div>
 
 </div>

@@ -66,11 +66,11 @@
         <div>
             <ul class="menu end-menu">
                 <li><a href="/lessons/{{ lesson.id }}/edit">Edit Lesson</a></li>
-                <form action="/lessons/{{ lesson.id }}/delete" method="POST">
-                    <button class="lesson-delete">Delete Lesson</button>
-                </form>
             </ul>
         </div>
+        <form action="/lessons/{{ lesson.id }}/delete" method="POST">
+            <button class="orange-link">Delete Lesson</button>
+        </form>
     </div>
 
 </div>

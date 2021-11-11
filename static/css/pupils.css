@@ -97,6 +97,7 @@
 .pupil-details ul, 
 .pupil-lesson-archive ul {
     display: flex;
+    flex-direction: column;
     list-style-type: none;
     padding: 10px;
     font-size: 18px;

@@ -1,36 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div>
-        <p>{{ tutor.name }}</p>
-        <hr>
-        <p>{{ tutor.contact_number }}</p>
-        <p>{{ tutor.address }}</p>
-        <p>{{ tutor.postcode }}</p>
-        <form action="/tutors/{{ tutor.id }}/edit">
-            <button>Edit</button>
-        </form>
+
+<div class="tutor-details">
+    <div class="container flex">
+        <div>
+            <h2>{{ tutor.name }}</h2>
+        </div>
+
+        <div class="card-listing">
+            <p><b>Contact number: </b>{{ tutor.contact_number }}</p>
+            <p><b>Address: </b>{{ tutor.address }}</p>
+            <p><b>Postcode: </b>{{ tutor.postcode }}</p>
+        </div>
     </div>
 
-    <div>
-        <h3>Upcoming Lessons</h3>
-        <table>
+    <div class ="container my-4">
+        <h2>Upcoming Lessons</h2>
+        <table class="center my-2" style="width:60%">
             <tr>
-                <th>Lesson</th>
-                <th>Date</th>
-                <th>No. Attendees</th>
-                <th>Log Attendance</th>
+                <th class="th-1" style="width:30%">Lesson</th>
+                <th style="width:20%">Date</th>
+                <th style="width:25%">No. Attendees</th>
+                <th style="width:25%">Log Attendance</th>
             </tr>
             {% for lesson in lessons %}
                 {% if lesson.todays_date() <= lesson.date %}
                     <tr>
-                        <td><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</td>
+                        <td class="td-1"><a href="/lessons/{{ lesson.id }}">{{ lesson.name }}</td>
                         <td>{{ lesson.date }}</td>
                         <td>{{ lesson.count_attendees() }}</td>
                         <td>
-                            <form action="/lessons/{{ lesson.id }}">
-                                <button>Log Attendance</button>
-                            </form>
+                            <a class="log" href="/lessons/{{ lesson.id }}">Log</a>
                         </td>
                     </tr>
                 {% endif %}
@@ -38,16 +39,18 @@
         </table>
     </div>
 
-    <div>
-        <form action="/tutors/{{ tutor.id }}/archive">
-            <button>View archived lessons</button>
-        </form>
-        <form action="/tutors/{{ tutor.id }}/edit">
-            <button>Edit</button>
-        </form>
+    <div class="container flex"> 
+        <div>
+            <ul class="menu end-menu">
+                <li><a href="/tutors/{{ tutor.id }}/archive">View archived lessons</a></li>
+                <li><a href="/tutors/{{ tutor.id }}/edit">Edit tutor record</a></li>
+            </ul>
+        </div>
         <form action="/tutors/{{ tutor.id }}/delete" method="POST">
-            <button>Delete</button>
+            <button class="orange-link">Delete</button>
         </form>
     </div>
+
+</div>
 
 {% endblock %}
