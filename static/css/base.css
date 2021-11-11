@@ -1,3 +1,5 @@
+/* the formatting of these elements was picked up doing the 'loruki-website' website build tutorial by Brad Traversy, references/linked in the project README.md file */
+
 /* HEADER */
 .navbar {
     background-color: var(--white);
