@@ -3,8 +3,6 @@
 
 @media(max-width: 768px) {
 
-
-
     .navbar {
         height: 180px;
     }
@@ -17,16 +15,10 @@
         flex-direction: column;
     }
 
-
-
     .navbar ul {
         padding: 0 0 10px 0;
         font-size: 20px;
     }
-
-
-
-
 
 
 
@@ -46,7 +38,6 @@
     .lessons .flex {
         flex-direction: column;
     }
-
 
     .pupils, 
     .pupil-details, 
@@ -79,16 +70,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
     .footer {
         height: 280px;
         margin-top: 60px;
@@ -110,7 +91,4 @@
         grid-template-columns: 1fr;
         align-items: center;
     }
-
-
-
 }
