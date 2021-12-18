@@ -16,7 +16,7 @@ class Pupil:
     def no_attended(self, input_attendances):
         attended = []
         for attendance in input_attendances:
-            if attendance.attended == True:
+            if attendance.attended == True and attendance.lesson.date < date.today():
                 attended.append(attendance)
         no_attended = len(attended)
         return no_attended
